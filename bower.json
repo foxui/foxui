@@ -1,0 +1,13 @@
+{
+  "name": "fox-all",
+  "private": true,
+  "dependencies": {
+    "fox-actionsheet": "https://github.com/foxui/fox-actionsheet.git",
+    "fox-dialog": "https://github.com/foxui/fox-dialog.git",
+    "fox-image-slider": "https://github.com/foxui/fox-image-slider.git",
+    "fox-json": "https://github.com/foxui/fox-json.git",
+    "fox-listview": "https://github.com/foxui/fox-listview.git",
+    "fox-sidemenu": "https://github.com/foxui/fox-sidemenu.git",
+    "fox-slider": "https://github.com/foxui/fox-slider.git"
+  }
+}
