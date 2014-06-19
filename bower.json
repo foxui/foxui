@@ -8,6 +8,16 @@
     "fox-json": "https://github.com/foxui/fox-json.git",
     "fox-content": "https://github.com/foxui/fox-content.git",
     "fox-sidemenu": "https://github.com/foxui/fox-sidemenu.git",
-    "fox-slider": "https://github.com/foxui/fox-slider.git"
+    "fox-slider": "https://github.com/foxui/fox-slider.git",
+    "fox-listview-filter": "https://github.com/foxui/fox-listview-filter.git",
+    "fox-calendar": "https://github.com/foxui/fox-calendar.git",
+    "fox-core": "https://github.com/foxui/fox-core.git",
+    "fox-icon": "https://github.com/foxui/fox-icon.git",
+    "fox-ajax": "https://github.com/foxui/fox-ajax.git",
+    "fox-data": "https://github.com/foxui/fox-data.git",
+    "fox-page": "https://github.com/foxui/fox-page.git",
+    "fox-global-nav": "https://github.com/foxui/fox-global-nav.git",
+    "fox-page-content": "https://github.com/foxui/fox-page-content.git",
+    "fox-toolbar": "https://github.com/foxui/fox-toolbar.git"
   }
 }

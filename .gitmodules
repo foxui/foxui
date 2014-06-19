@@ -1,0 +1,51 @@
+[submodule "fox-core"]
+	path = fox-core
+	url = https://github.com/foxui/fox-core
+[submodule "fox-slider"]
+	path = fox-slider
+	url = https://github.com/foxui/fox-slider
+[submodule "fox-actionsheet"]
+	path = fox-actionsheet
+	url = https://github.com/foxui/fox-actionsheet
+[submodule "fox-dialog"]
+	path = fox-dialog
+	url = https://github.com/foxui/fox-dialog
+[submodule "fox-image-slider"]
+	path = fox-image-slider
+	url = https://github.com/foxui/fox-image-slider
+[submodule "fox-json"]
+	path = fox-json
+	url = https://github.com/foxui/fox-json
+[submodule "fox-content"]
+	path = fox-content
+	url = https://github.com/foxui/fox-content
+[submodule "fox-sidemenu"]
+	path = fox-sidemenu
+	url = https://github.com/foxui/fox-sidemenu
+[submodule "fox-icon"]
+	path = fox-icon
+	url = https://github.com/foxui/fox-icon
+[submodule "fox-listview-filter"]
+	path = fox-listview-filter
+	url = https://github.com/foxui/fox-listview-filter
+[submodule "fox-calendar"]
+	path = fox-calendar
+	url = https://github.com/foxui/fox-calendar
+[submodule "fox-ajax"]
+	path = fox-ajax
+	url = https://github.com/foxui/fox-ajax
+[submodule "fox-data"]
+	path = fox-data
+	url = https://github.com/foxui/fox-data
+[submodule "fox-page"]
+	path = fox-page
+	url = https://github.com/foxui/fox-page
+[submodule "fox-global-nav"]
+	path = fox-global-nav
+	url = https://github.com/foxui/fox-global-nav
+[submodule "fox-page-content"]
+	path = fox-page-content
+	url = https://github.com/foxui/fox-page-content
+[submodule "fox-toolbar"]
+	path = fox-toolbar
+	url = https://github.com/foxui/fox-toolbar
