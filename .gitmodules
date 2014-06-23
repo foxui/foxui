@@ -49,3 +49,6 @@
 [submodule "fox-toolbar"]
 	path = fox-toolbar
 	url = https://github.com/foxui/fox-toolbar
+[submodule "fox-tabbar"]
+	path = fox-tabbar
+	url = https://github.com/foxui/fox-tabbar.git
