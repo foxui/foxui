@@ -1,51 +1,68 @@
 [submodule "components/fox-core"]
 	path = components/fox-core
 	url = https://github.com/foxui/fox-core.git
+    branch = master
 [submodule "components/fox-actionsheet"]
 	path = components/fox-actionsheet
 	url = https://github.com/foxui/fox-actionsheet.git
+    branch = master
 [submodule "components/fox-dialog"]
 	path = components/fox-dialog
 	url = https://github.com/foxui/fox-dialog.git
+    branch = master
 [submodule "components/fox-image-slider"]
 	path = components/fox-image-slider
 	url = https://github.com/foxui/fox-image-slider.git
+    branch = master
 [submodule "components/fox-json"]
 	path = components/fox-json
 	url = https://github.com/foxui/fox-json.git
+    branch = master
 [submodule "components/fox-content"]
 	path = components/fox-content
 	url = https://github.com/foxui/fox-content.git
+    branch = master
 [submodule "components/fox-sidemenu"]
 	path = components/fox-sidemenu
 	url = https://github.com/foxui/fox-sidemenu.git
+    branch = master
 [submodule "components/fox-icon"]
 	path = components/fox-icon
 	url = https://github.com/foxui/fox-icon.git
+    branch = master
 [submodule "components/fox-listview-filter"]
 	path = components/fox-listview-filter
 	url = https://github.com/foxui/fox-listview-filter.git
+    branch = master
 [submodule "components/fox-calendar"]
 	path = components/fox-calendar
 	url = https://github.com/foxui/fox-calendar.git
+    branch = master
 [submodule "components/fox-ajax"]
 	path = components/fox-ajax
 	url = https://github.com/foxui/fox-ajax.git
+    branch = master
 [submodule "components/fox-page"]
 	path = components/fox-page
 	url = https://github.com/foxui/fox-page.git
+    branch = master
 [submodule "components/fox-global-nav"]
 	path = components/fox-global-nav
 	url = https://github.com/foxui/fox-global-nav.git
+    branch = master
 [submodule "components/fox-page-content"]
 	path = components/fox-page-content
 	url = https://github.com/foxui/fox-page-content.git
+    branch = master
 [submodule "components/fox-toolbar"]
 	path = components/fox-toolbar
 	url = https://github.com/foxui/fox-toolbar.git
+    branch = master
 [submodule "components/fox-tabbar"]
 	path = components/fox-tabbar
 	url = https://github.com/foxui/fox-tabbar.git
+    branch = master
 [submodule "components/fox-slider"]
 	path = components/fox-slider
 	url = https://github.com/foxui/fox-slider
+    branch = master
