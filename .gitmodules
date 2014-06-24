@@ -46,3 +46,6 @@
 [submodule "components/fox-tabbar"]
 	path = components/fox-tabbar
 	url = https://github.com/foxui/fox-tabbar.git
+[submodule "components/fox-slider"]
+	path = components/fox-slider
+	url = https://github.com/foxui/fox-slider
