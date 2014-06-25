@@ -158,8 +158,16 @@ fox-slider .title {
 	right:0px;
 	bottom:1px;
 }
-
-
+fox-page-content{
+	position:relative;
+}
+fox-page-content fox-content{
+	position:absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	bottom:0;
+}
 
 
 
