@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>精品推荐</title>
+		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
+		<script src="../../components/fox-core/dist/foxui.js"></script>
+		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
+		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
+		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
+		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
+		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+		<link rel="import" href="../../components/fox-slider/dist/fox-slider.html"/>
+		<link rel="stylesheet" href="css/app.css"/>
+	</head>
+	<body>
+		<fox-tabbar>
+			<a href="recommend.html" class="active" transition="fade"> <fox-icon icon="icon-star-filled"></fox-icon> <label>精品推荐</label> </a>
+			<a href="rank.html" transition="fade"> <fox-icon icon="icon-list"></fox-icon> <label>排行榜</label> </a>
+			<a href="nearby.html" transition="fade"> <fox-icon icon="icon-person"></fox-icon> <label>我的附近</label> </a>
+			<a href="search.html" transition="fade"> <fox-icon icon="icon-search"></fox-icon> <label>搜索</label> </a>
+			<a href="update.html" transition="fade"> <fox-icon icon="icon-download"></fox-icon> <label>更新</label> </a>
+		</fox-tabbar>
+
+		<fox-page class="main-page">
+			<fox-toolbar title="精品推荐"></fox-toolbar>
+			<fox-page-content>
+				<fox-template id="tmpl">
+					<fox-json json='[{"title":"item1","img":"images/1.png","link":"http://www.baidu.com"},{"title":"item2","img":"images/2.png","link":"http://www.baidu.com"},{"title":"item3","img":"images/3.png","link":"http://www.baidu.com"}]'></fox-json>
+					<fox-slider id="slider" auto="3000" loop="true" speed="400"  indicator="true" style="height: 200px;">
+						<fox-slider-item rv-each-item="data">
+							<div class="img" rv-background-image="item.img"></div>
+							<a rv-if="item.link" rv-href="item.link"></a>
+						</fox-slider-item>
+					</fox-slider>
+				</fox-template>
+				<fox-template>
+					<div class="app-group" rv-each-group="groups">
+
+						<div class="app-group-hd">
+							<span>优秀新APP</span>
+						</div>
+						<div class="app-group-hd">
+							<div class="app-item" rv-each-item="list">
+								<span class="thumbnail" rv-background-image="item.img"></span>
+								<p>
+									{item.name}
+								</p>
+								<p>
+									{item.type}
+								</p>
+								<p>
+									{item.price}
+								</p>
+							</div>
+						</div>
+
+					</div>
+				</fox-template>
+			</fox-page-content>
+		</fox-page>
+
+	</body>
+</html>

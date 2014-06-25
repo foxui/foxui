@@ -1,0 +1,33 @@
+fox-slider fox-slider-item {
+	position: relative;
+}
+fox-slider {
+	display: block;
+	-webkit-transform: translate3d(0,0,0)
+}
+fox-slider .img, fox-slider a {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+fox-slider .img {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+fox-slider .title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 40px;
+	line-height: 40px;
+	background: rgba(0,0,0,0.7);
+	z-index: 1;
+	padding: 0 10px;
+	color: #fff;
+	font-size: 14px;
+}
