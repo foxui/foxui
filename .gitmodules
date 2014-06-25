@@ -69,3 +69,4 @@
 [submodule "components/fox-template"]
 	path = components/fox-template
 	url = https://github.com/foxui/fox-template.git
+	branch = master
