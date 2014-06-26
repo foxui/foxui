@@ -1,5 +1,5 @@
-body{
-	line-height:1.4em;
+body {
+	line-height: 1.4em;
 }
 fox-slider fox-slider-item {
 	position: relative;
@@ -34,148 +34,181 @@ fox-slider .title {
 	color: #fff;
 	font-size: 14px;
 }
-.app-group{
-	border-bottom:1px solid #C2CCD1;
+.app-group {
+	border-bottom: 1px solid #C2CCD1;
 	padding-bottom: 10px;
 }
-.app-group-hd{
-	height:40px;
-	line-height:40px;
-	font-size:16px;
+.app-group-hd {
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
 }
-.app-group-name{
-	margin-left:10px;
-	
-	
+.app-group-name {
+	margin-left: 10px;
 }
-.app-group-bd{
+.app-group-bd {
 	display: -webkit-box;
-	-webkit-box-orient:horizontal;
+	-webkit-box-orient: horizontal;
 	overflow: auto;
 }
-.app-item{
-	width:80px;
-	text-align:center;
+.app-item {
+	width: 80px;
+	text-align: center;
 }
-.app-item .thumbnail{
+.app-item .thumbnail {
 	width: 70px;
-	height:70px;
+	height: 70px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
-	display:inline-block;
+	display: inline-block;
 	border-radius: 10px;
 }
-.app-item p{
-	font-size:12px;
-	padding:0;
-	margin:0;
-	height:auto;
+.app-item p {
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	height: auto;
 	line-height: 1.4em;
 }
-.app-item p.name{
-	max-height:2.8em;
-	color:#333;
+.app-item p.name {
+	max-height: 2.8em;
+	color: #333;
 }
 
-.app-list-item{
+.app-list-item {
 	display: -webkit-box;
-	-webkit-box-orient:horizontal;
-	padding:10px 0;
-	position:relative;
+	-webkit-box-orient: horizontal;
+	padding: 10px 0;
+	position: relative;
 }
 
-.app-list-item .left{
+.app-list-item .left {
 	width: 40px;
 	display: -webkit-box;
 	-webkit-box-align: center;
 	-webkit-justify-content: center;
 }
 
-.app-list-item .no{
+.app-list-item .no {
 	display: block;
 	-webkit-box-flex: 1.0;
-	text-align:center;
+	text-align: center;
 	color: #777;
-	font-size:13px;
+	font-size: 13px;
 }
 
-.app-list-item .center{
+.app-list-item .center {
 	-webkit-box-flex: 1.0;
 	display: -webkit-box;
 }
 
-.app-list-item .thumbnail{
-	display:block;
+.app-list-item .thumbnail {
+	display: block;
 	width: 60px;
-	height:60px;
+	height: 60px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 	border-radius: 10px;
 }
 
-.app-list-item .detail{
+.app-list-item .detail {
 	-webkit-box-flex: 1.0;
 	display: -webkit-box;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
-	padding:0 10px;
+	padding: 0 10px;
 }
 
-.app-list-item .right{
-	width:80px;
+.app-list-item .right {
+	width: 80px;
 	display: -webkit-box;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 }
-.app-list-item .right-inner{
+.app-list-item .right-inner {
 	-webkit-box-flex: 1.0;
-	text-align:center;
+	text-align: center;
 }
-.app-list-item p{
-	margin:0;
+.app-list-item p {
+	margin: 0;
 }
-.app-list-item .price{
-	padding:5px;
+.app-list-item .price {
+	padding: 5px;
 	border: 1px solid #1284ff;
 	border-radius: 5px;
-	font-weight:bold;
+	font-weight: bold;
 }
-.app-list-item .name{
-	color:#333;
-	font-size:14px;
+.app-list-item .name {
+	color: #333;
+	font-size: 14px;
 }
-.app-list-item .type,.app-list-item .price{
-	font-size:12px;
+
+.app-list-item .type, .app-list-item .price {
+	font-size: 12px;
 }
-.app-list-item .sep{
+.app-list-item .sep {
 	margin-left: 15px;
-	height:1px;
-	background:#CCCCCC;
+	height: 1px;
+	background: #CCCCCC;
 	position: absolute;
 	left: 0px;
-	right:0px;
-	bottom:1px;
+	right: 0px;
+	bottom: 1px;
 }
-fox-page-content{
-	position:relative;
+fox-page-content {
+	position: relative;
 }
-fox-page-content fox-content{
-	position:absolute;
+fox-page-content fox-content {
+	position: absolute;
 	left: 0;
 	right: 0;
-	top:0;
-	bottom:0;
+	top: 0;
+	bottom: 0;
+}
+.bottom-loading {
+	overflow: hidden;
+	font-size: 20px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	display: block;
+}
+.cat-item{
+	-webkit-box-align: center;
+	display:-webkit-box;
+	-webkit-box-orient: horizontal;
+	padding:5px 0 5px 15px;
+	position:relative;
 }
 
+.cat-item .thumbnail{
+	width: 40px;
+	height: 40px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	display: block;
+	border-radius: 10px;
+}
 
-
-
-
-
-
-
-
-
-
+.cat-item .name{
+	-webkit-box-flex: 1.0;
+	display:block;
+	margin-left:15px;
+	color:#333;
+}
+.cat-item .icon-check{
+	margin-right: 5px;
+	color:#1284ff;
+}
+.cat-item .sep{
+	margin-left: 15px;
+	height: 1px;
+	background: #CCCCCC;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 1px;
+}

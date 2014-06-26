@@ -18,10 +18,10 @@
 		<link rel="import" href="../../components/fox-slider/dist/fox-slider.html"/>
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
-		
+
 		<script src="js/app.js"></script>
 	</head>
-	<body>
+	<body style="visibility: hidden;">
 		<fox-tabbar>
 			<!--最外层的标签不限类型，可以是span/div/a等-->
 			<a href="#recommend" class="active"> <fox-icon icon="icon-star-filled"></fox-icon> <label>精品推荐</label> </a>
@@ -68,6 +68,7 @@
 									{item.price}
 								</p>
 							</div>
+
 						</div>
 
 					</div>
@@ -85,17 +86,17 @@
 
 			<fox-page-content>
 				<fox-content>
-					<fox-refresher id="pulltorefresh">
+					<fox-refresher>
 						<div class="fox-refresher-default">
 							<i class="fox-refresher-icon-indicator icon-up-1"></i>
 							<i class="fox-refresher-icon-loading icon-spin5  animate-spin"></i>
 							<label class="fox-refresher-label"></label>
 						</div>
 					</fox-refresher>
-					<fox-infinite-scroll id="infiniteScroll" distance="60"></fox-infinite-scroll>
-					<fox-listview-content style="display: block;">
+					<fox-infinite-scroll distance="60"></fox-infinite-scroll>
+					<fox-listview-content>
 						<fox-template>
-							<fox-ajax auto url="datas/list.json"></fox-ajax>
+							<fox-ajax auto url="datas/list.json" rv-params=""></fox-ajax>
 							<div class="app-list-item" rv-each-item="data">
 								<div class="left">
 									<span class="no">{index | indexPlus}</span>
@@ -122,6 +123,9 @@
 								<div class="sep"></div>
 							</div>
 						</fox-template>
+						<div class="bottom-loading">
+							<i class="icon-spin5 animate-spin" ></i>
+						</div>
 					</fox-listview-content>
 				</fox-content>
 			</fox-page-content>
@@ -160,7 +164,17 @@
 				<label class="right" style="color:#1284ff" onclick="history.back()"> 取消 </label>
 			</fox-toolbar>
 
-			<fox-page-content></fox-page-content>
+			<fox-page-content>
+				<fox-template>
+					<fox-ajax auto url="datas/cat.json"></fox-ajax>
+					<a class="cat-item" rv-each-item="data"> 
+						<span class="thumbnail" rv-background-image="item.thumbnail"></span> 
+						<label class="name">{item.name}</label> 
+						<fox-icon icon="icon-check" rv-show="item.checked" class="icon icon-check"></fox-icon> 
+						<div class="sep"></div> 
+					</a>
+				</fox-template>
+			</fox-page-content>
 		</fox-page>
 	</body>
 </html>
