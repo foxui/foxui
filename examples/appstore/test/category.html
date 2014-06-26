@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>App Store</title>
+        <link rel="stylesheet" href="../../../components/fox-core/dist/foxui.css">
+        <script src="../../../components/fox-core/dist/foxui.js"></script>
+        <link rel="import" href="../../../components/fox-icon/dist/fox-icon.html"/>
+        <link rel="import" href="../../../components/fox-tabbar/dist/fox-tabbar.html"/>
+        <link rel="import" href="../../../components/fox-page/dist/fox-page.html"/>
+        <link rel="import" href="../../../components/fox-toolbar/dist/fox-toolbar.html"/>
+        <link rel="import" href="../../../components/fox-page-content/dist/fox-page-content.html"/>
+        <style>
+        fox-page-content{
+            padding: 10px;
+        }
+        [unresolved] {
+            opacity: 0;
+        }
+        </style>
+    </head>
+    <body unresolved>
+
+        <fox-page style="padding-bottom:0;z-index:1" class="main-page">
+            <fox-toolbar title="App Store">
+                <label class="right" style="color:#1284ff" onclick="history.back()">
+                    取消
+                </label>
+            </fox-toolbar>
+
+            <fox-page-content>
+            </fox-page-content>
+        </fox-page>
+
+        <script>
+            document.addEventListener('HTMLImportsLoaded', function(){
+                document.body.removeAttribute('unresolved');
+            }, false);
+        </script>
+    </body>
+</html>

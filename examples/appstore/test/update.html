@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>更新</title>
+        <link rel="stylesheet" href="../../../components/fox-core/dist/foxui.css">
+        <script src="../../../components/fox-core/dist/foxui.js"></script>
+        <link rel="import" href="../../../components/fox-icon/dist/fox-icon.html"/>
+        <link rel="import" href="../../../components/fox-tabbar/dist/fox-tabbar.html"/>
+        <link rel="import" href="../../../components/fox-page/dist/fox-page.html"/>
+        <link rel="import" href="../../../components/fox-toolbar/dist/fox-toolbar.html"/>
+        <link rel="import" href="../../../components/fox-page-content/dist/fox-page-content.html"/>
+        <style>
+        fox-page-content{
+            padding: 10px;
+        }
+        [unresolved] {
+            opacity: 0;
+        }
+        </style>
+    </head>
+    <body unresolved>
+        <fox-tabbar>
+            <!--最外层的标签不限类型，可以是span/div/a等-->
+            <a href="index.html"fox-push-mode="single">
+                <fox-icon icon="icon-star-filled"></fox-icon>
+                <label>精品推荐</label>
+            </a>
+            <a href="rank.html" fox-push-mode="single">
+                <fox-icon icon="icon-list"></fox-icon>
+                <label>排行榜</label>
+            </a>
+            <a href="nearby.html" fox-push-mode="single">
+                <fox-icon icon="icon-person"></fox-icon>
+                <label>我的附近</label>
+            </a>
+            <a href="search.html" fox-push-mode="single">
+                <fox-icon icon="icon-search"></fox-icon>
+                <label>搜索</label>
+            </a>
+            <a href="update.html" class="active" fox-push-mode="single">
+                <fox-icon icon="icon-download"></fox-icon>
+                <label>更新</label>
+            </a>
+        </fox-tabbar>
+
+        <fox-page class="main-page">
+            <fox-toolbar title="更新">
+                <label class="right" style="color:#1284ff">
+                    全部更新
+                </label>
+            </fox-toolbar>
+
+            <fox-page-content>
+            </fox-page-content>
+        </fox-page>
+
+        <script>
+            document.addEventListener('HTMLImportsLoaded', function(){
+                document.querySelector('a[href="#recommend"]').click();
+                document.body.removeAttribute('unresolved');
+            }, false);
+        </script>
+    </body>
+</html>
