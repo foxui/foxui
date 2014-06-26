@@ -67,6 +67,10 @@
 	url = https://github.com/foxui/fox-slider
     branch = master
 [submodule "components/fox-template"]
-	path = components/fox-template
-	url = https://github.com/foxui/fox-template.git
-	branch = master
+    path = components/fox-template
+    url = https://github.com/foxui/fox-template.git
+    branch = master
+[submodule "components/fox-model"]
+	path = components/fox-model
+	url = https://github.com/foxui/fox-model.git
+    branch = master
