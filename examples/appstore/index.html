@@ -1,115 +1,166 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <title>精品推荐</title>
-        <link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
-        <script src="../../components/fox-core/dist/foxui.js"></script>
-        <link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
-        <link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
-        <link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
-        <link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
-        <link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
-        <style>
-        fox-page-content{
-            padding: 10px;
-        }
-        </style>
-    </head>
-    <body>
-        <fox-tabbar>
-            <!--最外层的标签不限类型，可以是span/div/a等-->
-            <a href="#recommend" class="active">
-                <fox-icon icon="icon-star-filled"></fox-icon>
-                <label>精品推荐</label>
-            </a>
-            <a href="#rank">
-                <fox-icon icon="icon-list"></fox-icon>
-                <label>排行榜</label>
-            </a>
-            <a href="#nearby">
-                <fox-icon icon="icon-person"></fox-icon>
-                <label>我的附近</label>
-            </a>
-            <a href="#search">
-                <fox-icon icon="icon-search"></fox-icon>
-                <label>搜索</label>
-            </a>
-            <a href="#update">
-                <fox-icon icon="icon-download"></fox-icon>
-                <label>更新</label>
-            </a>
-        </fox-tabbar>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>精品推荐</title>
+		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
+		<link rel="stylesheet" href="css/app.css"/>
+		<script src="../../components/fox-core/dist/foxui.js"></script>
+		<link rel="import" href="../../components/fox-content/src/fox-content.html"/>
+		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
+		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
+		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
+		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
+		<link rel="import" href="../../components/fox-slider/dist/fox-slider.html"/>
+		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+		
+		<script src="js/app.js"></script>
+	</head>
+	<body>
+		<fox-tabbar>
+			<!--最外层的标签不限类型，可以是span/div/a等-->
+			<a href="#recommend" class="active"> <fox-icon icon="icon-star-filled"></fox-icon> <label>精品推荐</label> </a>
+			<a href="#rank"> <fox-icon icon="icon-list"></fox-icon> <label>排行榜</label> </a>
+			<a href="#nearby"> <fox-icon icon="icon-person"></fox-icon> <label>我的附近</label> </a>
+			<a href="#search"> <fox-icon icon="icon-search"></fox-icon> <label>搜索</label> </a>
+			<a href="#update"> <fox-icon icon="icon-download"></fox-icon> <label>更新</label> </a>
+		</fox-tabbar>
 
-        <fox-page id="recommend" class="main-page" transition="fade">
-            <fox-toolbar title="精品推荐">
-                <label class="left" style="color:#1284ff"><a href="#category" transition="vslide">类别</a></label>
-                <div class="right">
-                    <fox-icon icon="icon-list"></fox-icon>
-                </div>
-            </fox-toolbar>
+		<fox-page id="recommend" transition="fade">
+			<fox-toolbar title="精品推荐">
+				<label class="left" style="color:#1284ff"><a href="#category" transition="vslide">类别</a></label>
+				<div class="right">
+					<fox-icon icon="icon-list"></fox-icon>
+				</div>
+			</fox-toolbar>
 
-            <fox-page-content>
-            </fox-page-content>
-        </fox-page>
+			<fox-page-content>
+				<fox-template>
+					<fox-json json='[{"title":"item1","img":"images/1.png","link":"http://www.baidu.com"},{"title":"item2","img":"images/2.png","link":"http://www.baidu.com"},{"title":"item3","img":"images/3.png","link":"http://www.baidu.com"}]'></fox-json>
+					<fox-slider id="slider" auto="3000" loop="true" speed="400"  indicator="true" style="height: 180px;">
+						<fox-slider-item rv-each-item="data">
+							<div class="img" rv-background-image="item.img"></div>
+							<!--<a rv-if="item.link" rv-href="item.link"></a>-->
+						</fox-slider-item>
+					</fox-slider>
+				</fox-template>
+				<fox-template>
+					<fox-ajax auto url="datas/group.json"></fox-ajax>
+					<div class="app-group" rv-each-group="data">
+						<div class="app-group-hd">
+							<span class="app-group-name">{group.name}</span>
+						</div>
+						<div class="app-group-bd">
+							<div class="app-item" rv-each-item="group.list">
+								<span class="thumbnail" rv-background-image="item.thumbnail"></span>
+								<p class="name">
+									{item.name}
+								</p>
+								<p>
+									{item.type}
+								</p>
+								<p>
+									{item.price}
+								</p>
+							</div>
+						</div>
 
-        <fox-page id="rank" class="transition-out" transition="fade">
-            <fox-toolbar title="排行榜">
-                <label class="left" style="color:#1284ff"><a href="category.html" transition="vslide">类别</a></label>
-                <div class="right">
-                    <fox-icon icon="icon-list"></fox-icon>
-                </div>
-            </fox-toolbar>
+					</div>
+				</fox-template>
+			</fox-page-content>
+		</fox-page>
 
-            <fox-page-content>
-            </fox-page-content>
-        </fox-page>
+		<fox-page id="rank" class="transition-out" transition="fade">
+			<fox-toolbar title="排行榜">
+				<label class="left" style="color:#1284ff"><a href="category.html" transition="vslide">类别</a></label>
+				<div class="right">
+					<fox-icon icon="icon-list"></fox-icon>
+				</div>
+			</fox-toolbar>
 
-        <fox-page id="nearby" class="transition-out" transition="fade">
-            <fox-toolbar title="我附近的热门App">
-                <div class="right">
-                    <fox-icon icon="icon-list"></fox-icon>
-                </div>
-            </fox-toolbar>
+			<fox-page-content>
+				<fox-content>
+					<fox-refresher id="pulltorefresh">
+						<div class="fox-refresher-default">
+							<i class="fox-refresher-icon-indicator icon-up-1"></i>
+							<i class="fox-refresher-icon-loading icon-spin5  animate-spin"></i>
+							<label class="fox-refresher-label"></label>
+						</div>
+					</fox-refresher>
+					<fox-infinite-scroll id="infiniteScroll" distance="60"></fox-infinite-scroll>
+					<fox-listview-content style="display: block;">
+						<fox-template>
+							<fox-ajax auto url="datas/list.json"></fox-ajax>
+							<div class="app-list-item" rv-each-item="data">
+								<div class="left">
+									<span class="no">{index | indexPlus}</span>
+								</div>
+								<div class="center">
+									<span class="thumbnail" rv-background-image="item.thumbnail"></span>
+									<div class="detail">
+										<div class="detail-inner">
+											<p class="name">
+												{item.name}
+											</p>
+											<p class="type">
+												{item.type}
+											</p>
+										</div>
 
-            <fox-page-content>
-            </fox-page-content>
-        </fox-page>
+									</div>
+								</div>
+								<div class="right">
+									<div class="right-inner">
+										<a class="price">{item.price}</a>
+									</div>
+								</div>
+								<div class="sep"></div>
+							</div>
+						</fox-template>
+					</fox-listview-content>
+				</fox-content>
+			</fox-page-content>
+		</fox-page>
 
-        <fox-page id="search" class="transition-out" transition="fade">
-            <fox-toolbar title="搜索">
-                <div class="right">
-                    <fox-icon icon="icon-list"></fox-icon>
-                </div>
-            </fox-toolbar>
+		<fox-page id="nearby" class="transition-out" transition="fade">
+			<fox-toolbar title="我附近的热门App">
+				<div class="right">
+					<fox-icon icon="icon-list"></fox-icon>
+				</div>
+			</fox-toolbar>
 
-            <fox-page-content>
-            </fox-page-content>
-        </fox-page>
+			<fox-page-content></fox-page-content>
+		</fox-page>
 
-        <fox-page id="update" class="transition-out" transition="fade">
-            <fox-toolbar title="更新">
-                <label class="right" style="color:#1284ff">
-                    全部更新
-                </label>
-            </fox-toolbar>
+		<fox-page id="search" class="transition-out" transition="fade">
+			<fox-toolbar title="搜索">
+				<div class="right">
+					<fox-icon icon="icon-list"></fox-icon>
+				</div>
+			</fox-toolbar>
 
-            <fox-page-content>
-            </fox-page-content>
-        </fox-page>
+			<fox-page-content></fox-page-content>
+		</fox-page>
 
-        <fox-page id="category" style="padding-bottom:0;z-index:1" class="transition-out">
-            <fox-toolbar title="App Store">
-                <label class="right" style="color:#1284ff" onclick="history.back()">
-                    取消
-                </label>
-            </fox-toolbar>
+		<fox-page id="update" class="transition-out" transition="fade">
+			<fox-toolbar title="更新">
+				<label class="right" style="color:#1284ff"> 全部更新 </label>
+			</fox-toolbar>
 
-            <fox-page-content>
-            </fox-page-content>
-        </fox-page>
-    </body>
+			<fox-page-content></fox-page-content>
+		</fox-page>
+
+		<fox-page id="category" style="padding-bottom:0;z-index:1" class="transition-out">
+			<fox-toolbar title="App Store">
+				<label class="right" style="color:#1284ff" onclick="history.back()"> 取消 </label>
+			</fox-toolbar>
+
+			<fox-page-content></fox-page-content>
+		</fox-page>
+	</body>
 </html>
