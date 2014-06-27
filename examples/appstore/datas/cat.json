@@ -1,38 +1,35 @@
 [{
-	"name":"所有类别",
+	"name":"游戏",
 	"thumbnail":"images/1.png",
 	"checked":true
 },{
-	"name":"所有类别",
+	"name":"社交通讯",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
+	"name":"系统工具",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
+	"name":"影音播放",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
+	"name":"生活实用",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
+	"name":"资讯阅读",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
+	"name":"理财购物",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
+	"name":"拍摄美化",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
+	"name":"小说",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
+	"name":"办公学习",
 	"thumbnail":"images/1.png"
 },{
-	"name":"所有类别",
-	"thumbnail":"images/1.png"
-},{
-	"name":"所有类别",
+	"name":"旅游出行",
 	"thumbnail":"images/1.png"
 }]
