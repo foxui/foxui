@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>详情页</title>
+		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
+		<link rel="stylesheet" href="css/app.css"/>
+		<script src="../../components/fox-core/dist/foxui.js"></script>
+		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
+		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
+
+		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
+		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
+		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
+		<link rel="import" href="../../components/fox-slider/src/fox-slider.html"/>
+		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
+
+		<script src="js/app.js"></script>
+	</head>
+	<body style="visibility: hidden;">
+		<fox-page transition="fade">
+			<fox-template id="detail-template">
+				<fox-ajax auto url="datas/detail.json"></fox-ajax>
+				<fox-toolbar title="">
+					<fox-icon icon="icon-left-nav" class="left">
+						{from}
+					</fox-icon>
+				</fox-toolbar>
+				<fox-page-content>
+					<div class="detail-item">
+						<div class="row1">
+							<div class="left">
+								<span class="thumbnail" rv-background-image="data.thumbnail"></span>
+							</div>
+							<div class="center">
+								<div class="detail">
+									<p class="name">{data.name}</p>
+									<p class="type">{data.type}</p>
+								</div>
+							</div>
+							<div class="right">
+								<a class="price">{data.price}</a>
+							</div>
+						</div>
+						<div class="row2">
+							<a class="img" rv-each-item="data.imgs" rv-background-image="item"></a>
+							
+						</div>
+						
+					</div>
+				</fox-page-content>
+			</fox-template>
+			<script src="js/detail.js"></script>
+		</fox-page>
+		
+	</body>
+</html>

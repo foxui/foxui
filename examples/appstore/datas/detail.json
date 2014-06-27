@@ -1,0 +1,7 @@
+{
+	"thumbnail":"images/1.png",
+	"name":"名字",
+	"type":"供app内部下载",
+	"price":"免费",
+	"imgs":["images/1.png","images/1.png","images/1.png","images/1.png","images/1.png","images/1.png"]
+}
