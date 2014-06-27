@@ -9,11 +9,12 @@
 		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
 		<link rel="stylesheet" href="css/app.css"/>
 		<script src="../../components/fox-core/dist/foxui.js"></script>
-		<link rel="import" href="../../components/fox-content/src/fox-content.html"/>
+		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
 		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
 
 		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
 		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
 		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
 		<link rel="import" href="../../components/fox-slider/src/fox-slider.html"/>
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
@@ -83,25 +84,28 @@
 
 		<fox-page id="rank" class="transition-out" transition="fade">
 			<fox-toolbar title="排行榜">
-				<label class="left" style="color:#1284ff"><a href="category.html" transition="vslide">类别</a></label>
+				<label class="left" style="color:#1284ff"><a href="#category" transition="vslide">类别</a></label>
 				<div class="right">
 					<fox-icon icon="icon-list"></fox-icon>
 				</div>
 			</fox-toolbar>
 
 			<fox-page-content>
-				<fox-content>
-					<fox-refresher>
-						<div class="fox-refresher-default">
-							<i class="fox-refresher-icon-indicator icon-up-1"></i>
-							<i class="fox-refresher-icon-loading icon-spin5  animate-spin"></i>
-							<label class="fox-refresher-label"></label>
-						</div>
-					</fox-refresher>
-					<fox-infinite-scroll distance="60"></fox-infinite-scroll>
-					<fox-listview-content>
-						<fox-template>
-							<fox-ajax auto url="datas/list.json" rv-params=""></fox-ajax>
+				<fox-template id="list-template">
+					<fox-model rv-mode="mode" >
+						<fox-ajax id="ajax"  auto url="datas/list.json" rv-params="params"></fox-ajax>
+					</fox-model>
+					<fox-content>
+						<fox-refresher id="refresher">
+							<div class="fox-refresher-default">
+								<i class="fox-refresher-icon-indicator icon-up-1"></i>
+								<i class="fox-refresher-icon-loading icon-spin5  animate-spin"></i>
+								<label class="fox-refresher-label"></label>
+							</div>
+						</fox-refresher>
+						<fox-infinite-scroll id="scroller" distance="60"></fox-infinite-scroll>
+						<fox-listview-content>
+
 							<div class="app-list-item" rv-each-item="data">
 								<div class="left">
 									<span class="no">{index | indexPlus}</span>
@@ -127,12 +131,13 @@
 								</div>
 								<div class="sep"></div>
 							</div>
-						</fox-template>
-						<div class="bottom-loading">
-							<i class="icon-spin5 animate-spin" ></i>
-						</div>
-					</fox-listview-content>
-				</fox-content>
+
+							<div class="bottom-loading">
+								<i class="icon-spin5 animate-spin" ></i>
+							</div>
+						</fox-listview-content>
+					</fox-content>
+				</fox-template>
 			</fox-page-content>
 		</fox-page>
 
@@ -150,17 +155,19 @@
 			<fox-page-content>
 
 				<div class="search-page">
-					<div class="search-hd">
-						<div class="search-box">
-							<fox-icon icon="icon-search" class="icon icon-search"></fox-icon>
-							<input type="text" id="search-input"/>
+					<form id="search-form">
+						<div class="search-hd">
+							<div class="search-box">
+								<fox-icon icon="icon-search" class="icon icon-search"></fox-icon>
+								<input type="search" id="search-input"/>
+							</div>
 						</div>
-					</div>
+					</form>
 					<div class="search-bd">
 
 						<fox-slider auto="0" loop="false" speed="400"  indicator="false" style="height:100%">
 							<fox-template>
-								<fox-ajax auto url="datas/search.json" id="ajax2" rv-params="param"></fox-ajax>
+								<fox-ajax auto url="datas/search.json" id="ajax2"></fox-ajax>
 								<fox-slider-container>
 									<fox-slider-item rv-each-item="data">
 										<div class="search-item">
