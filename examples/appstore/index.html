@@ -11,13 +11,14 @@
 		<script src="../../components/fox-core/dist/foxui.js"></script>
 		<link rel="import" href="../../components/fox-content/src/fox-content.html"/>
 		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
-		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
+
 		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
 		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
 		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
-		<link rel="import" href="../../components/fox-slider/dist/fox-slider.html"/>
+		<link rel="import" href="../../components/fox-slider/src/fox-slider.html"/>
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
 
 		<script src="js/app.js"></script>
 	</head>
@@ -40,15 +41,19 @@
 			</fox-toolbar>
 
 			<fox-page-content>
-				<fox-template>
-					<fox-json json='[{"title":"item1","img":"images/1.png","link":"http://www.baidu.com"},{"title":"item2","img":"images/2.png","link":"http://www.baidu.com"},{"title":"item3","img":"images/3.png","link":"http://www.baidu.com"}]'></fox-json>
-					<fox-slider id="slider" auto="3000" loop="true" speed="400"  indicator="true" style="height: 180px;">
-						<fox-slider-item rv-each-item="data">
-							<div class="img" rv-background-image="item.img"></div>
-							<!--<a rv-if="item.link" rv-href="item.link"></a>-->
-						</fox-slider-item>
-					</fox-slider>
-				</fox-template>
+
+				<fox-slider class="slider-box" auto="3000" loop="true" speed="400"  indicator="true" style="height: 180px;">
+					<fox-template>
+						<fox-ajax auto url="datas/slider.json"></fox-ajax>
+						<fox-slider-container>
+							<fox-slider-item rv-each-item="data">
+								<div class="img" rv-background-image="item.img"></div>
+								<!--<a rv-if="item.link" rv-href="item.link"></a>-->
+							</fox-slider-item>
+						</fox-slider-container>
+					</fox-template>
+				</fox-slider>
+
 				<fox-template>
 					<fox-ajax auto url="datas/group.json"></fox-ajax>
 					<div class="app-group" rv-each-group="data">
@@ -142,13 +147,54 @@
 		</fox-page>
 
 		<fox-page id="search" class="transition-out" transition="fade">
-			<fox-toolbar title="搜索">
-				<div class="right">
-					<fox-icon icon="icon-list"></fox-icon>
-				</div>
-			</fox-toolbar>
+			<fox-page-content>
 
-			<fox-page-content></fox-page-content>
+				<div class="search-page">
+					<div class="search-hd">
+						<div class="search-box">
+							<fox-icon icon="icon-search" class="icon icon-search"></fox-icon>
+							<input type="text" id="search-input"/>
+						</div>
+					</div>
+					<div class="search-bd">
+
+						<fox-slider auto="0" loop="false" speed="400"  indicator="false" style="height:100%">
+							<fox-template>
+								<fox-ajax auto url="datas/search.json" id="ajax2" rv-params="param"></fox-ajax>
+								<fox-slider-container>
+									<fox-slider-item rv-each-item="data">
+										<div class="search-item">
+											<div class="item-row1">
+												<div class="left">
+													<span class="thumbnail" rv-background-image="item.thumbnail"></span>
+												</div>
+												<div class="center">
+													<div class="detail">
+														<p class="name">
+															{item.name}
+														</p>
+														<p class="type">
+															{item.type}
+														</p>
+													</div>
+												</div>
+												<div class="right">
+													<a class="price">{item.price}</a>
+												</div>
+											</div>
+											<div class="item-row2">
+												<span class="img" rv-background-image="item.img"></span>
+											</div>
+										</div>
+									</fox-slider-item>
+								</fox-slider-container>
+							</fox-template>
+						</fox-slider>
+
+					</div>
+				</div>
+
+			</fox-page-content>
 		</fox-page>
 
 		<fox-page id="update" class="transition-out" transition="fade">
@@ -167,12 +213,7 @@
 			<fox-page-content>
 				<fox-template>
 					<fox-ajax auto url="datas/cat.json"></fox-ajax>
-					<a class="cat-item" rv-each-item="data"> 
-						<span class="thumbnail" rv-background-image="item.thumbnail"></span> 
-						<label class="name">{item.name}</label> 
-						<fox-icon icon="icon-check" rv-show="item.checked" class="icon icon-check"></fox-icon> 
-						<div class="sep"></div> 
-					</a>
+					<a class="cat-item" rv-each-item="data"> <span class="thumbnail" rv-background-image="item.thumbnail"></span> <label class="name">{item.name}</label> <fox-icon icon="icon-check" rv-show="item.checked" class="icon icon-check"></fox-icon> <div class="sep"></div> </a>
 				</fox-template>
 			</fox-page-content>
 		</fox-page>
