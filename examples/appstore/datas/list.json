@@ -1,41 +1,282 @@
-[{
-	"name":"成人激情性爱游戏",
-	"type":"游戏",
-	"thumbnail":"images/1.png",
-	"price":"$8.00"
-},{
-	"name":"成人激情性爱游戏",
-	"type":"游戏",
-	"thumbnail":"images/1.png",
-	"price":"$8.00"
-},{
-	"name":"成人激情性爱游戏",
-	"type":"游戏",
-	"thumbnail":"images/1.png",
-	"price":"$8.00"
-},{
-	"name":"成人激情性爱游戏",
-	"type":"游戏",
-	"thumbnail":"images/1.png",
-	"price":"$8.00"
-},{
-	"name":"成人激情性爱游戏",
-	"type":"游戏",
-	"thumbnail":"images/1.png",
-	"price":"$8.00"
-},{
-	"name":"成人激情性爱游戏",
-	"type":"游戏",
-	"thumbnail":"images/1.png",
-	"price":"$8.00"
-},{
-	"name":"成人激情性爱游戏",
-	"type":"游戏",
-	"thumbnail":"images/1.png",
-	"price":"$8.00"
-},{
-	"name":"成人激情性爱游戏",
-	"type":"游戏",
-	"thumbnail":"images/1.png",
-	"price":"$8.00"
-}]
+[
+	{
+		"thumbnail": "http://b.hiphotos.bdimg.com/wisegame/pic/item/5adbb6fd5266d016387fe3c7952bd40734fa35fe.jpg",
+		"name": "QQ",
+		"price": 94,
+		"type": "理财购物",
+		"download_num": ""
+	},
+	{
+		"thumbnail": "http://h.hiphotos.bdimg.com/wisegame/pic/item/d019ebc4b74543a975ab6c221c178a82b80114a8.jpg",
+		"name": "微信",
+		"price": 76,
+		"type": "旅游出行",
+		"download_num": ""
+	},
+	{
+		"thumbnail": "http://e.hiphotos.bdimg.com/wisegame/pic/item/6a23dd54564e92580d26d73e9e82d158cdbf4ed4.jpg",
+		"name": "WiFi万能钥匙",
+		"price": 38,
+		"type": "资讯阅读",
+		"download_num": ""
+	},
+	{
+		"thumbnail": "http://c.hiphotos.bdimg.com/wisegame/pic/item/323d269759ee3d6d174b3c2441166d224e4ade54.jpg",
+		"name": "优酷",
+		"price": 53,
+		"type": "办公学习",
+		"download_num": ""
+	},
+	{
+		"thumbnail": "http://a.hiphotos.bdimg.com/wisegame/pic/item/2a540923dd54564e8ac1f6e9b1de9c82d0584fbd.jpg",
+		"name": "爱奇艺视频",
+		"price": 49,
+		"type": "资讯阅读",
+		"download_num": " 1.3亿"
+	},
+	{
+		"thumbnail": "http://e.hiphotos.bdimg.com/wisegame/pic/item/86dde71190ef76c6d3bb7dd99f16fdfaae5167d3.jpg",
+		"name": "天天酷跑",
+		"price": 90,
+		"type": "系统工具",
+		"download_num": " 1.1亿"
+	},
+	{
+		"thumbnail": "http://d.hiphotos.bdimg.com/wisegame/pic/item/e494a4c27d1ed21b8d9af737af6eddc450da3f95.jpg",
+		"name": "百度输入法",
+		"price": 64,
+		"type": "办公学习",
+		"download_num": " 8196万"
+	},
+	{
+		"thumbnail": "http://h.hiphotos.bdimg.com/wisegame/pic/item/118b4710b912c8fc7c5f6523fe039245d78821b4.jpg",
+		"name": "手机淘宝",
+		"price": 9,
+		"type": "办公学习",
+		"download_num": " 1.8亿"
+	},
+	{
+		"thumbnail": "http://g.hiphotos.bdimg.com/wisegame/pic/item/ad1b9d16fdfaaf5135e7d26c8e5494eef11f7ad9.jpg",
+		"name": "新浪微博",
+		"price": 87,
+		"type": "旅游出行",
+		"download_num": " 1.2亿"
+	},
+	{
+		"thumbnail": "http://f.hiphotos.bdimg.com/wisegame/pic/item/f145d688d43f8794599c12c0d01b0ef41ad53af9.jpg",
+		"name": "百度地图",
+		"price": 46,
+		"type": "系统工具",
+		"download_num": " 1.2亿"
+	},
+	{
+		"thumbnail": "http://d.hiphotos.bdimg.com/wisegame/pic/item/d37eca8065380cd72a62dd02a344ad34588281e5.jpg",
+		"name": "爱奇艺PPS",
+		"price": 28,
+		"type": "理财购物",
+		"download_num": " 1亿"
+	},
+	{
+		"thumbnail": "http://d.hiphotos.bdimg.com/wisegame/pic/item/ff82d158ccbf6c8123e5ba06be3eb13532fa400a.jpg",
+		"name": "百度",
+		"price": 62,
+		"type": "拍摄美化",
+		"download_num": " 1.6亿"
+	},
+	{
+		"thumbnail": "http://c.hiphotos.bdimg.com/wisegame/pic/item/ce345982b2b7d0a25e958b72c9ef76094a369a85.jpg",
+		"name": "百度手机助手",
+		"price": 71,
+		"type": "资讯阅读",
+		"download_num": " 1.4亿"
+	},
+	{
+		"thumbnail": "http://a.hiphotos.bdimg.com/wisegame/pic/item/f145d688d43f879424af91fcd01b0ef41ad53a94.jpg",
+		"name": "QQ空间",
+		"price": 51,
+		"type": "拍摄美化",
+		"download_num": " 9906万"
+	},
+	{
+		"thumbnail": "http://b.hiphotos.bdimg.com/wisegame/pic/item/fe16fdfaaf51f3def53360b696eef01f3b29795b.jpg",
+		"name": "百度视频",
+		"price": 1,
+		"type": "社交通讯",
+		"download_num": " 1.5亿"
+	},
+	{
+		"thumbnail": "http://d.hiphotos.bdimg.com/wisegame/pic/item/baf9d72a6059252d9f578ad6369b033b5ab5b9a4.jpg",
+		"name": "QQ浏览器",
+		"price": 47,
+		"type": "影音播放",
+		"download_num": " 1亿"
+	},
+	{
+		"thumbnail": "http://b.hiphotos.bdimg.com/wisegame/pic/item/ff82d158ccbf6c8129b48407be3eb13532fa405a.jpg",
+		"name": "QQ音乐",
+		"price": 67,
+		"type": "社交通讯",
+		"download_num": " 1亿"
+	},
+	{
+		"thumbnail": "http://h.hiphotos.bdimg.com/wisegame/pic/item/1e1ed21b0ef41bd59a8be72053da81cb38db3d0d.jpg",
+		"name": "百度手机卫士",
+		"price": 55,
+		"type": "游戏",
+		"download_num": " 1亿"
+	},
+	{
+		"thumbnail": "http://c.hiphotos.bdimg.com/wisegame/pic/item/9503738da9773912f932eab1fa198618377ae2ce.jpg",
+		"name": "百度贴吧",
+		"price": 50,
+		"type": "理财购物",
+		"download_num": " 8300万"
+	},
+	{
+		"thumbnail": "http://c.hiphotos.bdimg.com/wisegame/pic/item/abfcc3cec3fdfc0318c2086dd63f8794a5c226a9.jpg",
+		"name": "暴风影音",
+		"price": 5,
+		"type": "资讯阅读",
+		"download_num": " 9039万"
+	},
+	{
+		"thumbnail": "http://b.hiphotos.bdimg.com/wisegame/pic/item/f22397dda144ad349887fa54d2a20cf431ad852d.jpg",
+		"name": "酷我音乐",
+		"price": 76,
+		"type": "旅游出行",
+		"download_num": " 8988万"
+	},
+	{
+		"thumbnail": "http://d.hiphotos.bdimg.com/wisegame/pic/item/002762d0f703918f9bff8740533d269759eec40a.jpg",
+		"name": "美图秀秀",
+		"price": 43,
+		"type": "旅游出行",
+		"download_num": " 8378万"
+	},
+	{
+		"thumbnail": "http://c.hiphotos.bdimg.com/wisegame/pic/item/c0cc7cd98d1001e9cbd604e4ba0e7bec55e79777.jpg",
+		"name": "天天动听",
+		"price": 65,
+		"type": "旅游出行",
+		"download_num": " 8301万"
+	},
+	{
+		"thumbnail": "http://h.hiphotos.bdimg.com/wisegame/pic/item/9f039245d688d43ff83948207f1ed21b0ff43b54.jpg",
+		"name": "PPTV聚力",
+		"price": 73,
+		"type": "拍摄美化",
+		"download_num": " 7985万"
+	},
+	{
+		"thumbnail": "http://b.hiphotos.bdimg.com/wisegame/pic/item/ae11728b4710b912214ab82ec1fdfc0393452253.jpg",
+		"name": "神庙逃亡2",
+		"price": 51,
+		"type": "拍摄美化",
+		"download_num": " 7429万"
+	},
+	{
+		"thumbnail": "http://a.hiphotos.bdimg.com/wisegame/pic/item/d9a1cd11728b471079b26b22c1cec3fdfd0323bb.jpg",
+		"name": "欢乐斗地主",
+		"price": 59,
+		"type": "生活实用",
+		"download_num": " 6056万"
+	},
+	{
+		"thumbnail": "http://c.hiphotos.bdimg.com/wisegame/pic/item/d5fd5266d0160924918bd7eed60735fae7cd349c.jpg",
+		"name": "陌陌",
+		"price": 47,
+		"type": "影音播放",
+		"download_num": " 8162万"
+	},
+	{
+		"thumbnail": "http://e.hiphotos.bdimg.com/wisegame/pic/item/697b02087bf40ad1b6691e31552c11dfa8ecce50.jpg",
+		"name": "搜狗输入法",
+		"price": 18,
+		"type": "拍摄美化",
+		"download_num": " 8607万"
+	},
+	{
+		"thumbnail": "http://f.hiphotos.bdimg.com/wisegame/pic/item/90deb48f8c5494ee453441f02ff5e0fe98257ec1.jpg",
+		"name": "腾讯视频",
+		"price": 96,
+		"type": "小说",
+		"download_num": " 5276万"
+	},
+	{
+		"thumbnail": "http://f.hiphotos.bdimg.com/wisegame/pic/item/e4d6277f9e2f0708eddbf082eb24b899a801f253.jpg",
+		"name": "支付宝钱包",
+		"price": 0,
+		"type": "游戏",
+		"download_num": " 4726万"
+	},
+	{
+		"thumbnail": "http://f.hiphotos.bdimg.com/wisegame/pic/item/108da9773912b31b2da0f0fc8418367adbb4e113.jpg",
+		"name": "墨迹天气",
+		"price": 10,
+		"type": "旅游出行",
+		"download_num": " 3018万"
+	},
+	{
+		"thumbnail": "http://c.hiphotos.bdimg.com/wisegame/pic/item/3aee3d6d55fbb2fb399e35fa4d4a20a44723dca5.jpg",
+		"name": "天天飞车",
+		"price": 30,
+		"type": "小说",
+		"download_num": " 4742万"
+	},
+	{
+		"thumbnail": "http://a.hiphotos.bdimg.com/wisegame/pic/item/ad1b9d16fdfaaf51b371586d8e5494eef11f7a56.jpg",
+		"name": "腾讯新闻",
+		"price": 78,
+		"type": "社交通讯",
+		"download_num": " 4077万"
+	},
+	{
+		"thumbnail": "http://e.hiphotos.bdimg.com/wisegame/pic/item/462dd42a2834349b271b9776cbea15ce36d3be20.jpg",
+		"name": "节奏大师",
+		"price": 13,
+		"type": "系统工具",
+		"download_num": " 3920万"
+	},
+	{
+		"thumbnail": "http://b.hiphotos.bdimg.com/wisegame/pic/item/06380cd7912397ddd0f23bf75b82b2b7d1a287be.jpg",
+		"name": "消灭星星",
+		"price": 33,
+		"type": "游戏",
+		"download_num": " 4122万"
+	},
+	{
+		"thumbnail": "http://g.hiphotos.bdimg.com/wisegame/pic/item/579b033b5bb5c9ea03cceb37d739b6003af3b323.jpg",
+		"name": "百度音乐",
+		"price": 61,
+		"type": "理财购物",
+		"download_num": " 7176万"
+	},
+	{
+		"thumbnail": "http://e.hiphotos.bdimg.com/wisegame/pic/item/6af790529822720e0099187879cb0a46f31fabd9.jpg",
+		"name": "水果忍者",
+		"price": 73,
+		"type": "拍摄美化",
+		"download_num": " 1886万"
+	},
+	{
+		"thumbnail": "http://g.hiphotos.bdimg.com/wisegame/pic/item/7ad8bc3eb13533fa841fe3feaad3fd1f40345bb0.jpg",
+		"name": "铃声多多",
+		"price": 53,
+		"type": "办公学习",
+		"download_num": " 3440万"
+	},
+	{
+		"thumbnail": "http://a.hiphotos.bdimg.com/wisegame/pic/item/57a85edf8db1cb1341823ac0df54564e93584b7d.jpg",
+		"name": "百度浏览器",
+		"price": 30,
+		"type": "小说",
+		"download_num": " 7491万"
+	},
+	{
+		"thumbnail": "http://c.hiphotos.bdimg.com/wisegame/pic/item/50fa828ba61ea8d39f72add6950a304e241f5894.jpg",
+		"name": "我查查",
+		"price": 42,
+		"type": "办公学习",
+		"download_num": " 3119万"
+	}
+]
