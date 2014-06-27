@@ -341,3 +341,67 @@ fox-page-content fox-content {
 	display: block;
 }
 
+.detail-item .row1{
+	display:-webkit-box;
+	-webkit-box-orient: horizontal;
+	padding:15px;
+}
+
+.detail-item .left{
+	
+	display:-webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+}
+.detail-item .center{
+	-webkit-box-flex: 1.0;
+	display:-webkit-box;
+	margin:0 15px;
+}
+.detail-item p{
+	margin:0;
+}
+.detail-item .thumbnail {
+	width: 80px;
+	height: 80px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	display: block;
+	border-radius: 10px;
+}
+.detail-item .type{
+	font-size:12px;
+}
+.detail-item .name{
+	color:#333;
+	font-size:16px;
+}
+.detail-item .right{
+	display:-webkit-box;
+	-webkit-box-align: end;
+	-webkit-box-pack: center;
+}
+.detail-item .price{
+	padding:5px;
+	font-size:12px;
+	border-radius:5px;
+	border:1px solid #1284ff;
+}
+.detail-item .row2{
+	display:-webkit-box;
+	-webkit-box-orient: horizontal;
+	overflow:auto;
+	padding:10px 5px;
+	background:#F8F8F8;
+	border:1px solid #CCCCCC;
+}
+.detail-item .img{
+	display:block;
+	width:250px;
+	height:400px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	margin:0 5px;
+}
