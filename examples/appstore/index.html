@@ -187,7 +187,7 @@
 													</div>
 												</div>
 												<div class="right">
-													<a class="price">{item.price}</a>
+													<a class="price">$ {item.price}</a>
 												</div>
 											</div>
 											<div class="item-row2">
@@ -221,7 +221,7 @@
 			<fox-page-content>
 				<fox-template>
 					<fox-ajax auto url="http://yf-arch-test01.yf01.baidu.com:8082/ds/api/query?ds_id=ds_1iMpvLE&pn=1&ps=20" dataType="jsonp"></fox-ajax>
-					<a class="cat-item" rv-each-item="data"> <span class="thumbnail" rv-background-image="item.thumbnail"></span> <label class="name">{item.name}</label> <fox-icon icon="icon-check" rv-show="item.checked" class="icon icon-check"></fox-icon> <div class="sep"></div> </a>
+					<a class="cat-item" rv-each-item="data" style="-webkit-transform: translateZ(0px);"> <span class="thumbnail" rv-background-image="item.thumbnail" style="-webkit-transform: translateZ(0px);"></span> <label class="name">{item.name}</label> <fox-icon icon="icon-check" rv-show="item.checked" class="icon icon-check"></fox-icon> <div class="sep"></div> </a>
 				</fox-template>
 			</fox-page-content>
 		</fox-page>

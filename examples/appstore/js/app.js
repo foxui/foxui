@@ -5,7 +5,9 @@ window.addEventListener('HTMLImportsLoaded', function(e) {
 	document.body.style.visibility = "visible";
 });
 $(function() {
-
+	$('body').on('touchmove', function (e) {
+         if (!$('fox-page-content').has($(e.target)).length) e.preventDefault();
+	 });
 	(function() {
 		var $input = $("#search-input");
 		var $ajax2 = $("#ajax2");
