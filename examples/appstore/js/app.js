@@ -4,6 +4,12 @@ rivets.formatters.indexPlus = function(index) {
 window.addEventListener('HTMLImportsLoaded', function(e) {
 	document.body.style.visibility = "visible";
 });
+
+
+$(function() {
+    FastClick.attach(document.body);
+});
+
 $(function() {
 	$('body').on('touchmove', function (e) {
          if (!$('fox-page-content').has($(e.target)).length) e.preventDefault();
