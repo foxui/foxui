@@ -11,7 +11,7 @@ $(function() {
 		var $ajax2 = $("#ajax2");
 		$("#search-form").bind("submit", function() {
 
-			$ajax2.attr("params", '{"page":"' + $input.val() + '"}');
+			$ajax2.attr("params", '{"kw":"' + $input.val() + '"}');
 
 			return false;
 		});
@@ -21,27 +21,27 @@ $(function() {
 
 	window.addEventListener('HTMLImportsLoaded', function(e) {
 
-		var page = 0;
+		var page = 1;
 
-		var refresher = $("#refresher").bind("refresh", function() {
-			listTempl.mode = "replace";
-			page = 0;
-			listTempl.params = '{"page":' + page + '}';
-
-		}).get(0);
+		// var refresher = $("#refresher").bind("refresh", function() {
+			// listTempl.mode = "replace";
+			// page = 1;
+			// listTempl.params = '{"pn":' + page + '}';
+// 
+		// }).get(0);
 
 		var scroller = $("#scroller").bind("infinite", function() {
 
-			listTempl.mode = "prepend";
+			listTempl.mode = "append";
 			page++;
-			listTempl.params = '{"page":' + page + '}';
+			listTempl.params = '{"pn":' + page + '}';
 
 		}).get(0);
 
 		var listTempl = $("#list-template").bind("data-change", function() {
 			console.info("change");
 			
-			refresher.refreshComplete();
+			// refresher.refreshComplete();
 			scroller.infiniteComplete();
 
 		}).get(0);

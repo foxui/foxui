@@ -11,7 +11,6 @@
 		<script src="../../components/fox-core/dist/foxui.js"></script>
 		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
 		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
-
 		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
 		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
 		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
@@ -45,7 +44,7 @@
 
 				<fox-slider class="slider-box" auto="3000" loop="true" speed="400"  indicator="true" style="height: 180px;">
 					<fox-template>
-						<fox-ajax auto url="datas/slider.json"></fox-ajax>
+						<fox-ajax auto url="http://fuhua.baidu.com:8080/ds/api/query?ds_id=ds_wMpvLE"  dataType="jsonp"></fox-ajax>
 						<fox-slider-container>
 							<fox-slider-item rv-each-item="data">
 								<div class="img" rv-background-image="item.img"></div>
@@ -56,7 +55,7 @@
 				</fox-slider>
 
 				<fox-template>
-					<fox-ajax auto url="datas/group.json"></fox-ajax>
+					<fox-ajax auto url="http://fuhua.baidu.com:8080/ds/api/query?ds_id=ds_yzCoF4&group_by=type&limit=3" dataType="jsonp"></fox-ajax>
 					<div class="app-group" rv-each-group="data">
 						<div class="app-group-hd">
 							<span class="app-group-name">{group.name}</span>
@@ -93,18 +92,18 @@
 			<fox-page-content>
 				<fox-template id="list-template">
 					<fox-model rv-mode="mode" >
-						<fox-ajax id="ajax"  auto url="datas/list.json" rv-params="params"></fox-ajax>
+						<fox-ajax id="ajax" dataType="jsonp" auto url="http://fuhua.baidu.com:8080/ds/api/query?ds_id=ds_yzCoF4&ps=30" rv-params="params"></fox-ajax>
 					</fox-model>
 					<fox-content>
-						<fox-refresher id="refresher">
+						<!--<fox-refresher id="refresher">
 							<div class="fox-refresher-default">
 								<i class="fox-refresher-icon-indicator icon-up-1"></i>
 								<i class="fox-refresher-icon-loading icon-spin5  animate-spin"></i>
 								<label class="fox-refresher-label"></label>
 							</div>
-						</fox-refresher>
+						</fox-refresher>-->
 						<fox-infinite-scroll id="scroller" distance="60"></fox-infinite-scroll>
-						<fox-listview-content>
+						
 
 							<div class="app-list-item" rv-each-item="data">
 								<div class="left">
@@ -126,7 +125,7 @@
 								</div>
 								<div class="right">
 									<div class="right-inner">
-										<a class="price">{item.price}</a>
+										<a class="price">${item.price}</a>
 									</div>
 								</div>
 								<div class="sep"></div>
@@ -135,7 +134,7 @@
 							<div class="bottom-loading">
 								<i class="icon-spin5 animate-spin" ></i>
 							</div>
-						</fox-listview-content>
+						
 					</fox-content>
 				</fox-template>
 			</fox-page-content>
@@ -149,8 +148,8 @@
 			</fox-toolbar>
 
 			<fox-page-content>
-                <a href="detail.html" transition="hslide">详情页</a>
-            </fox-page-content>
+				
+			</fox-page-content>
 		</fox-page>
 
 		<fox-page id="search" class="transition-out" transition="fade">
@@ -169,7 +168,7 @@
 
 						<fox-slider auto="0" loop="false" speed="400"  indicator="false" style="height:100%">
 							<fox-template>
-								<fox-ajax auto url="datas/search.json" id="ajax2"></fox-ajax>
+								<fox-ajax auto url="http://fuhua.baidu.com:8080/ds/api/query?ds_id=ds_yzCoF4&query_type=type" dataType="jsonp" id="ajax2"></fox-ajax>
 								<fox-slider-container>
 									<fox-slider-item rv-each-item="data">
 										<div class="search-item">
@@ -192,7 +191,7 @@
 												</div>
 											</div>
 											<div class="item-row2">
-												<span class="img" rv-background-image="item.img"></span>
+												<span class="img" rv-background-image="item.thumbnail"></span>
 											</div>
 										</div>
 									</fox-slider-item>
@@ -214,19 +213,57 @@
 			<fox-page-content></fox-page-content>
 		</fox-page>
 
-		<fox-page id="category" style="padding-bottom:0;z-index:1" class="transition-out">
+		<fox-page id="category" style="padding-bottom:0;" class="transition-out">
 			<fox-toolbar title="App Store">
 				<label class="right" style="color:#1284ff" onclick="history.back()"> 取消 </label>
 			</fox-toolbar>
 
 			<fox-page-content>
 				<fox-template>
-					<fox-ajax auto url="datas/cat.json"></fox-ajax>
+					<fox-ajax auto url="http://yf-arch-test01.yf01.baidu.com:8082/ds/api/query?ds_id=ds_1iMpvLE&pn=1&ps=20" dataType="jsonp"></fox-ajax>
 					<a class="cat-item" rv-each-item="data"> <span class="thumbnail" rv-background-image="item.thumbnail"></span> <label class="name">{item.name}</label> <fox-icon icon="icon-check" rv-show="item.checked" class="icon icon-check"></fox-icon> <div class="sep"></div> </a>
 				</fox-template>
 			</fox-page-content>
 		</fox-page>
 
-        
+		<fox-page id="detail" style="padding-bottom:0" class="transition-out">
+
+			<fox-toolbar title="">
+				<fox-icon icon="icon-left-nav" class="left" onclick="window.history.back()">
+					App详情
+				</fox-icon>
+			</fox-toolbar>
+			<fox-page-content>
+				<fox-template id="detail-template">
+					<fox-ajax auto url="datas/detail.json"></fox-ajax>
+					<div class="detail-item">
+						<div class="row1">
+							<div class="left">
+								<span class="thumbnail" rv-background-image="data.thumbnail"></span>
+							</div>
+							<div class="center">
+								<div class="detail">
+									<p class="name">
+										{data.name}
+									</p>
+									<p class="type">
+										{data.type}
+									</p>
+								</div>
+							</div>
+							<div class="right">
+								<a class="price">{data.price}</a>
+							</div>
+						</div>
+						<div class="row2">
+							<a class="img" rv-each-item="data.imgs" rv-background-image="item"></a>
+
+						</div>
+
+					</div>
+				</fox-template>
+			</fox-page-content>
+
+		</fox-page>
 	</body>
 </html>
