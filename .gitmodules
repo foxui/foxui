@@ -75,7 +75,11 @@
 	url = https://github.com/foxui/fox-model.git
     branch = master
 [submodule "components/fox-tabs"]
-	path = components/fox-tabs
-	url = https://github.com/foxui/fox-tabs.git
+    path = components/fox-tabs
+    url = https://github.com/foxui/fox-tabs.git
+    branch = master
+[submodule "components/fox-tabs-content"]
+	path = components/fox-tabs-content
+	url = https://github.com/foxui/fox-tabs-content.git
     branch = master
 
