@@ -86,4 +86,8 @@
 	path = components/fox-toggle
 	url = https://github.com/foxui/fox-toggle.git
     branch = master
+[submodule "components/fox-range"]
+	path = components/fox-range
+	url = https://github.com/foxui/fox-range.git
+    branch = master
 
