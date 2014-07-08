@@ -91,3 +91,7 @@
 	url = https://github.com/foxui/fox-range.git
     branch = master
 
+[submodule "fox-image-lazyload"]
+	path = components/fox-image-lazyload
+	url = https://github.com/foxui/fox-image-lazyload.git
+	branch = master
