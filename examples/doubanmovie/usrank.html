@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>北美票房榜-豆瓣电影</title>
+        <link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
+        <link rel="stylesheet" href="css/app.css"/>
+        <script src="js/fastclick.js"></script>
+        <script src="../../components/fox-core/dist/foxui.js"></script>
+        <link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
+        <link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
+        <link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
+        <link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+        <link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
+        <link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
+        <link rel="import" href="../../components/fox-slider/dist/fox-slider.html"/>
+        <link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+        <link rel="import" href="../../components/fox-sidemenu/dist/fox-sidemenu.html"/>
+        <link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+        <link rel="import" href="../../components/fox-template/dist/fox-template.html"/>
+        <link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+        <link rel="import" href="components/fox-stars.html"/>
+
+        <script src="js/app.js"></script>
+    </head>
+    <body unresolved class="douban">
+        <fox-sidemenu sidemenuWidth="80%">
+
+            <fox-sidemenu-content>
+                <fox-page class="main-page us-rank" transition="hslide">
+                    <fox-toolbar class="primary" title="北美票房榜">
+                        <fox-icon icon="icon-bars" class="left" onclick="document.querySelector('fox-sidemenu').toggle('left');"></fox-icon>
+                    </fox-toolbar>
+
+                    <fox-page-content>
+                        <fox-template>
+                        <fox-ajax id="usrank-ajax" url="http://api.douban.com/v2/movie/us_box" dataType="jsonp"></fox-ajax>
+
+                        <div class="content-section">
+                            <div class="unit-wrap">
+                                <ul>
+                                    <li rv-each-movie="data.subjects">
+                                        <div class="bd">
+                                            <a rv-movieinfohref="movie.subject.id">
+                                                <div>
+                                                    <img rv-proxysrc="movie.subject.images.medium">
+                                                </div>
+                                                <div class="comment">
+                                                    <div class="hd">
+                                                        { movie.subject.title } ({ movie.subject.original_title })
+                                                    </div>
+                                                    <div class="bd">
+                                                        <div class="star">
+                                                            <fox-stars rv-value="movie.subject.rating.average"></fox-stars>
+                                                            <label>{ movie.subject.rating.average }</label>
+                                                        </div>
+                                                        <ul>
+                                                            <li>
+                                                                <label>导演:</label>
+                                                                <span rv-each-director="movie.subject.directors">
+                                                                   { director.name } /
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <label>主演:</label>
+                                                                <span rv-each-cast="movie.subject.casts">
+                                                                   { cast.name } /
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <label>年份:</label>
+                                                                <span>
+                                                                   { movie.subject.year }
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <label>类型:</label>
+                                                                <span rv-each-genre="movie.subject.genres">
+                                                                   { genre } /
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        </fox-template>
+                    </fox-page-content>
+                </fox-page>
+            </fox-sidemenu-content>
+
+            <fox-sidemenu-menu direction="left">
+
+                <fox-page>
+
+                    <fox-page-content>
+                        <div class="hd">
+                            <img src="http://img3.douban.com/pics/cardkit/logo.png" width="50">
+                        </div>
+                        <div class="bd">
+
+                            <div class="search">
+                                <input placeholder="电影、影人、影院、电视剧">
+                            </div>
+
+                            <div class="menu-list">
+                                <h6>电影</h6>
+
+                                <ul>
+                                    <li>
+                                        <a href="index.html" disable-pjax>电影首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" disable-pjax>北美榜</a>
+                                    </li>
+                                    <li>
+                                        <span>影讯&购票</span>
+                                    </li>
+                                    <li>
+                                        <span>电视剧</span>
+                                    </li>
+                                    <li>
+                                        <span>分类</span>
+                                    </li>
+                                    <li>
+                                        <span>影评</span>
+                                    </li>
+                                    <li>
+                                        <span>预告片</span>
+                                    </li>
+                                    <li>
+                                        <span>问答</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </fox-page-content>
+
+                </fox-page>
+
+            </fox-sidemenu-menu>
+
+        </fox-sidemenu>
+        <script>
+            (function(){
+                function ready() {
+                    document.querySelector('fox-page.us-rank').loading = true;
+
+                    var ajax = document.getElementById('usrank-ajax');
+
+                    ajax.addEventListener('complete', function() {
+                        setTimeout(function() {
+                            document.querySelector('fox-page.us-rank').loading = false;
+                        }, 200);
+                    }, false);
+
+                    ajax.go();
+                }
+
+                HTMLImports.ready ? setTimeout(ready,10) : window.addEventListener('HTMLImportsLoaded', ready, false);
+            })();
+        </script>
+    </body>
+</html>

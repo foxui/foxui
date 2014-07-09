@@ -1,0 +1,80 @@
+<style>
+    fox-stars {
+        display: inline-block;
+        position: relative;
+        width: 75px;
+        height: 23px;
+        color: #aaa;
+        text-align: left;
+        vertical-align: bottom;
+    }
+
+    fox-stars > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+    fox-stars fox-icon{
+        font-size: 10px;
+        margin-right: -2px;
+        display: inline-block;
+    }
+
+    fox-stars > :first-child {
+        width: 100%;
+    }
+
+    fox-stars > :last-child {
+    }
+
+    fox-stars > :last-child > :first-child {
+        width: 1000px;
+    }
+</style>
+<fox-element name='fox-stars' attributes='stars value'>
+    <script>
+        function update() {
+            this.lastElementChild && (this.lastElementChild.style.width =
+            (parseFloat(this.value) / 10) * 100 + '%');
+        }
+
+        fox('fox-stars', {
+            lifecycle : {
+                created : function() {
+                    this.stars = parseInt(this.stars) || 5;
+                    this.value = parseFloat(this.value) || 0;
+
+                    var wrapEmpty = document.createElement('div');
+                    var wrapFilled = document.createElement('div');
+                    wrapFilled.style.width = (this.value / 10) * 100 + '%';
+
+
+                    var wrapFilledInner = document.createElement('div');
+                    wrapFilled.appendChild(wrapFilledInner);
+
+                    for(var i = 0; i < this.stars; i++) {
+                        var emptyStarIcon = document.createElement('fox-icon');
+                        emptyStarIcon.icon = 'icon-star';
+                        wrapEmpty.appendChild(emptyStarIcon);
+
+                        var filledStarIcon = document.createElement('fox-icon');
+                        filledStarIcon.icon = 'icon-star-filled';
+                        wrapFilledInner.appendChild(filledStarIcon);
+                    }
+
+                    this.innerHTML = '';
+
+                    this.appendChild(wrapEmpty);
+                    this.appendChild(wrapFilled);
+                },
+
+                valueChanged: function() {
+                    update.call(this);
+                }
+            }
+        });
+    </script>
+
+</fox-element>

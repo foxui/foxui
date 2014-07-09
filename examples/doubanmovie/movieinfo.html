@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>豆瓣电影</title>
+        <link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
+        <link rel="stylesheet" href="css/app.css"/>
+        <script src="js/fastclick.js"></script>
+        <script src="../../components/fox-core/dist/foxui.js"></script>
+        <link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
+        <link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
+        <link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
+        <link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+        <link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
+        <link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+        <link rel="import" href="../../components/fox-sidemenu/dist/fox-sidemenu.html"/>
+        <link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+        <link rel="import" href="../../components/fox-template/dist/fox-template.html"/>
+        <link rel="import" href="../../components/fox-slider/dist/fox-slider.html"/>
+
+        <link rel="import" href="components/fox-stars.html"/>
+
+        <script src="js/app.js"></script>
+    </head>
+    <body class="douban">
+        <fox-page class="main-page movie-info">
+            <fox-toolbar class="primary" title="">
+                <fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
+                <a href="index.html" class="right" disable-pjax>
+                    <fox-icon icon="icon-home"></fox-icon>
+                </a>
+            </fox-toolbar>
+
+            <fox-page-content>
+                <fox-template>
+                    <fox-ajax id="movieinfo-detail-ajax" dataType="jsonp"></fox-ajax>
+
+                    <div class="basic content-section">
+                        <header>
+                            <span>影片信息</span>
+                        </header>
+
+                        <div class="unit-wrap">
+
+                            <ul>
+                                <li>
+                                    <label>导演</label>
+                                    <span rv-each-director="data.directors">
+                                       <a rv-href="director.alt" disable-pjax>{ director.name }</a> /
+                                    </span>
+                                </li>
+                                <li>
+                                    <label>主演</label>
+                                    <span rv-each-cast="data.casts">
+                                       <a rv-href="cast.alt" disable-pjax>{ cast.name }</a> /
+                                    </span>
+                                </li>
+                                <li>
+                                    <label>又名</label>
+                                    <span rv-each-aka="data.aka">
+                                       { aka } /
+                                    </span>
+                                </li>
+                                <li>
+                                    <label>年份</label>
+                                    <span>
+                                       { data.year }
+                                    </span>
+                                </li>
+                                <li>
+                                    <label>地区</label>
+                                    <span rv-each-country="data.countries">
+                                       { country } /
+                                    </span>
+                                </li>
+                                <li>
+                                    <label>类型</label>
+                                    <span rv-each-genre="data.genres">
+                                       { genre } /
+                                    </span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="summary content-section">
+                        <header>
+                            <span>剧情简介</span>
+                        </header>
+
+                        <div class="unit-wrap">
+                            { data.summary }
+                        </div>
+                    </div>
+                </fox-templage>
+            </fox-page-content>
+        </fox-page>
+        <script>
+            (function(){
+                function ready() {
+                    document.querySelector('fox-page.movie-info').loading = true;
+
+                    var movieId = location.search.split('=')[1];
+                    var ajax = document.getElementById('movieinfo-detail-ajax');
+                    ajax.url = 'http://api.douban.com/v2/movie/subject/' + movieId;
+
+                    ajax.addEventListener('complete', function() {
+                        setTimeout(function() {
+                            document.querySelector('fox-page.movie-info').loading = false;
+                        }, 200);
+                    }, false);
+
+                    ajax.go();
+                }
+
+                HTMLImports.ready ? setTimeout(ready,10) : window.addEventListener('HTMLImportsLoaded', ready, false);
+            })();
+        </script>
+    </body>
+</html>

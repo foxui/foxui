@@ -1,0 +1,383 @@
+{
+    "count": 20,
+    "start": 0,
+    "total": 250,
+    "subjects": [
+        {
+            "rating": {
+            "max": 10,
+            "average": 6.8,
+            "stars": "35",
+            "min": 0
+            },
+            "reviews_count": 656,
+            "wish_count": 22414,
+            "collect_count": 86812,
+            "douban_site": "",
+            "year": "2014",
+            "images": {
+            "small": "http://img3.douban.com/view/movie_poster_cover/ipst/public/p2187231762.jpg",
+            "large": "data/assets/p2187231762.jpg",
+            "medium": "http://img3.douban.com/view/movie_poster_cover/spst/public/p2187231762.jpg"
+            },
+            "alt": "http://movie.douban.com/subject/7054604/",
+            "id": "7054604",
+            "mobile_url": "http://movie.douban.com/subject/7054604/mobile",
+            "title": "变形金刚4：绝迹重生",
+            "do_count": null,
+            "seasons_count": null,
+            "schedule_url": "http://movie.douban.com/subject/7054604/cinema/",
+            "episodes_count": null,
+            "genres": [
+            "动作",
+            "科幻",
+            "冒险"
+            ],
+            "countries": [
+            "美国",
+            "中国大陆"
+            ],
+            "casts": [
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/28811.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/28811.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/28811.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1035674/",
+            "id": "1035674",
+            "name": "马克·沃尔伯格"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/26071.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/26071.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/26071.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1040517/",
+            "id": "1040517",
+            "name": "斯坦利·图齐"
+            },
+            {
+            "avatars": {
+            "small": "http://img5.douban.com/img/celebrity/small/1396501988.66.jpg",
+            "large": "http://img5.douban.com/img/celebrity/large/1396501988.66.jpg",
+            "medium": "http://img5.douban.com/img/celebrity/medium/1396501988.66.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1031847/",
+            "id": "1031847",
+            "name": "凯尔希·格兰莫"
+            },
+            {
+            "avatars": {
+            "small": "http://img5.douban.com/img/celebrity/small/1392535410.79.jpg",
+            "large": "http://img5.douban.com/img/celebrity/large/1392535410.79.jpg",
+            "medium": "http://img5.douban.com/img/celebrity/medium/1392535410.79.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1274253/",
+            "id": "1274253",
+            "name": "妮可拉·佩尔茨 "
+            }
+            ],
+            "current_season": null,
+            "original_title": "Transformers: Age of Extinction",
+            "summary": "故事发生在前作芝加哥终极决战四年后，汽车人与霸天虎从地球销声匿迹，而人类也在断壁残垣的废墟中开始了新生。然而，一群手握大权的商人联合天才科学家，意欲通过那场入侵打破壁垒，研发出他们实则难以驾驭的全新技术。与此同时，地球也遭受到了一个古老而强大的变形金刚的威胁恫吓，关乎自由与奴役的正邪史诗决战一触即发……",
+            "subtype": "movie",
+            "directors": [
+            {
+            "avatars": {
+            "small": "http://img5.douban.com/img/celebrity/small/319.jpg",
+            "large": "http://img5.douban.com/img/celebrity/large/319.jpg",
+            "medium": "http://img5.douban.com/img/celebrity/medium/319.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1027776/",
+            "id": "1027776",
+            "name": "迈克尔·贝"
+            }
+            ],
+            "comments_count": 44606,
+            "ratings_count": 78120,
+            "aka": [
+            "变形金刚：歼灭世纪(港)",
+            "变形金刚4：灭绝时代",
+            "变形金刚4",
+            "变4",
+            "Transformers 4"
+            ],
+            "photos": [
+                "data/assets/p2188071450.jpg",
+                "data/assets/p2188071464.jpg",
+                "data/assets/p2188071278.jpg",
+                "data/assets/p2188071391.jpg"
+            ],
+            "trailer": {
+                "image": "data/assets/2187232726.jpg",
+                "title": "中国预告片1",
+                "date": "2014-06-12"
+            },
+            "popular_reviews": [
+                {
+                    "author": {
+                        "name": "黄香蕉",
+                        "avatar": "data/assets/u2524948-39.jpg"
+                    },
+                    "summary": "盒盒，这个有点难啊，说来说去不就是螺丝打螺母么。反正中国人民的老朋友，马上就要在鸡国入谠的卖拷贝老师，已经修炼到了无相神功第八级，AKA将凑表脸做到了极致，超级变变变系列浑身槽点多得跟马赛克一样，想吐都不知道从哪里下嘴。光是一而再再而三的硬凑国产片保护月，硬加北京香港戏份，硬塞李冰冰韩庚吕良伟邹市明还硬塞不深就足够他得二十八座华表奖惹。更何况.........",
+                    "rating": 6,
+                    "created_at": "2014-06-27 10:15:42",
+                    "title": "我到底能不能做到不剧透的写完变4的影评呢"
+                }
+            ]
+        },
+        {
+            "rating": {
+            "max": 10,
+            "average": 5.8,
+            "stars": "30",
+            "min": 0
+            },
+            "reviews_count": 245,
+            "wish_count": 8147,
+            "collect_count": 38248,
+            "douban_site": "",
+            "year": "2014",
+            "images": {
+            "small": "http://img5.douban.com/view/movie_poster_cover/ipst/public/p2188112867.jpg",
+            "large": "data/assets/p2188112867.jpg",
+            "medium": "http://img5.douban.com/view/movie_poster_cover/spst/public/p2188112867.jpg"
+            },
+            "alt": "http://movie.douban.com/subject/24879858/",
+            "id": "24879858",
+            "mobile_url": "http://movie.douban.com/subject/24879858/mobile",
+            "title": "分手大师",
+            "do_count": null,
+            "seasons_count": null,
+            "schedule_url": "http://movie.douban.com/subject/24879858/cinema/",
+            "episodes_count": null,
+            "genres": [
+            "剧情",
+            "喜剧",
+            "爱情"
+            ],
+            "countries": [
+            "中国大陆"
+            ],
+            "casts": [
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/804.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/804.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/804.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1274235/",
+            "id": "1274235",
+            "name": "邓超"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/37843.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/37843.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/37843.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1052359/",
+            "id": "1052359",
+            "name": "杨幂"
+            },
+            {
+            "avatars": {
+            "small": "http://img5.douban.com/img/celebrity/small/33377.jpg",
+            "large": "http://img5.douban.com/img/celebrity/large/33377.jpg",
+            "medium": "http://img5.douban.com/img/celebrity/medium/33377.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1315729/",
+            "id": "1315729",
+            "name": "古力娜扎"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/1402633648.14.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/1402633648.14.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/1402633648.14.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1340705/",
+            "id": "1340705",
+            "name": "栾元晖"
+            }
+            ],
+            "current_season": null,
+            "original_title": "分手大师",
+            "summary": "茫茫人海，风雨飘摇，俯瞰城市，每一个大厦每一个窗户里都有无数男女为了感情哭闹，争吵，自杀，上吊！单身，不是问题，恋爱，才是烦恼，分手更是难题，谁能救万千痴男怨女于水火？分手代理，应运而生。\n梅远贵（邓超 饰）是一名专业的“分手大师”，谈过76次恋爱，分过77次手，了解男女情爱上的弱点，致力于解决人来情感问题，专门为各种情侣恋人办理分手，分居，离婚以及分家业务。他发明的无痛分手法，无痛苦，不麻醉，没有后遗症，一经治愈绝不复发，药到病除，绝对可靠。迄今为止，上至达官贵人下至贩夫走卒，一共帮助2000多对夫妻恋人成功离婚或分手。其间，见证了各式动人爱情破碎的时刻，也见证了各类爱与不爱的悲欢，他的全面独家分手方略成为广大想分手男女的福音和救命草，客户络绎不绝，往来者奇葩不断，其中不妨各种学派的专家大师级人物。\n某天正当他决定收山不做分手生意之时，接到了一单特别的任务，客户要甩掉的女人叫叶小春（杨幂 饰）……",
+            "subtype": "movie",
+            "directors": [
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/36973.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/36973.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/36973.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1316617/",
+            "id": "1316617",
+            "name": "俞白眉"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/804.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/804.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/804.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1274235/",
+            "id": "1274235",
+            "name": "邓超"
+            }
+            ],
+            "comments_count": 25016,
+            "ratings_count": 35333,
+            "aka": [
+            "The Breakup Guru"
+            ],
+            "photos": [
+                "data/assets/p2179111008.jpg",
+                "data/assets/p2182862462.jpg",
+                "data/assets/p2180433687.jpg",
+                "data/assets/p2179111021.jpg"
+            ],
+            "trailer": {
+                "image": "data/assets/2188551727.jpg",
+                "title": "预告片1：爆笑减压版",
+                "date": "2014-06-23"
+            },
+            "popular_reviews": [
+                {
+                    "author": {
+                        "name": "飞天PP猪",
+                        "avatar": "data/assets/u1630639-5.jpg"
+                    },
+                    "summary": "一、坏目的一段邓超当年在学校反串演女人的视频曾在网络引起关注，这可能让他产生了一些误解，他误解为观众喜欢他装扮成五大三粗的女人，他误解为观众喜欢他扭捏作态，他误解为他很搞笑很迷人。作为一部导演处女作，在娱乐圈摸爬滚打多年的邓超并未给予《分手大师》足够的敬畏，和他的妻子孙俪相反，他越来越把自己置于.........",
+                    "rating": 2,
+                    "created_at": "2014-06-25 21:20:11",
+                    "title": "低俗喜剧"
+                }
+            ]
+        },
+        {
+            "rating": {
+            "max": 10,
+            "average": 4.2,
+            "stars": "20",
+            "min": 0
+            },
+            "reviews_count": 38,
+            "wish_count": 430,
+            "collect_count": 2458,
+            "douban_site": "",
+            "year": "2014",
+            "images": {
+            "small": "http://img5.douban.com/view/movie_poster_cover/ipst/public/p2187004396.jpg",
+            "large": "data/assets/p2187004396.jpg",
+            "medium": "http://img5.douban.com/view/movie_poster_cover/spst/public/p2187004396.jpg"
+            },
+            "alt": "http://movie.douban.com/subject/24859034/",
+            "id": "24859034",
+            "mobile_url": "http://movie.douban.com/subject/24859034/mobile",
+            "title": "笔仙3",
+            "do_count": null,
+            "seasons_count": null,
+            "schedule_url": "http://movie.douban.com/subject/24859034/cinema/",
+            "episodes_count": null,
+            "genres": [
+            "悬疑",
+            "惊悚"
+            ],
+            "countries": [
+            "中国大陆"
+            ],
+            "casts": [
+            {
+            "avatars": {
+            "small": "http://img5.douban.com/img/celebrity/small/32337.jpg",
+            "large": "http://img5.douban.com/img/celebrity/large/32337.jpg",
+            "medium": "http://img5.douban.com/img/celebrity/medium/32337.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1274286/",
+            "id": "1274286",
+            "name": "江一燕"
+            },
+            {
+            "avatars": {
+            "small": "http://img5.douban.com/img/celebrity/small/47687.jpg",
+            "large": "http://img5.douban.com/img/celebrity/large/47687.jpg",
+            "medium": "http://img5.douban.com/img/celebrity/medium/47687.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1312818/",
+            "id": "1312818",
+            "name": "焦俊艳"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/pics/celebrity-default-small.gif",
+            "large": "http://img3.douban.com/pics/celebrity-default-large.gif",
+            "medium": "http://img3.douban.com/pics/celebrity-default-medium.gif"
+            },
+            "alt": "http://movie.douban.com/celebrity/1323773/",
+            "id": "1323773",
+            "name": "王龙华"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/1385100761.5.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/1385100761.5.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/1385100761.5.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1330472/",
+            "id": "1330472",
+            "name": "董子健"
+            }
+            ],
+            "current_season": null,
+            "original_title": "笔仙3",
+            "summary": "丽娜（江一燕 饰）患病在医院治疗时，她总是惦念着自己有一个名叫小艾的女儿，为去看望女儿，她袭击护士从医院逃了出来，回到阔别数年的家中想要领回女儿一同生活，爷爷奶奶在争夺小艾的路途中遭遇车祸去世，丽娜母女搬进了爷爷特意留下的老宅子，却遭遇到一桩桩恐怖事件，周围的邻居也变得奇怪起来……",
+            "subtype": "movie",
+            "directors": [
+            {
+            "avatars": {
+            "small": "http://img5.douban.com/img/celebrity/small/46669.jpg",
+            "large": "http://img5.douban.com/img/celebrity/large/46669.jpg",
+            "medium": "http://img5.douban.com/img/celebrity/medium/46669.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1276884/",
+            "id": "1276884",
+            "name": "安兵基"
+            }
+            ],
+            "comments_count": 792,
+            "ratings_count": 2064,
+            "aka": [
+            "笔仙III",
+            "Bunshinsaba 3"
+            ],
+            "photos": [
+                "data/assets/p2188980095.jpg",
+                "data/assets/p2187004177.jpg",
+                "data/assets/p2187004155.jpg",
+                "data/assets/p2186912583.jpg"
+            ],
+            "trailer": {
+                "image": "data/assets/2189550347.jpg",
+                "title": "预告片：惊悚版",
+                "date": "2014-06-03"
+            },
+            "popular_reviews": [
+                {
+                    "author": {
+                        "name": "打字机器李亦树",
+                        "avatar": "data/assets/u1189323-213.jpg"
+                    },
+                    "summary": "作为一个男性观众，我对“笔仙”这一女生常玩的游戏简直缺乏必要了解。是啊，让我们畅想一下，在某间大学宿舍或者公司的午休室里，有两个五大三粗的老爷们正若无旁人的手牵着手，目光相对，大汗淋漓重复着“你是我的前世，我是你的今生”这句话，是一个多么娘炮而且弱智的行为啊。可越是缺乏了解的行为越能引起人的猎奇心理，感谢电影能够让人在有限的时间里.........",
+                    "rating": 6,
+                    "created_at": "2014-07-04 11:50:45",
+                    "title": "没有鬼怪的国度，恐怖只能来自于人的内心"
+                }
+            ]
+        }
+    ],
+    "title": "正在热映"
+}

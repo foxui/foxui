@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>豆瓣电影</title>
+		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
+		<link rel="stylesheet" href="css/app.css"/>
+		<script src="js/fastclick.js"></script>
+		<script src="../../components/fox-core/dist/foxui.js"></script>
+		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
+		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
+		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
+		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
+		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
+		<link rel="import" href="../../components/fox-slider/dist/fox-slider.html"/>
+        <link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+		<link rel="import" href="../../components/fox-sidemenu/dist/fox-sidemenu.html"/>
+		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+        <link rel="import" href="../../components/fox-template/dist/fox-template.html"/>
+		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+        <link rel="import" href="components/fox-stars.html"/>
+
+		<script src="js/app.js"></script>
+	</head>
+	<body unresolved class="douban">
+        <fox-sidemenu sidemenuWidth="80%">
+
+            <fox-sidemenu-content>
+                <fox-page class="main-page" transition="hslide">
+                    <fox-toolbar class="primary" title="豆瓣电影">
+                        <fox-icon icon="icon-bars" class="left" onclick="document.querySelector('fox-sidemenu').toggle('left');"></fox-icon>
+                    </fox-toolbar>
+
+                    <fox-page-content>
+
+                        <div class="content-section hot">
+
+                            <header>
+                                <span>正在热映</span>
+                            </header>
+
+                            <div class="unit-wrap">
+                                <fox-template>
+                                    <fox-ajax id="nowplaying" auto url="data/nowplaying.json"></fox-ajax>
+                                    <ul>
+                                        <li rv-each-movie="data.subjects">
+                                            <a rv-moviehref="movie.id">
+                                                <img rv-src="movie.images.large">
+                                                <span class="title">{ movie.title }</span>
+                                                <fox-stars rv-value="movie.rating.average"></fox-stars>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </fox-template>
+                            </div>
+                        </div>
+
+
+
+                        <div class="content-section hot">
+
+                            <header>
+                                <span>近期热门</span>
+                            </header>
+
+                            <div class="unit-wrap">
+                                <fox-template sourceSelector="#nowplaying">
+                                    <ul>
+                                        <li rv-each-movie="data.subjects">
+                                            <a rv-moviehref="movie.id">
+                                                <img rv-src="movie.images.large">
+                                                <span class="title">{ movie.title }</span>
+                                                <fox-stars rv-value="movie.rating.average"></fox-stars>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </fox-template>
+                            </div>
+                        </div>
+
+                        <div class="content-section comment">
+
+                            <header>
+                                <span>最受欢迎的影评</span>
+                            </header>
+
+                            <div class="unit-wrap">
+                                <ul>
+                                    <li>
+                                        <div class="bd">
+                                            <a href="movie.html?id=7054604">
+                                                <img src="images/p2187231762.jpg">
+                                                <div class="comment">
+                                                    <div class="hd">
+                                                        十送红军
+                                                    </div>
+                                                    <div class="bd">
+苏区研究论文精粹 主编 陈棉水 何友良 等 著 中国社会科学出版社，2012
+129-130页就是在国共两党激烈对抗的反“围剿”时期，这种商业意识也可见一斑。红军长征后，1934年11月9日，国民党剿匪东路军第十师进入瑞金县城时的状况如...
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="ft">
+                                            <a href="http://movie.douban.com/people/lzj235711/">数卷残编</a> 评论
+                                            <a href="http://movie.douban.com/subject/24381355/?from=reviews">《十送红军》</a>
+                                            <fox-stars value="10"></fox-stars>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="bd">
+                                            <a href="movie.html?id=7054604">
+                                                <img src="images/p2187231762.jpg">
+                                                <div class="comment">
+                                                    <div class="hd">
+                                                        十送红军
+                                                    </div>
+                                                    <div class="bd">
+苏区研究论文精粹 主编 陈棉水 何友良 等 著 中国社会科学出版社，2012
+129-130页就是在国共两党激烈对抗的反“围剿”时期，这种商业意识也可见一斑。红军长征后，1934年11月9日，国民党剿匪东路军第十师进入瑞金县城时的状况如...
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="ft">
+                                            <a href="http://movie.douban.com/people/lzj235711/">数卷残编</a> 评论
+                                            <a href="http://movie.douban.com/subject/24381355/?from=reviews">《十送红军》</a>
+                                            <fox-stars value="10"></fox-stars>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="bd">
+                                            <a href="movie.html?id=7054604">
+                                                <img src="images/p2187231762.jpg">
+                                                <div class="comment">
+                                                    <div class="hd">
+                                                        十送红军
+                                                    </div>
+                                                    <div class="bd">
+苏区研究论文精粹 主编 陈棉水 何友良 等 著 中国社会科学出版社，2012
+129-130页就是在国共两党激烈对抗的反“围剿”时期，这种商业意识也可见一斑。红军长征后，1934年11月9日，国民党剿匪东路军第十师进入瑞金县城时的状况如...
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="ft">
+                                            <a href="http://movie.douban.com/people/lzj235711/">数卷残编</a> 评论
+                                            <a href="http://movie.douban.com/subject/24381355/?from=reviews">《十送红军》</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="bd">
+                                            <a href="movie.html?id=7054604">
+                                                <img src="images/p2187231762.jpg">
+                                                <div class="comment">
+                                                    <div class="hd">
+                                                        十送红军
+                                                    </div>
+                                                    <div class="bd">
+苏区研究论文精粹 主编 陈棉水 何友良 等 著 中国社会科学出版社，2012
+129-130页就是在国共两党激烈对抗的反“围剿”时期，这种商业意识也可见一斑。红军长征后，1934年11月9日，国民党剿匪东路军第十师进入瑞金县城时的状况如...
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="ft">
+                                            <a href="http://movie.douban.com/people/lzj235711/">数卷残编</a> 评论
+                                            <a href="http://movie.douban.com/subject/24381355/?from=reviews">《十送红军》</a>
+                                            <fox-stars value="10"></fox-stars>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="bd">
+                                            <a href="movie.html?id=7054604">
+                                                <img src="images/p2187231762.jpg">
+                                                <div class="comment">
+                                                    <div class="hd">
+                                                        十送红军
+                                                    </div>
+                                                    <div class="bd">
+苏区研究论文精粹 主编 陈棉水 何友良 等 著 中国社会科学出版社，2012
+129-130页就是在国共两党激烈对抗的反“围剿”时期，这种商业意识也可见一斑。红军长征后，1934年11月9日，国民党剿匪东路军第十师进入瑞金县城时的状况如...
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="ft">
+                                            <a href="http://movie.douban.com/people/lzj235711/">数卷残编</a> 评论
+                                            <a href="http://movie.douban.com/subject/24381355/?from=reviews">《十送红军》</a>
+                                            <fox-stars value="10"></fox-stars>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </fox-page-content>
+                </fox-page>
+            </fox-sidemenu-content>
+
+            <fox-sidemenu-menu direction="left">
+
+                <fox-page>
+
+                    <fox-page-content>
+                        <div class="hd">
+                            <img src="http://img3.douban.com/pics/cardkit/logo.png" width="50">
+                        </div>
+                        <div class="bd">
+
+                            <div class="search">
+                                <input placeholder="电影、影人、影院、电视剧">
+                            </div>
+
+                            <div class="menu-list">
+                                <h6>电影</h6>
+
+                                <ul>
+                                    <li>
+                                        <a href="index.html" disable-pjax>电影首页</a>
+                                    </li>
+                                    <li>
+                                        <a href="usrank.html" disable-pjax>北美榜</a>
+                                    </li>
+                                    <li>
+                                        <span>影讯&购票</span>
+                                    </li>
+                                    <li>
+                                        <span>电视剧</span>
+                                    </li>
+                                    <li>
+                                        <span>分类</span>
+                                    </li>
+                                    <li>
+                                        <span>影评</span>
+                                    </li>
+                                    <li>
+                                        <span>预告片</span>
+                                    </li>
+                                    <li>
+                                        <span>问答</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </fox-page-content>
+
+                </fox-page>
+
+            </fox-sidemenu-menu>
+
+        </fox-sidemenu>
+	</body>
+</html>
