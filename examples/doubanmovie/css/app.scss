@@ -11,8 +11,9 @@
 }
 
 @mixin flexcontainer() {
-   display: -webkit-flex;
-   display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
 }
 
 @mixin align-items($position) {
@@ -27,19 +28,29 @@
 
 @mixin flex($flex) {
     -webkit-flex: $flex;
+    -webkit-box-flex: $flex;
     flex: $flex;
+    display: block;
 }
 
 @mixin flex-row {
     @include flexcontainer();
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
     -webkit-flex-direction: row;
     flex-direction: row;
+    -webkit-flex-flow: row;
+    flex-flow:row;
 }
 
 @mixin flex-column {
     @include flexcontainer();
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
     -webkit-flex-direction: column;
     flex-direction: column;
+    -webkit-flex-flow: column;
+    flex-flow:column;
 }
 
 @mixin ellipsis-single{
@@ -201,6 +212,15 @@
             fox-icon {
                 font-weight: normal;
                 font-size: 12px;
+            }
+
+            &:active {
+/*                 text-decoration: underline; */
+                opacity: .7;
+            }
+
+            & > * {
+                display: block;
             }
 
         }

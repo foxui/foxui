@@ -1,5 +1,9 @@
 fox.navigator.defaultTransition = 'hslide';
 
+if (/android/i.test(navigator.userAgent)) {
+    fox.navigator.disabled = true;
+}
+
 rivets.binders.href = function(el, value) {
     el.href = value;
 };

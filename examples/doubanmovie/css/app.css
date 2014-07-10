@@ -103,25 +103,42 @@
       font-weight: bold; }
     .douban .content-section header > a {
       color: #8e8e8e;
+      display: -webkit-box;
       display: -webkit-flex;
       display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
       -webkit-flex-direction: row;
       flex-direction: row;
+      -webkit-flex-flow: row;
+      flex-flow: row;
       -webkit-justify-content: space-between;
       justify-content: space-between; }
       .douban .content-section header > a fox-icon {
         font-weight: normal;
         font-size: 12px; }
+      .douban .content-section header > a:active {
+        /*                 text-decoration: underline; */
+        opacity: .7; }
+      .douban .content-section header > a > * {
+        display: block; }
     .douban .content-section.hot ul {
+      display: -webkit-box;
       display: -webkit-flex;
       display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
       -webkit-flex-direction: row;
       flex-direction: row;
+      -webkit-flex-flow: row;
+      flex-flow: row;
       margin: 0 15px;
       padding: 10px 0; }
     .douban .content-section.hot li {
       -webkit-flex: 1;
+      -webkit-box-flex: 1;
       flex: 1;
+      display: block;
       text-align: center; }
       .douban .content-section.hot li a {
         color: #666;
@@ -141,14 +158,21 @@
       .douban .content-section.comment li:last-child {
         border-bottom: 0; }
     .douban .content-section.comment .bd a {
+      display: -webkit-box;
       display: -webkit-flex;
       display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
       -webkit-flex-direction: row;
       flex-direction: row;
+      -webkit-flex-flow: row;
+      flex-flow: row;
       height: 100px; }
       .douban .content-section.comment .bd a .comment {
         -webkit-flex: 1;
-        flex: 1; }
+        -webkit-box-flex: 1;
+        flex: 1;
+        display: block; }
         .douban .content-section.comment .bd a .comment .hd {
           font-size: 13px;
           color: #252525;
@@ -212,10 +236,15 @@
   .douban .movie .foreshow .unit-wrap {
     padding: 10px 15px; }
     .douban .movie .foreshow .unit-wrap .wrap-inner {
+      display: -webkit-box;
       display: -webkit-flex;
       display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
       -webkit-flex-direction: row;
-      flex-direction: row; }
+      flex-direction: row;
+      -webkit-flex-flow: row;
+      flex-flow: row; }
       .douban .movie .foreshow .unit-wrap .wrap-inner .cover {
         width: 160px;
         height: 90px;
@@ -245,10 +274,15 @@
           -webkit-box-orient: vertical; }
   .douban .movie .imglist .unit-wrap {
     padding: 10px 15px;
+    display: -webkit-box;
     display: -webkit-flex;
     display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
     -webkit-flex-direction: row;
     flex-direction: row;
+    -webkit-flex-flow: row;
+    flex-flow: row;
     -webkit-justify-content: space-between;
     justify-content: space-between; }
     .douban .movie .imglist .unit-wrap a {
@@ -273,10 +307,15 @@
       border-top: 1px solid #ddd;
       padding-top: 10px; }
       .douban .movie .reviews .unit-wrap .ft .author {
+        display: -webkit-box;
         display: -webkit-flex;
         display: flex;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
         -webkit-flex-direction: row;
-        flex-direction: row; }
+        flex-direction: row;
+        -webkit-flex-flow: row;
+        flex-flow: row; }
         .douban .movie .reviews .unit-wrap .ft .author .name {
           line-height: 12px; }
         .douban .movie .reviews .unit-wrap .ft .author .avatar {
@@ -310,16 +349,23 @@
       font-weight: bold;
       margin: 0 10px; }
     .douban .us-rank .unit-wrap .bd a {
+      display: -webkit-box;
       display: -webkit-flex;
       display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
       -webkit-flex-direction: row;
       flex-direction: row;
+      -webkit-flex-flow: row;
+      flex-flow: row;
       border-bottom: 1px solid #ddd;
       padding-bottom: 10px;
       margin-bottom: 10px; }
       .douban .us-rank .unit-wrap .bd a .comment {
         -webkit-flex: 1;
-        flex: 1; }
+        -webkit-box-flex: 1;
+        flex: 1;
+        display: block; }
         .douban .us-rank .unit-wrap .bd a .comment .hd {
           font-size: 13px;
           color: #252525;
