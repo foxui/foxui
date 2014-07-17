@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>精品推荐</title>
+		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
+		<link rel="stylesheet" href="css/style.css"/>
+
+		<script src="js/fastclick.js"></script>
+		<script src="../../components/fox-core/dist/foxui.js"></script>
+		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
+		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
+		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
+		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
+		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
+		<link rel="import" href="../../components/fox-slider/src/fox-slider.html"/>
+		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
+		<script src="js/app.js"></script>
+	</head>
+	<body style="visibility: hidden;">
+		<fox-page class="main-page">
+			<fox-page-content>
+				<div id="map_container" style="height:100%"></div>
+				<div class="search-box">
+					<fox-icon icon="icon-search" class="icon icon-search"></fox-icon>
+					<input class="text" type="text" readonly="readonly" placeholder="搜索"/>
+					<a class="match_parent" href="search.html"></a>
+				</div>
+			</fox-page-content>
+			<script>
+				var map = new BMap.Map("map_container");            // 创建Map实例
+				var point = new BMap.Point(116.404, 39.915);    // 创建点坐标
+				map.centerAndZoom(point,15);                     // 初始化地图,设置中心点坐标和地图级别。
+				map.enableScrollWheelZoom(); 
+			</script>
+		</fox-page>
+
+	</body>
+</html>

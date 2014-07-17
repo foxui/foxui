@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>精品推荐</title>
+		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
+		<link rel="stylesheet" href="css/style.css"/>
+
+		<script src="js/fastclick.js"></script>
+		<script src="../../components/fox-core/dist/foxui.js"></script>
+		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
+		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
+		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
+		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
+		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
+		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
+		<link rel="import" href="../../components/fox-slider/src/fox-slider.html"/>
+		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
+		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
+		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
+		<script src="js/app.js"></script>
+	</head>
+	<body style="visibility: hidden;">
+		<fox-page>
+			<fox-toolbar class="primary" title="列表">
+				<fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
+				<label onclick="history.back();" class="right">地图</label>
+			</fox-toolbar>
+			<fox-page-content>
+				<fox-template>
+					<fox-ajax auto url="data/list.json"></fox-ajax>
+					<div class="list-item" rv-each-item="data">
+						<span class="thumbnail" rv-background-image="item.thumbnail"></span>
+						<div class="main">
+							<p class="title">{item.name}</p>
+							<p>价格:{item.price}</p>
+							<p>通勤时间:{item.time}min</p>
+							<p>距离地铁:{item.loc}m</p>
+						</div>
+						<a class="match_parent" href="detail.html"></a>
+					</div>
+				</fox-template>
+			</fox-page-content>
+		</fox-page>
+
+	</body>
+</html>
