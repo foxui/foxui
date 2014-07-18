@@ -12,6 +12,7 @@
 		<script src="js/fastclick.js"></script>
 		<script src="../../components/fox-core/dist/foxui.js"></script>
 		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
+		<link rel="import" href="../../components/fox-dialog/dist/fox-dialog.html"/>
 		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
 		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
 		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
@@ -21,11 +22,14 @@
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
+
 		<fox-page class="search-page" transition="vslide">
 			<fox-page-content>
+
 				<div class="search-box2">
 					<fox-icon icon="icon-left-nav" onclick="history.back();"></fox-icon>
 
@@ -37,6 +41,11 @@
 				</div>
 				<div class="search-list">
 					<ul id="search-list">
+
+						<li id="loc-text" state="false">
+							正在定位中...
+						</li>
+
 						<fox-template id="list-template" style="visibility: visible;">
 							<li rv-each-item="data" rv-lng="data.lng" rv-lat="data.lat">
 								{item.text}
@@ -50,39 +59,71 @@
 
 		<script>
 			(function() {
+				var myGeo = new BMap.Geocoder();
 
-				function search(){
-					fox.navigator.navigate("map_result.html","map_result.html","fade","vslide");
+				function search() {
+					fox.navigator.navigate("map_result.html", "map_result.html", "fade", "vslide");
 					// history.pushState({},"map_result","map_result.html");
 					// location.href="map_result.html";
 				}
 
 				var sh = JSON.parse(localStorage.getItem("search_history") || "[]");
-				
+
 				var listTmpl = $("#list-template").get(0);
+
+				var locText = $("#loc-text");
+
+				locText.bind("click", function() {
+					var self = this;
+					var state = $(this).attr("state");
+					if (state == "false") {
+						$(this).attr("state","loading");
+						$(this).text("正在定位中....");
+						var geolocation = new BMap.Geolocation();
+						geolocation.getCurrentPosition(function(r) {
+							if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+								myGeo.getLocation(r.point, function(rs) {
+									var point = rs.point;
+									$(self).attr("lng", point.lng).attr("lat", point.lat).text(rs.address + "(当前位置)");
+									
+								});
+							} else {
+								$(self).attr("state", "false").text("定位失败,点击重试");
+							}
+						});
+
+					} else if(state=="true"){
+						alert($(this).val());
+					}
+
+				}).click();
+
 				listTmpl.data = sh;
-				$("#search-form").bind("submit",function(){
+				$("#search-form").bind("submit", function() {
 					var val = $("#search_text").val();
-					geoAPI.addressToGeo(val,function(res){
-						if(res.status == "OK"){
+					myGeo.getPoint(val, function(point) {
+						if (point) {
 							sh.push({
-								"text":val,
-								"lng":res.lng,
-								"lat":res.lat
+								"text" : val,
+								"lng" : point.lng,
+								"lat" : point.lat
 							});
-							localStorage.setItem("search_history",JSON.stringify(sh));
+							localStorage.setItem("search_history", JSON.stringify(sh));
 							listTmpl.data = sh;
 							search();
-						}else{
-							
+						} else {
+							fox.ui.alert("提示", "未能找到目标地址");
 						}
 					});
-					
+
 					return false;
 				});
-				
+
 				$("#search-list").delegate("li", "click", function() {
-					search();
+					if($(this).attr("lng")){
+						search();	
+					}
+					
 				});
 
 			})();

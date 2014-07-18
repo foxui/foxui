@@ -43,6 +43,9 @@
 						<div rv-if="data" style="padding:5px 10px;">
 							<div class="row1">
 								{data.name}
+								<fox-icon icon="icon-location">
+									<a class="match_parent" transition="vslide" href="panorama.html"></a>
+								</fox-icon>
 							</div>
 							<div class="row2">
 								<span>价格:{data.price}</span>
@@ -50,7 +53,7 @@
 								<span>通勤时间:{data.time}min</span>
 							</div>
 							<fox-icon icon="icon-bars">
-								<a class="match_parent" href="detail.html"></a>
+								<a class="match_parent" transition="hslide" href="detail.html"></a>
 							</fox-icon>
 						</div>
 						
