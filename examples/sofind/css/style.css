@@ -1,0 +1,187 @@
+body {
+	line-height: 1.4em;
+}
+.match_parent{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+}
+
+.zoom-btn-container{
+	display:none;
+}
+.main-page lbs-map{
+	-webkit-box-flex: 1;
+}
+.main-page fox-page-content{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+}
+.main-page .search-box{
+	position: absolute;
+	left:10px;
+	top:10px;
+	right:10px;
+	height:35px;
+	background: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	display:-webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+}
+.main-page .icon-search{
+	margin: 0 5px;
+}
+.main-page .text{
+	-webkit-box-flex: 1;
+	display: block;
+	border:none;
+	
+}
+.search-page .search-list{
+	-webkit-box-flex: 1;
+	background:#fff;
+	padding:0 15px;
+}
+.search-box2{
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	display:-webkit-box;
+	background: rgba(255,255,255,0.8);
+	
+}
+.search-box2 .icon-left-nav{
+	color: rgb(27,124,250);
+	padding:5px;
+}
+.search-box2 .main{
+	-webkit-box-flex: 1;
+	display: block;
+	background: rgba(255,255,255,0.8);
+	padding:5px;
+	display:-webkit-box;
+	margin:5px 5px 5px 0;
+}
+.search-box2 .icon-list{
+	font-size: 25px;
+	color: rgb(27,124,250);
+}
+.search-box2 .text{
+	border: none;
+	-webkit-box-flex: 1;
+	display: block;
+	outline:none;
+}
+.search-list ul{
+	margin:0;
+	padding:0;
+}
+.search-list li{
+	list-style: none;
+	color:rgb(255,102,102);
+	height:40px;
+	line-height: 40px;
+	border-bottom:1px solid  rgb(247,247,247);
+}
+.search-list .clear{
+	color: rgb(27,124,250);
+	text-align:center;
+	padding:10px;
+	display:block;
+}
+.BMap_cpyCtrl{
+	display: none;
+}
+.map-maker{
+	background: rgba(13,132,255,0.8);
+	width: 20px;
+	height:30px;
+	border-radius:15px;
+	text-align:center;
+	line-height:30px;
+	color:#fff;
+}
+.map-popup{
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	background: rgba(255,255,255,0.7);
+	font-size:12px;
+	
+}
+.map-popup .row1{
+	color:#333;
+	font-size:14px;
+}
+.map-popup .row2{
+	color:#F03F1D;
+}
+.map-popup .icon-bars{
+	position:absolute;
+	right:5px;
+	top:5px;
+	color: rgb(27,124,250);
+	font-size:28px;
+}
+fox-toolbar .right{
+	color: rgb(27,124,250);
+}
+.list-item{
+	display:-webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	-webkit-box-orient: horizontal;
+	padding:5px;
+	background:#fff;
+	border-bottom: 1px solid #E4E4E4;
+	position:relative;
+}
+.list-item p{
+	margin:0;
+}
+.list-item .thumbnail{
+	display:block;
+	width:120px;
+	height:80px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	margin-right:10px;
+}
+.list-item .main{
+	font-size:12px;
+	-webkit-box-flex: 1;
+}
+.list-item .title{
+	color: rgb(27,124,250);
+	font-size:14px;
+	font-weight:bold;
+}
+.pdetail{
+	padding:10px;
+}
+.pdetail .main{
+	margin-top:10px;
+}
+.pdetail .img{
+	height:180px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.pdetail p{
+	margin:0;
+	display:-webkit-box;
+	color: #333;
+}
+.pdetail p span{
+	-webkit-box-flex: 1;
+	display:block;
+	width:0px;
+}
