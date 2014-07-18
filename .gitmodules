@@ -95,3 +95,11 @@
 	path = components/fox-image-lazyload
 	url = https://github.com/foxui/fox-image-lazyload.git
 	branch = master
+
+[submodule "fox-css"]
+	path = components/fox-css
+	url = https://github.com/foxui/fox-css.git
+	branch = master
+[submodule "components/fox-css"]
+	path = components/fox-css
+	url = https://github.com/foxui/fox-css
