@@ -24,7 +24,7 @@
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
-		<fox-page>
+		<fox-page transition="hslide">
 			<fox-toolbar class="primary" title="列表">
 				<fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
 				<label onclick="history.back();" class="right">地图</label>
@@ -40,7 +40,7 @@
 							<p>通勤时间:{item.time}min</p>
 							<p>距离地铁:{item.loc}m</p>
 						</div>
-						<a class="match_parent" href="detail.html"></a>
+						<a transition="hslide" class="match_parent" href="detail.html"></a>
 					</div>
 				</fox-template>
 			</fox-page-content>

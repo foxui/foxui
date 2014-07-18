@@ -24,34 +24,70 @@
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
-		<fox-page class="search-page">
+		<fox-page class="search-page" transition="vslide">
 			<fox-page-content>
 				<div class="search-box2">
 					<fox-icon icon="icon-left-nav" onclick="history.back();"></fox-icon>
-					<div class="main">
+
+					<form id="search-form" class="main">
 						<fox-icon icon="icon-search" ></fox-icon>
-						<input type="text" class="text"/>
-					</div>
+						<input id="search_text" type="search" class="text"/>
+					</form>
+
 				</div>
 				<div class="search-list">
-					<ul>
-						<li>
-							西二旗
-						</li>
-						<li>
-							西二旗
-						</li>
-						<li>
-							西二旗
-						</li>
-						<li>
-							西二旗
-						</li>
+					<ul id="search-list">
+						<fox-template id="list-template" style="visibility: visible;">
+							<li rv-each-item="data" rv-lng="data.lng" rv-lat="data.lat">
+								{item.text}
+							</li>
+						</fox-template>
 					</ul>
-					<a class="clear" href="map_result.html">清除历史记录</a>
+					<a class="clear" >清除历史记录</a>
 				</div>
 			</fox-page-content>
 		</fox-page>
+
+		<script>
+			(function() {
+
+				function search(){
+					fox.navigator.navigate("map_result.html","map_result.html","fade","vslide");
+					// history.pushState({},"map_result","map_result.html");
+					// location.href="map_result.html";
+				}
+
+				var sh = JSON.parse(localStorage.getItem("search_history") || "[]");
+				
+				var listTmpl = $("#list-template").get(0);
+				listTmpl.data = sh;
+				$("#search-form").bind("submit",function(){
+					var val = $("#search_text").val();
+					geoAPI.addressToGeo(val,function(res){
+						if(res.status == "OK"){
+							sh.push({
+								"text":val,
+								"lng":res.lng,
+								"lat":res.lat
+							});
+							localStorage.setItem("search_history",JSON.stringify(sh));
+							listTmpl.data = sh;
+							search();
+						}else{
+							
+						}
+					});
+					
+					return false;
+				});
+				
+				$("#search-list").delegate("li", "click", function() {
+					search();
+				});
+
+			})();
+
+		</script>
 
 	</body>
 </html>

@@ -25,7 +25,7 @@
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
-		<fox-page>
+		<fox-page transition="fade">
 			<fox-page-content style="position:absolute;left:0;right:0;top:0;bottom:0">
 				<div id="map_container1" style="height:100%"></div>
 				<div class="search-box2" style="position: absolute;top: 0;width:100%;">
@@ -35,22 +35,25 @@
 						<input type="text" value="百度大厦" class="text"/>
 					</div>
 					<fox-icon icon="icon-list" style="position:relative;">
-						<a class="match_parent" href="list.html"></a>
+						<a class="match_parent" transition="hslide" href="list.html"></a>
 					</fox-icon>
 				</div>
 				<div class="map-popup">
 					<fox-template id="tmpl-detail" style="visibility: visible;">
-						<div class="row1">
-							{data.name}
+						<div rv-if="data" style="padding:5px 10px;">
+							<div class="row1">
+								{data.name}
+							</div>
+							<div class="row2">
+								<span>价格:{data.price}</span>
+								<span>距离地铁:{data.loc}m</span>
+								<span>通勤时间:{data.time}min</span>
+							</div>
+							<fox-icon icon="icon-bars">
+								<a class="match_parent" href="detail.html"></a>
+							</fox-icon>
 						</div>
-						<div class="row2">
-							<span>价格:{data.price}</span>
-							<span>距离地铁:{data.loc}m</span>
-							<span>通勤时间:{data.time}min</span>
-						</div>
-						<fox-icon icon="icon-bars">
-							<a class="match_parent" href="detail.html"></a>
-						</fox-icon>
+						
 					</fox-template>
 				</div>
 			</fox-page-content>
