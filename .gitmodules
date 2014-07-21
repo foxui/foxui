@@ -100,3 +100,8 @@
 	path = components/fox-css
 	url = https://github.com/foxui/fox-css.git
 	branch = master
+	
+[submodule "components/fox-listview"]
+	path = components/fox-listview
+	url = https://github.com/foxui/fox-listview.git
+	branch = master
