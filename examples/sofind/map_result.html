@@ -22,29 +22,31 @@
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
-		<fox-page transition="fade">
+		<fox-page transition="hslide">
 			<fox-page-content style="position:absolute;left:0;right:0;top:0;bottom:0">
 				<div id="map_container1" style="height:100%"></div>
 				<div class="search-box2" style="position: absolute;top: 0;width:100%;">
 					<fox-icon icon="icon-left-nav" onclick="history.back();"></fox-icon>
 					<div class="main">
 						<fox-icon icon="icon-search" ></fox-icon>
-						<input type="text" value="百度大厦" class="text"/>
+						<input type="text" id="result_text" value="" class="text"/>
+						<span class="match_parent" onclick="history.back()"></span>
 					</div>
 					<fox-icon icon="icon-list" style="position:relative;">
-						<a class="match_parent" transition="hslide" href="list.html"></a>
+						<a class="match_parent" id="list-btn" transition="hslide"></a>
 					</fox-icon>
 				</div>
 				<div class="map-popup">
 					<fox-template id="tmpl-detail" style="visibility: visible;">
-						<div rv-if="data" style="padding:5px 10px;">
+						<div style="padding:5px 10px;">
 							<div class="row1">
 								{data.name}
 								<fox-icon icon="icon-location">
-									<a class="match_parent" transition="vslide" href="panorama.html"></a>
+									<a class="match_parent" transition="vslide" rv-href="data.panorama"></a>
 								</fox-icon>
 							</div>
 							<div class="row2">
@@ -56,67 +58,74 @@
 								<a class="match_parent" transition="hslide" href="detail.html"></a>
 							</fox-icon>
 						</div>
-						
+
 					</fox-template>
 				</div>
 			</fox-page-content>
 		</fox-page>
 		<script>
 			(function() {
-				var tmplDetail = $("#tmpl-detail").get(0);
-				var datas = [{
-					position : [116.404, 39.915],
-					name : "龙腾苑三区",
-					price : 4500,
-					loc : 705,
-					time : 30,
-					thumnail : "https://raw.githubusercontent.com/zimengle/Static/master/Images/0.jpg"
-				},{
-					position : [116.404, 39.905],
-					name : "龙腾苑二区",
-					price : 3500,
-					loc : 505,
-					time : 20,
-					thumnail : "https://raw.githubusercontent.com/zimengle/Static/master/Images/0.jpg"
-				}];
-				function addMarker(index,  obj) {
-					var myLabel = new BMap.Label("", {
-						position : new BMap.Point(obj.position[0], obj.position[1]),
-						offset : new BMap.Size(-0, -0),
-					});
-					myLabel.setContent("<div class='map-maker'>" + index + "</div>");
-					myLabel.setStyle({
-						"background" : "none",
-						"border" : "none"
-					});
-					map1.addOverlay(myLabel);
-					myLabel.addEventListener("click", function() {
-						tmplDetail.data = obj;
-						map1.panTo(new BMap.Point(obj.position[0], obj.position[1]))
-					});
-					if(index == 0){
-						$(myLabel).click();
-					}
-				}
 
-				var map1 = new BMap.Map("map_container1");
-				// 创建Map实例
-				var point1 = new BMap.Point(116.404, 39.915);
-				// 创建点坐标
-				map1.centerAndZoom(point1, 15);
-				// 初始化地图,设置中心点坐标和地图级别。
-				map1.enableScrollWheelZoom();
-				
-				
+				var params = Utils.getURLParams();
 
-				var marker1 = new BMap.Marker(new BMap.Point(116.384, 39.925));
-				map1.addOverlay(marker1);
-				
-				datas.forEach(function(obj,index){
-					addMarker(index+1, obj);
+				$("#result_text").val(decodeURIComponent(params.title));
+
+				window.mapPage = (function() {
+					
+					var listBtn = $("#list-btn");
+					var $detailTeml = $("#tmpl-detail");
+					var detailTeml = $detailTeml.get(0);
+
+					var map1 = new BMap.Map("map_container1");
+					// 创建Map实例
+					var point1 = new BMap.Point(116.319511, 40.062419);
+					// 创建点坐标
+					map1.centerAndZoom(point1, 13);
+					// 初始化地图,设置中心点坐标和地图级别。
+					map1.enableScrollWheelZoom();
+					return {
+						drawPage : function(mapdata, page) {
+							$detailTeml.hide();
+							listBtn.attr("href","list.html?lng="+params.lng+"&lat="+params.lat+"&page="+page);
+							map1.clearOverlays();
+							mapdata.getPointList().forEach(function(obj) {
+								var marker = new BMap.Marker(obj.point);
+								marker.addEventListener("click", function() {
+									$detailTeml.show();
+									
+									detailTeml.data = obj.data;
+									map1.panTo(obj.point);
+								});
+								map1.addOverlay(marker);
+							});
+
+							var heatmapOverlay = new BMapLib.HeatmapOverlay({
+								"radius" : 20,
+								"opacity" : 60
+							});
+
+							map1.addOverlay(heatmapOverlay);
+							heatmapOverlay.setDataSet({
+								data : mapdata.getHeatList(),
+								max : 100
+							});
+
+							mapdata.getGeoList().forEach(function(arr) {
+								var polygon = new BMap.Polygon(arr, {
+									strokeColor : "blue",
+									strokeWeight : 1,
+									strokeOpacity : 0.2
+								});
+								map1.addOverlay(polygon);
+							});
+
+						}
+					};
+				})();
+				Utils.getMapData(11,11,0,function(mapdata) {
+					mapPage.drawPage(mapdata,0);
 				});
 
-				
 			})();
 
 		</script>

@@ -12,6 +12,7 @@
 		<script src="js/fastclick.js"></script>
 		<script src="../../components/fox-core/dist/foxui.js"></script>
 		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
+		<link rel="import" href="../../components/fox-dialog/dist/fox-dialog.html"/>
 		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
 		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
 		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
@@ -22,7 +23,9 @@
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
 		<script src="js/app.js"></script>
+		
 	</head>
 	<body style="visibility: hidden;">
 		<fox-page class="main-page" transition="vslide">
@@ -35,20 +38,23 @@
 				</div>
 			</fox-page-content>
 			<script>
-				var map = new BMap.Map("map_container");
-				var point = new BMap.Point(116.404, 39.915);
-				map.centerAndZoom(point, 15);
-				map.enableScrollWheelZoom();
-				if (navigator.geolocation) {
-					
-					navigator.geolocation.getCurrentPosition(function(geo){
-						var coords = geo.coords;
-						var point = new BMap.Point(coords.longitude, coords.latitude);
-						map.panTo(point);
-						var marker1 = new BMap.Marker(point);
-						map.addOverlay(marker1);
-					});
-				}
+				(function(){
+					var map = new BMap.Map("map_container");
+					var point = new BMap.Point(116.404, 39.915);
+					map.centerAndZoom(point, 15);
+					map.enableScrollWheelZoom();
+					if (navigator.geolocation) {
+						
+						navigator.geolocation.getCurrentPosition(function(geo){
+							var coords = geo.coords;
+							var point = new BMap.Point(coords.longitude, coords.latitude);
+							map.panTo(point);
+							var marker1 = new BMap.Marker(point);
+							map.addOverlay(marker1);
+						});
+					}
+				})();
+				
 			</script>
 		</fox-page>
 

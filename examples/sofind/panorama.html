@@ -26,7 +26,7 @@
 	</head>
 	<body style="visibility: hidden;">
 		<fox-page transition="fade">
-			<fox-toolbar class="primary" title="铭科苑">
+			<fox-toolbar class="primary" title="全景图">
 				<fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
 			</fox-toolbar>
 			<fox-page-content style="display:-webkit-box;">
@@ -38,7 +38,8 @@
 				setTimeout(function() {
 
 					var panorama = new BMap.Panorama('panorama');
-					panorama.setPosition(new BMap.Point(120.320032, 31.589666));
+					var params = Utils.getURLParams();
+					panorama.setPosition(new BMap.Point(params['lng'], params['lat']));
 					//根据经纬度坐标展示全景图
 					panorama.setPov({
 						heading : -40,
