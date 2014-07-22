@@ -40,6 +40,7 @@
 
 				</div>
 				<div class="search-list">
+					<a href="map_result.html?title=百度大厦&lng=116.404&lat=39.915">result.html</a>
 					<ul id="search-list">
 
 						<li id="loc-text" state="false">
@@ -47,18 +48,47 @@
 						</li>
 
 						<fox-template id="list-template" style="visibility: visible;">
-							<li rv-each-item="data" rv-lng="data.lng" rv-lat="data.lat">
+							<li rv-each-item="data" rv-lng="item.lng" rv-lat="item.lat">
 								{item.text}
 							</li>
 						</fox-template>
 					</ul>
-					<a class="clear" >清除历史记录</a>
+					<a class="clear" id="clear_btn">清除历史记录</a>
 				</div>
 			</fox-page-content>
 		</fox-page>
 
 		<script>
 			(function() {
+				
+				var store = (function(){
+					
+					var sh;
+					
+					$("#clear_btn").bind("click",function(){
+						localStorage.removeItem("search_history");
+						store.init();
+					});
+					
+					var listTmpl = $("#list-template").get(0);
+					
+					return {
+						init:function(){
+							sh = JSON.parse(localStorage.getItem("search_history") || "[]");
+							listTmpl.data = sh;
+						}
+					};
+				})();
+				
+				
+				
+				
+				store.init();
+				
+				
+				
+				
+				
 				var myGeo = new BMap.Geocoder();
 
 				function search() {
@@ -67,9 +97,9 @@
 					// location.href="map_result.html";
 				}
 
-				var sh = JSON.parse(localStorage.getItem("search_history") || "[]");
+				
 
-				var listTmpl = $("#list-template").get(0);
+				
 
 				var locText = $("#loc-text");
 
@@ -98,7 +128,7 @@
 
 				}).click();
 
-				listTmpl.data = sh;
+				
 				$("#search-form").bind("submit", function() {
 					var val = $("#search_text").val();
 					myGeo.getPoint(val, function(point) {

@@ -21,6 +21,7 @@
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
@@ -29,22 +30,104 @@
 				<fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
 				<label onclick="history.back();" class="right">地图</label>
 			</fox-toolbar>
-			<fox-page-content>
-				<fox-template>
-					<fox-ajax auto url="data/list.json"></fox-ajax>
+			<fox-page-content id="list-content">
+				<div class="list-page" id="list-prev">上一页</div>
+				<fox-template id="list-tmpl" style="visibility: visible;">
+					
 					<div class="list-item" rv-each-item="data">
 						<span class="thumbnail" rv-background-image="item.thumbnail"></span>
 						<div class="main">
-							<p class="title">{item.name}</p>
-							<p>价格:{item.price}</p>
-							<p>通勤时间:{item.time}min</p>
-							<p>距离地铁:{item.loc}m</p>
+							<p class="title">
+								{item.name}
+							</p>
+							<p>
+								价格:{item.price}
+							</p>
+							<p>
+								通勤时间:{item.time}min
+							</p>
+							<p>
+								距离地铁:{item.loc}m
+							</p>
 						</div>
 						<a transition="hslide" class="match_parent" href="detail.html"></a>
 					</div>
+					
 				</fox-template>
+				<div class="list-page" id="list-next">下一页</div>
 			</fox-page-content>
 		</fox-page>
+		<script>
+			(function() {
+				var $prev = $("#list-prev"),
+					$next = $("#list-next"),
+					$content = $("#list-content");
+				var tmpl = $("#list-tmpl").get(0);
+				var params = Utils.getURLParams();
+				var ListRequest = (function(){
+					
+					var page = 1;
+					
+					
+					
+					function doRequest(){
+						if(page < 0){
+							page = 0;
+						}
+						if(page == 0){
+							$prev.hide();
+						}else{
+							$prev.show();
+						}
+						Utils.getMapData(params['lng'], params['lat'], page, function(mapdata) {
+							var res = mapdata.getDetailList();
+							tmpl.data = res.list;
+						
+							doPager(res.count,res);
+							$content.scrollTop(0);
+							window.mapPage&&mapPage.drawPage(mapdata,page);
+						});
+						
+					}
+					
+					function doPager(count){
+						var totalpage = (count+(20-1))/20;
+						
+						if(page < totalpage-1){
+							$next.show();
+						}else{
+							$next.hide();
+						}
+					}
+					
+					return {
+						prev:function(){
+							page--;
+							doRequest();
+						},
+						next:function(){
+							page++;
+							doRequest();
+						},
+						init:function(_page){
+							page = _page;
+							doRequest();
+						}
+					};
+					
+				})();
+				
+				$prev.bind("click",function(){
+					ListRequest.prev();
+				});
+				
+				$next.bind("click",function(){
+					ListRequest.next();
+				});
 
+				ListRequest.init(parseInt(params['page']));
+
+			})();
+		</script>
 	</body>
 </html>

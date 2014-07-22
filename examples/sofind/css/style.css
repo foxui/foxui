@@ -64,6 +64,7 @@ body {
 	padding: 5px;
 	display: -webkit-box;
 	margin: 5px 5px 5px 0;
+	position: relative;
 }
 .search-box2 .icon-list {
 	font-size: 25px;
@@ -180,15 +181,15 @@ fox-toolbar .right {
 	background-size: cover;
 	background-position: center center;
 }
-.pdetail p {
+.pdetail .detail p {
 	margin: 0;
 	display: -webkit-box;
 	color: #333;
 }
-.pdetail p span {
-	-webkit-box-flex: 1;
-	display: block;
-	width: 0px;
+.pdetail .detail label{
+	width:5em;
+	text-align:right;
+	display:inline-block;
 }
 .iw_rt {
 	display: none;
@@ -216,4 +217,14 @@ fox-toolbar .right {
 .iframe_back fox-icon{
 	color: rgb(27,124,250);
 	font-size: 18px;
+}
+img[src='http://api0.map.bdimg.com/images/copyright_logo.png']{
+	display:none;
+}
+.list-page{
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-size: 14px;
+	background:#F8F8F8;
 }
