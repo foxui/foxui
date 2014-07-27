@@ -24,18 +24,19 @@ $(function() {
                     isWrite = false;
                     /*提交数据*/
                     var text = $('.write-text').val();
-                    json_data.id = Math.random();
+                    var wl_id = Math.random();
                     json_data.text = text;
                     json_data.star = false;
-                    storage.setItem('json_data', JSON.stringify(json_data));
+                    storage.setItem('wl_id', JSON.stringify(json_data));
                     var temp = '<li>' +
                         '<a href="" class="swipe-left">' +
-                        '<div class="item-body"></div>' +
+                        '<div class="item-body">'+ text +'</div>' +
                         '</a>' +
                         '<div class="item-menu">' +
-                        '<span>标记</span><span class="b-red">删除</span>' +
+                        '<span class="star">标记</span><span class="delete b-red">删除</span>' +
                         '</div></li>';
-                    $("ul.todo-list").prepend(temp);
+                    $('ul.wl-list').prepend(temp);
+                    $('.write-text').val('');
 
                 });
             }
@@ -73,7 +74,7 @@ $(function() {
 
     down_writeBox();
 
-    /*delete or star*/
+    /*delete & star*/
     menuAction('delete',function() {
         alert("delete")
     });

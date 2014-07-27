@@ -1,7 +1,7 @@
 .hide {
   display: none; }
 
-.todo .write-box {
+.wl .write-box {
   width: 100%;
   height: 140px;
   background: #fff;
@@ -10,7 +10,7 @@
   top: -150px;
   z-index: 11;
   border-bottom: 1px solid #ddd; }
-  .todo .write-box .write-text {
+  .wl .write-box .write-text {
     outline: none;
     position: relative;
     width: 90%;
@@ -21,5 +21,5 @@
     padding: 5px;
     border-radius: 5px;
     -webkit-border-radius: 5px; }
-.todo .todo-list {
+.wl .wl-list {
   margin-top: 10px; }
