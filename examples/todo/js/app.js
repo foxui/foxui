@@ -36,6 +36,7 @@ $(function() {
                         '<span>标记</span><span class="b-red">删除</span>' +
                         '</div></li>';
                     $("ul.todo-list").prepend(temp);
+
                 });
             }
 
@@ -72,6 +73,13 @@ $(function() {
 
     down_writeBox();
 
+    /*delete or star*/
+    menuAction('delete',function() {
+        alert("delete")
+    });
+    menuAction('star',function() {
+        alert("star")
+    });
 
 
 });

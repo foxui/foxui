@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="css/style.css"/>
     <script src="js/zepto.min.js"></script>
     <script src="../../components/fox-core/dist/foxui.js"></script>
-    <script src="js/fastclick.js"></script>
-    <script src="js/app.js"></script>
     <!-- 2. Load the component using an HTML Import -->
     <link rel="import" href="../../components/fox-sidemenu/dist/fox-sidemenu.html">
     <link rel="import" href="../../components/fox-page/dist/fox-page.html">
@@ -21,6 +19,8 @@
     <link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html">
     <link rel="import" href="../../components/fox-icon/dist/fox-icon.html">
     <link rel="import" href="../../components/fox-listview/dist/fox-listview.html">
+    <!--将app.js放到最后，以便调用以上html中js的方法-->
+    <script src="js/app.js"></script>
 </head>
 <body class="todo">
 
@@ -30,26 +30,15 @@
     <fox-page-content class="fox-theme-ios">
         <fox-listview>
             <ul class="todo-list">
-                <li class="hide">
+                <li class="">
                     <a href="" class="swipe-left">
                         <div class="item-body">
                             下午2:30开会
                         </div>
                     </a>
                     <div class="item-menu">
-                        <span>标记</span>
-                        <span class="b-red">删除</span>
-                    </div>
-                </li>
-                <li>
-                    <a href="" class="swipe-left">
-                        <div class="item-body">
-                            下午2:30开会
-                        </div>
-                    </a>
-                    <div class="item-menu">
-                        <span>标记</span>
-                        <span class="b-red">删除</span>
+                        <span class="star">标记</span>
+                        <span class="b-red delete">删除</span>
                     </div>
                 </li>
             </ul>
