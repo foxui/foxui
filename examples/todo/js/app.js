@@ -1,5 +1,7 @@
 fox.navigator.defaultTransition = 'hslide';
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);/*防止ios页面滚动*/
+document.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+}, false);/*防止ios页面滚动*/
 
 window.addEventListener('HTMLImportsLoaded', function(e) {
     document.body.removeAttribute('unresolved');
@@ -7,6 +9,12 @@ window.addEventListener('HTMLImportsLoaded', function(e) {
 
 $(function() {
     var isWrite = false;
+    var storage = window.localStorage;
+    var json_data = {
+        id : null,
+        star : true,
+        text : null
+    }
     var down_submit = function() {
         $('body').swipeDown(function() {
             if(isWrite) {
@@ -14,6 +22,20 @@ $(function() {
                     $(this).css({'top' : '-150px'});
                     down_writeBox();
                     isWrite = false;
+                    /*提交数据*/
+                    var text = $('.write-text').val();
+                    json_data.id = Math.random();
+                    json_data.text = text;
+                    json_data.star = false;
+                    storage.setItem('json_data', JSON.stringify(json_data));
+                    var temp = '<li>' +
+                        '<a href="" class="swipe-left">' +
+                        '<div class="item-body"></div>' +
+                        '</a>' +
+                        '<div class="item-menu">' +
+                        '<span>标记</span><span class="b-red">删除</span>' +
+                        '</div></li>';
+                    $("ul.todo-list").prepend(temp);
                 });
             }
 

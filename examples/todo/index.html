@@ -20,41 +20,42 @@
     <link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html">
     <link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html">
     <link rel="import" href="../../components/fox-icon/dist/fox-icon.html">
+    <link rel="import" href="../../components/fox-listview/dist/fox-listview.html">
 </head>
 <body class="todo">
 
-<fox-sidemenu sidemenuWidth="75%">
-
-    <fox-sidemenu-content>
-        <div class="fox-sidemenu-content-wrap">
-            <fox-page>
-                <fox-toolbar title="Todo">
-                    <fox-icon icon="icon-bars" class="left" onclick="document.querySelector('fox-sidemenu').toggle('left');"></fox-icon>
-                </fox-toolbar>
-                <fox-page-content class="fox-theme-ios">
-                    <ul>
-                        <li>
-                            <a href="" class="swipe-left">
-                                <div class="item-body">
-                                    show time
-                                </div>
-                            </a>
-                            <div class="item-menu">
-                                <span class="b-red">删除</span>
-                            </div>
-                        </li>
-                    </ul>
-                </fox-page-content>
-            </fox-page>
-        </div>
-    </fox-sidemenu-content>
-
-    <fox-sidemenu-menu direction="left">
-        <div style="position: absolute;left:0;right:0;top:0;bottom:0;background: #f9f9f9;">
-        </div>
-    </fox-sidemenu-menu>
-
-</fox-sidemenu>
+<fox-page>
+    <fox-toolbar title="Todo">
+    </fox-toolbar>
+    <fox-page-content class="fox-theme-ios">
+        <fox-listview>
+            <ul class="todo-list">
+                <li class="hide">
+                    <a href="" class="swipe-left">
+                        <div class="item-body">
+                            下午2:30开会
+                        </div>
+                    </a>
+                    <div class="item-menu">
+                        <span>标记</span>
+                        <span class="b-red">删除</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="" class="swipe-left">
+                        <div class="item-body">
+                            下午2:30开会
+                        </div>
+                    </a>
+                    <div class="item-menu">
+                        <span>标记</span>
+                        <span class="b-red">删除</span>
+                    </div>
+                </li>
+            </ul>
+        </fox-listview>
+    </fox-page-content>
+</fox-page>
 
 <div class="write-box">
     <textarea name="write-text" class="write-text" placeholder="记下今天的工作任务..."></textarea>

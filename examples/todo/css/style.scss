@@ -25,6 +25,9 @@ $main-color: #096;
   -webkit-flex-flow: column;
   flex-flow:column;
 }
+.hide {
+  display: none;
+}
 .todo {
   .write-box{
     width: 100%;
@@ -46,5 +49,8 @@ $main-color: #096;
       padding: 5px;
       @include border-radius(5px);
     }
+  }
+  .todo-list{
+    margin-top: 10px;
   }
 }
