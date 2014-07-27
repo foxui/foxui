@@ -52,5 +52,12 @@ $main-color: #096;
   }
   .wl-list{
     margin-top: 10px;
+    li{
+      .item-body {
+        overflow:hidden;
+        text-overflow: ellipsis;
+        white-space:nowrap;
+      }
+    }
   }
 }

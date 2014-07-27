@@ -39,7 +39,7 @@ $(function() {
         }
 
     }
-    $("ul.wl-list").prepend(list).fadeIn();
+    $("ul.wl-list").html(list).fadeIn();
 
     var isWrite = false;
 
@@ -58,10 +58,11 @@ $(function() {
                     storage.setItem(wl_id, JSON.stringify(json_data));
                     var temp = '<li>' +
                         '<a href="" class="swipe-left">' +
-                        '<div class="item-body">'+ text +'</div>' +
+                        '<div class="item-body">'+ text +'</div><div class="item-tail hide">' +
+                        '<span class="item-icon icon-star"></span></div>' +
                         '</a>' +
-                        '<div class="item-menu">' +
-                        '<span class="star">标记</span><span class="delete b-red">删除</span>' +
+                        '<div class="item-menu" data-id="'+ wl_id +'">' +
+                        '<span class="star">标星</span><span class="delete b-red">删除</span>' +
                         '</div></li>';
                     $('ul.wl-list').prepend(temp);
                     $('.write-text').val('');
@@ -103,6 +104,24 @@ $(function() {
     down_writeBox();
 
     /*delete & star*/
+    /*item-menu action 接口*/
+    menuAction = function(actionClassName, cb) {
+        $('ul').tap(function(e) {
+            var classNameArr = e.target.className.split(' ');
+            var that = e.target;
+            var L = classNameArr.length;
+            for(var i = 0; i < L; i++) {
+                if(classNameArr[i] == actionClassName) {
+                    cb(that);  /*把被点击的按钮传过去*/
+                }
+            }
+        });
+    } /*调用 menuAction(className[string], callback);
+     menuAction('delete',function() {
+     alert("after tap the delete button")
+     });
+     */
+
     menuAction('delete',function(that) {
         var id = that.parentNode.getAttribute("data-id");
         storage.removeItem(id);

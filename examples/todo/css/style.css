@@ -23,3 +23,7 @@
     -webkit-border-radius: 5px; }
 .wl .wl-list {
   margin-top: 10px; }
+  .wl .wl-list li .item-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
