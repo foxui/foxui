@@ -8,13 +8,41 @@ window.addEventListener('HTMLImportsLoaded', function(e) {
 });
 
 $(function() {
-    var isWrite = false;
     var storage = window.localStorage;
     var json_data = {
-        id : null,
         star : true,
         text : null
     }
+
+    var storage = window.localStorage;
+    $("ul.wl-list").hide();
+    var list = '';
+    for(var i=0;i<storage.length;i++){
+        if(JSON.parse(storage.getItem(storage.key(i))).star == true) {
+            list = list + '<li>' +
+                '<a href="" class="swipe-left">' +
+                '<div class="item-body">'+ JSON.parse(storage.getItem(storage.key(i))).text +'</div><div class="item-tail">' +
+                '<span class="item-icon icon-star"></span></div>' +
+                '</a>' +
+                '<div class="item-menu" data-id="'+ storage.key(i) +'">' +
+                '<span class="star">去星</span><span class="delete b-red">删除</span>' +
+                '</div></li>';
+        }else{
+            list = list + '<li>' +
+                '<a href="" class="swipe-left">' +
+                '<div class="item-body">'+ JSON.parse(storage.getItem(storage.key(i))).text +'</div><div class="item-tail hide">' +
+                '<span class="item-icon icon-star"></span></div>' +
+                '</a>' +
+                '<div class="item-menu" data-id="'+ storage.key(i) +'">' +
+                '<span class="star">标星</span><span class="delete b-red">删除</span>' +
+                '</div></li>';
+        }
+
+    }
+    $("ul.wl-list").prepend(list).fadeIn();
+
+    var isWrite = false;
+
     var down_submit = function() {
         $('body').swipeDown(function() {
             if(isWrite) {
@@ -24,10 +52,10 @@ $(function() {
                     isWrite = false;
                     /*提交数据*/
                     var text = $('.write-text').val();
-                    var wl_id = Math.random();
-                    json_data.text = text;
+                    var wl_id = 'wl' + Math.random().toString();
                     json_data.star = false;
-                    storage.setItem('wl_id', JSON.stringify(json_data));
+                    json_data.text = text;
+                    storage.setItem(wl_id, JSON.stringify(json_data));
                     var temp = '<li>' +
                         '<a href="" class="swipe-left">' +
                         '<div class="item-body">'+ text +'</div>' +
@@ -75,11 +103,31 @@ $(function() {
     down_writeBox();
 
     /*delete & star*/
-    menuAction('delete',function() {
-        alert("delete")
+    menuAction('delete',function(that) {
+        var id = that.parentNode.getAttribute("data-id");
+        storage.removeItem(id);
+        var wl_item = that.parentNode.parentNode;
+        wl_item.style.webkitTransform = 'translate3d(-100%, 0, 0)';
+        wl_item.style.webkitTransition =  '300ms';
+        var remove = function() {
+            wl_item.style.display = 'none'
+        }
+        setTimeout(remove,300);
     });
-    menuAction('star',function() {
-        alert("star")
+    menuAction('star',function(that) {
+        var id = that.parentNode.getAttribute("data-id");
+        var json = JSON.parse(storage.getItem(id));
+        if(json.star == true) {
+            json.star = false;
+            that.innerHTML = '标星';
+            that.parentNode.previousSibling.lastChild.style.display = 'none';
+        }else{
+            json.star = true;
+            that.innerHTML = '去星';
+            that.parentNode.previousSibling.lastChild.style.display = 'block';
+        }
+        storage.setItem(id,JSON.stringify(json));
+
     });
 
 
