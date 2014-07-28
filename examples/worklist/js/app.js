@@ -1,7 +1,6 @@
-fox.navigator.defaultTransition = 'hslide';
-/*document.addEventListener('touchmove', function (e) {
+document.addEventListener('touchmove', function (e) {
     e.preventDefault();
-}, false);防止ios页面滚动*/
+}, false);/*need to be fixed soon*/
 
 window.addEventListener('HTMLImportsLoaded', function(e) {
     document.body.removeAttribute('unresolved');
@@ -87,7 +86,7 @@ $(function() {
 
     var down_writeBox = function() {
         $('body').off('swipeDown').off('swipeUp');
-        $('body').swipeDown(function() {
+        $('body').swipeDown(function(e) {
             if(!isWrite) {
                 $('.write-box').animate({'top':'0px'}, 200, 'ease', function() {
                     $('.write-text').focus();
@@ -148,6 +147,26 @@ $(function() {
         storage.setItem(id,JSON.stringify(json));
 
     });
+
+    /*show item detail*/
+    $('ul.wl-list').delegate('li', 'tap', function(e) {
+        if(e.target.className == 'item-body') {
+            var text = $(this).find('.item-body').text();
+            if(text.length < 13) {
+                $('.tap-toggle').show().children('p').css({'text-align':'center','text-indent':'0em'});
+            }else{
+                $('.tap-toggle').show().children('p').css({'text-align':'left','text-indent':'2em'});
+            }
+            $('.tap-toggle').show().children('p').html(text);
+            $('.tap-toggle').tap(function() {
+                $(this).addClass('show');
+                if($(this).hasClass('show')) {
+                    $(this).fadeOut(200);
+                }
+            });
+        }
+    });
+
 
 
 });
