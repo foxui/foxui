@@ -9,6 +9,9 @@
 		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
 		<link rel="stylesheet" href="css/style.css"/>
 		<script src="js/fastclick.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/bl_base.js"></script>
+		<script src="js/line.js"></script>
 		<script src="../../components/fox-core/dist/foxui.js"></script>
 		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
 		<link rel="import" href="../../components/fox-dialog/dist/fox-dialog.html"/>
@@ -23,7 +26,7 @@
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
 		<script src="js/map_api.js"></script>
 		<script src="js/app.js"></script>
-		
+
 	</head>
 	<body style="visibility: hidden;">
 		<fox-page class="main-page" transition="vslide">
@@ -31,36 +34,36 @@
 				<div id="map_container" style="height:100%"></div>
 				<div class="search-box">
 					<fox-icon icon="icon-search" class="icon icon-search"></fox-icon>
-					<input class="text" type="text" readonly="readonly" placeholder="搜索"/>
+					<input class="text" autocomplete="off" type="text" readonly="readonly" placeholder="您在哪上班？"/>
 					<a  transition="vslide" class="match_parent" href="search.html"></a>
 				</div>
 			</fox-page-content>
-			<script>
-				(function(){
-					var map = new BMap.Map("map_container");
-					var point = new BMap.Point(12947504.86, 4846455.96);
-					map.centerAndZoom(point, 13);
-					// map.enableScrollWheelZoom();
-					if (navigator.geolocation) {
-						
-						navigator.geolocation.getCurrentPosition(function(geo){
-							var coords = geo.coords;
-							var point = Utils.lnglatToPoint(coords.longitude, coords.latitude);
-							
-							var marker1 = new BMap.Marker(point);
-							
-							map.addOverlay(marker1);
-							setTimeout(function(){
-								map.panTo(point);	
-							},1000);
-							
-							
-						});
-					}
-				})();
-				
-			</script>
+
 		</fox-page>
+		<script>
+			(function() {
+				var map = new BMap.Map("map_container");
+				var point = new BMap.Point(12947504.86, 4846455.96);
+				map.centerAndZoom(point, 13);
+				// map.enableScrollWheelZoom();
+				if (navigator.geolocation) {
+
+					navigator.geolocation.getCurrentPosition(function(geo) {
+						var coords = geo.coords;
+						var point = Utils.lnglatToPoint(coords.longitude, coords.latitude);
+
+						var marker1 = new BMap.Marker(point);
+
+						map.addOverlay(marker1);
+						setTimeout(function() {
+							map.panTo(point);
+						}, 1000);
+
+					});
+				}
+			})();
+
+		</script>
 
 	</body>
 </html>
