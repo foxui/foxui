@@ -1,0 +1,132 @@
+{
+    "rating": {
+    "max": 10,
+    "average": 6.8,
+    "stars": "35",
+    "min": 0
+    },
+    "reviews_count": 656,
+    "wish_count": 22414,
+    "collect_count": 86812,
+    "douban_site": "",
+    "year": "2014",
+    "images": {
+    "small": "http://img3.douban.com/view/movie_poster_cover/ipst/public/p2187231762.jpg",
+    "large": "data/assets/p2187231762.jpg",
+    "medium": "http://img3.douban.com/view/movie_poster_cover/spst/public/p2187231762.jpg"
+    },
+    "alt": "http://movie.douban.com/subject/7054604/",
+    "id": "7054604",
+    "mobile_url": "http://movie.douban.com/subject/7054604/mobile",
+    "title": "变形金刚4：绝迹重生",
+    "do_count": null,
+    "seasons_count": null,
+    "schedule_url": "http://movie.douban.com/subject/7054604/cinema/",
+    "episodes_count": null,
+    "genres": [
+    "动作",
+    "科幻",
+    "冒险"
+    ],
+    "countries": [
+    "美国",
+    "中国大陆"
+    ],
+    "casts": [
+    {
+    "avatars": {
+    "small": "http://img3.douban.com/img/celebrity/small/28811.jpg",
+    "large": "http://img3.douban.com/img/celebrity/large/28811.jpg",
+    "medium": "http://img3.douban.com/img/celebrity/medium/28811.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1035674/",
+    "id": "1035674",
+    "name": "马克·沃尔伯格"
+    },
+    {
+    "avatars": {
+    "small": "http://img3.douban.com/img/celebrity/small/26071.jpg",
+    "large": "http://img3.douban.com/img/celebrity/large/26071.jpg",
+    "medium": "http://img3.douban.com/img/celebrity/medium/26071.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1040517/",
+    "id": "1040517",
+    "name": "斯坦利·图齐"
+    },
+    {
+    "avatars": {
+    "small": "http://img5.douban.com/img/celebrity/small/1396501988.66.jpg",
+    "large": "http://img5.douban.com/img/celebrity/large/1396501988.66.jpg",
+    "medium": "http://img5.douban.com/img/celebrity/medium/1396501988.66.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1031847/",
+    "id": "1031847",
+    "name": "凯尔希·格兰莫"
+    },
+    {
+    "avatars": {
+    "small": "http://img5.douban.com/img/celebrity/small/1392535410.79.jpg",
+    "large": "http://img5.douban.com/img/celebrity/large/1392535410.79.jpg",
+    "medium": "http://img5.douban.com/img/celebrity/medium/1392535410.79.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1274253/",
+    "id": "1274253",
+    "name": "妮可拉·佩尔茨 "
+    }
+    ],
+    "current_season": null,
+    "original_title": "Transformers: Age of Extinction",
+    "summary": "故事发生在前作芝加哥终极决战四年后，汽车人与霸天虎从地球销声匿迹，而人类也在断壁残垣的废墟中开始了新生。然而，一群手握大权的商人联合天才科学家，意欲通过那场入侵打破壁垒，研发出他们实则难以驾驭的全新技术。与此同时，地球也遭受到了一个古老而强大的变形金刚的威胁恫吓，关乎自由与奴役的正邪史诗决战一触即发……",
+    "subtype": "movie",
+    "directors": [
+    {
+    "avatars": {
+    "small": "http://img5.douban.com/img/celebrity/small/319.jpg",
+    "large": "http://img5.douban.com/img/celebrity/large/319.jpg",
+    "medium": "http://img5.douban.com/img/celebrity/medium/319.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1027776/",
+    "id": "1027776",
+    "name": "迈克尔·贝"
+    }
+    ],
+    "comments_count": 44606,
+    "ratings_count": 78120,
+    "aka": [
+    "变形金刚：歼灭世纪(港)",
+    "变形金刚4：灭绝时代",
+    "变形金刚4",
+    "变4",
+    "Transformers 4"
+    ],
+    "pubdates": "2014-06-11",
+    "photos": [
+        "data/assets/p2188071450.jpg",
+        "data/assets/p2188071464.jpg",
+        "data/assets/p2188071278.jpg",
+        "data/assets/p2188071391.jpg"
+    ],
+    "gallery": [
+        "data/assets/l2188071450.jpg",
+        "data/assets/l2188071431.jpg",
+        "data/assets/l2188071372.jpg",
+        "data/assets/l2188071343.jpg"
+    ],
+    "trailer": {
+        "image": "data/assets/2187232726.jpg",
+        "title": "中国预告片1",
+        "date": "2014-06-12"
+    },
+    "popular_reviews": [
+        {
+            "author": {
+                "name": "黄香蕉",
+                "avatar": "data/assets/u2524948-39.jpg"
+            },
+            "summary": "盒盒，这个有点难啊，说来说去不就是螺丝打螺母么。反正中国人民的老朋友，马上就要在鸡国入谠的卖拷贝老师，已经修炼到了无相神功第八级，AKA将凑表脸做到了极致，超级变变变系列浑身槽点多得跟马赛克一样，想吐都不知道从哪里下嘴。光是一而再再而三的硬凑国产片保护月，硬加北京香港戏份，硬塞李冰冰韩庚吕良伟邹市明还硬塞不深就足够他得二十八座华表奖惹。更何况.........",
+            "rating": 6,
+            "created_at": "2014-06-27 10:15:42",
+            "title": "我到底能不能做到不剧透的写完变4的影评呢"
+        }
+    ]
+}

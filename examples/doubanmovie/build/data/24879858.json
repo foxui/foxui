@@ -1,0 +1,137 @@
+{
+            "rating": {
+            "max": 10,
+            "average": 5.8,
+            "stars": "30",
+            "min": 0
+            },
+            "reviews_count": 245,
+            "wish_count": 8147,
+            "collect_count": 38248,
+            "douban_site": "",
+            "year": "2014",
+            "images": {
+            "small": "http://img5.douban.com/view/movie_poster_cover/ipst/public/p2188112867.jpg",
+            "large": "data/assets/p2188112867.jpg",
+            "medium": "http://img5.douban.com/view/movie_poster_cover/spst/public/p2188112867.jpg"
+            },
+            "alt": "http://movie.douban.com/subject/24879858/",
+            "id": "24879858",
+            "mobile_url": "http://movie.douban.com/subject/24879858/mobile",
+            "title": "分手大师",
+            "do_count": null,
+            "seasons_count": null,
+            "schedule_url": "http://movie.douban.com/subject/24879858/cinema/",
+            "episodes_count": null,
+            "genres": [
+            "剧情",
+            "喜剧",
+            "爱情"
+            ],
+            "countries": [
+            "中国大陆"
+            ],
+            "casts": [
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/804.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/804.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/804.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1274235/",
+            "id": "1274235",
+            "name": "邓超"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/37843.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/37843.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/37843.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1052359/",
+            "id": "1052359",
+            "name": "杨幂"
+            },
+            {
+            "avatars": {
+            "small": "http://img5.douban.com/img/celebrity/small/33377.jpg",
+            "large": "http://img5.douban.com/img/celebrity/large/33377.jpg",
+            "medium": "http://img5.douban.com/img/celebrity/medium/33377.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1315729/",
+            "id": "1315729",
+            "name": "古力娜扎"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/1402633648.14.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/1402633648.14.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/1402633648.14.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1340705/",
+            "id": "1340705",
+            "name": "栾元晖"
+            }
+            ],
+            "current_season": null,
+            "original_title": "分手大师",
+            "summary": "茫茫人海，风雨飘摇，俯瞰城市，每一个大厦每一个窗户里都有无数男女为了感情哭闹，争吵，自杀，上吊！单身，不是问题，恋爱，才是烦恼，分手更是难题，谁能救万千痴男怨女于水火？分手代理，应运而生。\n梅远贵（邓超 饰）是一名专业的“分手大师”，谈过76次恋爱，分过77次手，了解男女情爱上的弱点，致力于解决人来情感问题，专门为各种情侣恋人办理分手，分居，离婚以及分家业务。他发明的无痛分手法，无痛苦，不麻醉，没有后遗症，一经治愈绝不复发，药到病除，绝对可靠。迄今为止，上至达官贵人下至贩夫走卒，一共帮助2000多对夫妻恋人成功离婚或分手。其间，见证了各式动人爱情破碎的时刻，也见证了各类爱与不爱的悲欢，他的全面独家分手方略成为广大想分手男女的福音和救命草，客户络绎不绝，往来者奇葩不断，其中不妨各种学派的专家大师级人物。\n某天正当他决定收山不做分手生意之时，接到了一单特别的任务，客户要甩掉的女人叫叶小春（杨幂 饰）……",
+            "subtype": "movie",
+            "directors": [
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/36973.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/36973.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/36973.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1316617/",
+            "id": "1316617",
+            "name": "俞白眉"
+            },
+            {
+            "avatars": {
+            "small": "http://img3.douban.com/img/celebrity/small/804.jpg",
+            "large": "http://img3.douban.com/img/celebrity/large/804.jpg",
+            "medium": "http://img3.douban.com/img/celebrity/medium/804.jpg"
+            },
+            "alt": "http://movie.douban.com/celebrity/1274235/",
+            "id": "1274235",
+            "name": "邓超"
+            }
+            ],
+            "comments_count": 25016,
+            "ratings_count": 35333,
+            "aka": [
+            "The Breakup Guru"
+            ],
+            "pubdates": "2014-06-17",
+            "photos": [
+                "data/assets/p2179111008.jpg",
+                "data/assets/p2182862462.jpg",
+                "data/assets/p2180433687.jpg",
+                "data/assets/p2179111021.jpg"
+            ],
+            "gallery": [
+                "data/assets/l2179111008.jpg",
+                "data/assets/l2179111004.jpg",
+                "data/assets/l2179016716.jpg",
+                "data/assets/l2179016601.jpg"
+            ],
+            "trailer": {
+                "image": "data/assets/2188551727.jpg",
+                "title": "预告片1：爆笑减压版",
+                "date": "2014-06-23"
+            },
+            "popular_reviews": [
+                {
+                    "author": {
+                        "name": "飞天PP猪",
+                        "avatar": "data/assets/u1630639-5.jpg"
+                    },
+                    "summary": "一、坏目的一段邓超当年在学校反串演女人的视频曾在网络引起关注，这可能让他产生了一些误解，他误解为观众喜欢他装扮成五大三粗的女人，他误解为观众喜欢他扭捏作态，他误解为他很搞笑很迷人。作为一部导演处女作，在娱乐圈摸爬滚打多年的邓超并未给予《分手大师》足够的敬畏，和他的妻子孙俪相反，他越来越把自己置于.........",
+                    "rating": 2,
+                    "created_at": "2014-06-25 21:20:11",
+                    "title": "低俗喜剧"
+                }
+            ]
+        }

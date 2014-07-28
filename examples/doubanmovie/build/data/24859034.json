@@ -1,0 +1,127 @@
+{
+    "rating": {
+    "max": 10,
+    "average": 4.2,
+    "stars": "20",
+    "min": 0
+    },
+    "reviews_count": 38,
+    "wish_count": 430,
+    "collect_count": 2458,
+    "douban_site": "",
+    "year": "2014",
+    "images": {
+    "small": "http://img5.douban.com/view/movie_poster_cover/ipst/public/p2187004396.jpg",
+    "large": "data/assets/p2187004396.jpg",
+    "medium": "http://img5.douban.com/view/movie_poster_cover/spst/public/p2187004396.jpg"
+    },
+    "alt": "http://movie.douban.com/subject/24859034/",
+    "id": "24859034",
+    "mobile_url": "http://movie.douban.com/subject/24859034/mobile",
+    "title": "笔仙3",
+    "do_count": null,
+    "seasons_count": null,
+    "schedule_url": "http://movie.douban.com/subject/24859034/cinema/",
+    "episodes_count": null,
+    "genres": [
+    "悬疑",
+    "惊悚"
+    ],
+    "countries": [
+    "中国大陆"
+    ],
+    "casts": [
+    {
+    "avatars": {
+    "small": "http://img5.douban.com/img/celebrity/small/32337.jpg",
+    "large": "http://img5.douban.com/img/celebrity/large/32337.jpg",
+    "medium": "http://img5.douban.com/img/celebrity/medium/32337.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1274286/",
+    "id": "1274286",
+    "name": "江一燕"
+    },
+    {
+    "avatars": {
+    "small": "http://img5.douban.com/img/celebrity/small/47687.jpg",
+    "large": "http://img5.douban.com/img/celebrity/large/47687.jpg",
+    "medium": "http://img5.douban.com/img/celebrity/medium/47687.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1312818/",
+    "id": "1312818",
+    "name": "焦俊艳"
+    },
+    {
+    "avatars": {
+    "small": "http://img3.douban.com/pics/celebrity-default-small.gif",
+    "large": "http://img3.douban.com/pics/celebrity-default-large.gif",
+    "medium": "http://img3.douban.com/pics/celebrity-default-medium.gif"
+    },
+    "alt": "http://movie.douban.com/celebrity/1323773/",
+    "id": "1323773",
+    "name": "王龙华"
+    },
+    {
+    "avatars": {
+    "small": "http://img3.douban.com/img/celebrity/small/1385100761.5.jpg",
+    "large": "http://img3.douban.com/img/celebrity/large/1385100761.5.jpg",
+    "medium": "http://img3.douban.com/img/celebrity/medium/1385100761.5.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1330472/",
+    "id": "1330472",
+    "name": "董子健"
+    }
+    ],
+    "current_season": null,
+    "original_title": "笔仙3",
+    "summary": "丽娜（江一燕 饰）患病在医院治疗时，她总是惦念着自己有一个名叫小艾的女儿，为去看望女儿，她袭击护士从医院逃了出来，回到阔别数年的家中想要领回女儿一同生活，爷爷奶奶在争夺小艾的路途中遭遇车祸去世，丽娜母女搬进了爷爷特意留下的老宅子，却遭遇到一桩桩恐怖事件，周围的邻居也变得奇怪起来……",
+    "subtype": "movie",
+    "directors": [
+    {
+    "avatars": {
+    "small": "http://img5.douban.com/img/celebrity/small/46669.jpg",
+    "large": "http://img5.douban.com/img/celebrity/large/46669.jpg",
+    "medium": "http://img5.douban.com/img/celebrity/medium/46669.jpg"
+    },
+    "alt": "http://movie.douban.com/celebrity/1276884/",
+    "id": "1276884",
+    "name": "安兵基"
+    }
+    ],
+    "comments_count": 792,
+    "ratings_count": 2064,
+    "aka": [
+    "笔仙III",
+    "Bunshinsaba 3"
+    ],
+    "pubdates": "2014-06-27",
+    "photos": [
+        "data/assets/p2188980095.jpg",
+        "data/assets/p2187004177.jpg",
+        "data/assets/p2187004155.jpg",
+        "data/assets/p2186912583.jpg"
+    ],
+    "gallery": [
+        "data/assets/l2187004177.jpg",
+        "data/assets/l2187004155.jpg",
+        "data/assets/l2187004136.jpg",
+        "data/assets/l2187003839.jpg"
+    ],
+    "trailer": {
+        "image": "data/assets/2189550347.jpg",
+        "title": "预告片：惊悚版",
+        "date": "2014-06-03"
+    },
+    "popular_reviews": [
+        {
+            "author": {
+                "name": "打字机器李亦树",
+                "avatar": "data/assets/u1189323-213.jpg"
+            },
+            "summary": "作为一个男性观众，我对“笔仙”这一女生常玩的游戏简直缺乏必要了解。是啊，让我们畅想一下，在某间大学宿舍或者公司的午休室里，有两个五大三粗的老爷们正若无旁人的手牵着手，目光相对，大汗淋漓重复着“你是我的前世，我是你的今生”这句话，是一个多么娘炮而且弱智的行为啊。可越是缺乏了解的行为越能引起人的猎奇心理，感谢电影能够让人在有限的时间里.........",
+            "rating": 6,
+            "created_at": "2014-07-04 11:50:45",
+            "title": "没有鬼怪的国度，恐怖只能来自于人的内心"
+        }
+    ]
+}
