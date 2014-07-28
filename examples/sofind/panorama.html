@@ -21,11 +21,11 @@
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
+		<script src="js/map_api.js"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
-		<fox-page transition="fade">
+		<fox-page transition="hslide">
 			<fox-toolbar class="primary" title="全景图">
 				<fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
 			</fox-toolbar>
@@ -37,7 +37,7 @@
 			(function() {
 				setTimeout(function() {
 
-					var panorama = new BMap.Panorama('panorama');
+					var panorama = new BMap.StreetView('panorama');
 					var params = Utils.getURLParams();
 					panorama.setPosition(new BMap.Point(params['lng'], params['lat']));
 					//根据经纬度坐标展示全景图

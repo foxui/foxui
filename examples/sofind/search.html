@@ -22,25 +22,33 @@
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
+		<script src="js/map_api.js"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
 
 		<fox-page class="search-page" transition="vslide">
-			<fox-page-content>
+			<fox-page-content style="display: -webkit-box;-webkit-box-orient: vertical;">
 
 				<div class="search-box2">
 					<fox-icon icon="icon-left-nav" onclick="history.back();"></fox-icon>
-
 					<form id="search-form" class="main">
 						<fox-icon icon="icon-search" ></fox-icon>
-						<input id="search_text" type="search" class="text"/>
+						<input id="search_text" type="text" class="text"/>
 					</form>
 
 				</div>
 				<div class="search-list">
-					<a href="map_result.html?title=百度大厦&lng=116.404&lat=39.915">result.html</a>
+					<fox-template id="sug-tmpl" style="visibility: visible;">
+						<div rv-show="visible" class="sug match_parent">
+							<div class="item" rv-name="item.name" rv-city="item.city" rv-each-item="list">
+								<fox-icon class="icon-search"></fox-icon>
+								<label>{item.name}</label>
+								<span>{item.city}</span>
+							</div>
+						</div>
+					</fox-template>
+					
 					<ul id="search-list">
 
 						<li id="loc-text" state="false">
@@ -49,6 +57,7 @@
 
 						<fox-template id="list-template" style="visibility: visible;">
 							<li rv-each-item="data" rv-lng="item.lng" rv-lat="item.lat">
+								<fox-icon class="icon-compose"></fox-icon>
 								{item.text}
 							</li>
 						</fox-template>
@@ -60,100 +69,153 @@
 
 		<script>
 			(function() {
-				
-				var store = (function(){
-					
-					var sh;
-					
-					$("#clear_btn").bind("click",function(){
-						localStorage.removeItem("search_history");
-						store.init();
+
+				var Sug = (function() {
+					var $tmpl = $("#sug-tmpl");
+					var tmpl = $tmpl.get(0);
+					$tmpl.delegate(".item","click",function(){
+						var city = $(this).attr("city");
+						var name = $(this).attr("name");
+						Utils.getGeoPoint(name,city,function(point){
+							if(point){
+								Store.add(name,point.lng,point.lat);
+								search(name,point.lng,point.lat);	
+								Sug.reset();
+							}else{
+								fox.ui.alert("提示", "无效的地址");
+							}
+						});
+						
+					});
+					var $text = $("#search_text").bind("keyup", function() {
+						var val = $(this).val();
+						if ($.trim(val).length == 0) {
+							tmpl.visible = false;
+						} else {
+							Utils.getSugData(val, function(sugData) {
+								var list = sugData.getList();
+								var visible = false;
+								if (list.length > 0) {
+									visible = true;
+								} else {
+									visible = false;
+								}
+								tmpl.list = list;
+								tmpl.visible = visible;
+							});
+						}
+
 					});
 					
-					var listTmpl = $("#list-template").get(0);
-					
 					return {
-						init:function(){
+						reset:function(){
+							$text.val("");
+							tmpl.visible = false;
+						}
+					};
+
+				})();
+
+				var Store = (function() {
+
+					var sh;
+
+					$("#clear_btn").bind("click", function() {
+						localStorage.removeItem("search_history");
+						Store.init();
+					});
+
+					$("#search-form").bind("submit", function() {
+						
+						
+
+						return false;
+					});
+
+					var listTmpl = $("#list-template").get(0);
+
+					return {
+						init : function() {
 							sh = JSON.parse(localStorage.getItem("search_history") || "[]");
+							listTmpl.data = sh;
+						},
+						add:function(text,lng,lat){
+							if(sh.length == 10){
+								sh.splice(0,1);
+							}
+							sh.push({
+								"text" : text,
+								"lng" : lng,
+								"lat" : lat
+							});
+							localStorage.setItem("search_history", JSON.stringify(sh));
 							listTmpl.data = sh;
 						}
 					};
 				})();
-				
-				
-				
-				
-				store.init();
-				
-				
-				
-				
-				
-				var myGeo = new BMap.Geocoder();
 
-				function search() {
-					fox.navigator.navigate("map_result.html", "map_result.html", "fade", "vslide");
-					// history.pushState({},"map_result","map_result.html");
-					// location.href="map_result.html";
+				Store.init();
+
+				
+
+				function search(title,lng,lat) {
+					fox.navigator.navigate("map_result.html?title="+title+"&lng="+lng+"&lat="+lat, "map_result.html", "", "");
+					
 				}
 
-				
-
-				
-
 				var locText = $("#loc-text");
-
+				
 				locText.bind("click", function() {
+					
 					var self = this;
 					var state = $(this).attr("state");
 					if (state == "false") {
-						$(this).attr("state","loading");
+						$(this).attr("state", "loading");
 						$(this).text("正在定位中....");
-						var geolocation = new BMap.Geolocation();
-						geolocation.getCurrentPosition(function(r) {
-							if (this.getStatus() == BMAP_STATUS_SUCCESS) {
-								myGeo.getLocation(r.point, function(rs) {
-									var point = rs.point;
-									$(self).attr("lng", point.lng).attr("lat", point.lat).text(rs.address + "(当前位置)");
-									
-								});
+						
+						Utils.getGeoLocation(function(rs){
+							if (rs) {
+								var pixel = rs.pixel;
+								$(self).attr("lng", pixel.x).attr("lat", pixel.y).text( "[当前位置]"+rs.address);
+								
 							} else {
-								$(self).attr("state", "false").text("定位失败,点击重试");
+								$(self).attr("state", "false").text("定位失败，请重试");
 							}
-						});
+						});					
+						/*
+						var geolocation = new BMap.Geolocation();
+												geolocation.getCurrentPosition(function(r) {
+													if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+														myGeo.getLocation(r.point, function(rs) {
+															var point = rs.point;
+															$(self).attr("lng", point.lng).attr("lat", point.lat).text(rs.address + "(褰����浣�缃�)");
+						
+														});
+													} else {
+														$(self).attr("state", "false").text("瀹�浣�澶辫触,��瑰�婚��璇�");
+													}
+												});*/
+						
 
-					} else if(state=="true"){
+					} else if (state == "true") {
 						alert($(this).val());
 					}
 
-				}).click();
-
-				
-				$("#search-form").bind("submit", function() {
-					var val = $("#search_text").val();
-					myGeo.getPoint(val, function(point) {
-						if (point) {
-							sh.push({
-								"text" : val,
-								"lng" : point.lng,
-								"lat" : point.lat
-							});
-							localStorage.setItem("search_history", JSON.stringify(sh));
-							listTmpl.data = sh;
-							search();
-						} else {
-							fox.ui.alert("提示", "未能找到目标地址");
-						}
-					});
-
-					return false;
 				});
-
-				$("#search-list").delegate("li", "click", function() {
-					if($(this).attr("lng")){
-						search();	
-					}
+				
+				setTimeout(function(){
 					
+					locText.click();
+				},500);
+				
+				$("#search-list").delegate("li", "click", function() {
+					var lng = $(this).attr("lng"),
+						lat = $(this).attr("lat"),
+						title = $(this).text();
+					if (lng) {
+						search(title,lng,lat);
+					}
+
 				});
 
 			})();

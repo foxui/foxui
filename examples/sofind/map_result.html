@@ -21,12 +21,11 @@
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
-		<script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+		<script src="js/map_api.js"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
-		<fox-page transition="hslide">
+		<fox-page transition="display">
 			<fox-page-content style="position:absolute;left:0;right:0;top:0;bottom:0">
 				<div id="map_container1" style="height:100%"></div>
 				<div class="search-box2" style="position: absolute;top: 0;width:100%;">
@@ -37,7 +36,7 @@
 						<span class="match_parent" onclick="history.back()"></span>
 					</div>
 					<fox-icon icon="icon-list" style="position:relative;">
-						<a class="match_parent" id="list-btn" transition="hslide"></a>
+						<a class="match_parent" id="list-btn" transition="display"></a>
 					</fox-icon>
 				</div>
 				<div class="map-popup">
@@ -46,7 +45,7 @@
 							<div class="row1">
 								{data.name}
 								<fox-icon icon="icon-location">
-									<a class="match_parent" transition="vslide" rv-href="data.panorama"></a>
+									<a class="match_parent" transition="display" rv-href="data.panorama"></a>
 								</fox-icon>
 							</div>
 							<div class="row2">
@@ -55,7 +54,7 @@
 								<span>通勤时间:{data.time}min</span>
 							</div>
 							<fox-icon icon="icon-bars">
-								<a class="match_parent" transition="hslide" href="detail.html"></a>
+								<a class="match_parent" transition="display" rv-href="data.detailLink"></a>
 							</fox-icon>
 						</div>
 
@@ -66,64 +65,108 @@
 		<script>
 			(function() {
 
+				function CustomOverlay(point, text) {
+					this._point = point;
+					this._text = text;
+				}
+
+
+				CustomOverlay.prototype = new BMap.Overlay();
+				CustomOverlay.prototype.initialize = function(map) {
+					this._map = map;
+					
+					var div = this._div = $("<div/>").css({
+						"position" : "absolute",
+						"z-index" : BMap.Overlay.getZIndex(this._point.lat)
+					}).addClass("CustomOverlay").text(this._text).get(0);
+					map.getPanes().labelPane.appendChild(div);
+					return div;
+				};
+
+				CustomOverlay.prototype.draw = function() {
+					var map = this._map;
+					var pixel = map.pointToOverlayPixel(this._point);
+					
+					this._div.style.left = pixel.x-15+ "px";
+					this._div.style.top = pixel.y-30 + "px";
+				};
+				
+				CustomOverlay.prototype.addEventListener = function(){
+					
+					this._div.addEventListener.apply(this._div,arguments);
+				};
+
 				var params = Utils.getURLParams();
 
 				$("#result_text").val(decodeURIComponent(params.title));
 
 				window.mapPage = (function() {
-					
+
 					var listBtn = $("#list-btn");
 					var $detailTeml = $("#tmpl-detail");
 					var detailTeml = $detailTeml.get(0);
 
 					var map1 = new BMap.Map("map_container1");
 					// 创建Map实例
-					var point1 = new BMap.Point(116.319511, 40.062419);
+					var point1 = new BMap.Point(params['lng'], params['lat']);
 					// 创建点坐标
 					map1.centerAndZoom(point1, 13);
 					// 初始化地图,设置中心点坐标和地图级别。
-					map1.enableScrollWheelZoom();
+					// map1.enableScrollWheelZoom();
+					// map1.enableInertialDragging();
+					// map1.enableContinuousZoom();
+
 					return {
 						drawPage : function(mapdata, page) {
 							$detailTeml.hide();
-							listBtn.attr("href","list.html?lng="+params.lng+"&lat="+params.lat+"&page="+page);
+							listBtn.attr("href", "list.html?lng=" + params.lng + "&lat=" + params.lat + "&page=" + page);
+
 							map1.clearOverlays();
-							mapdata.getPointList().forEach(function(obj) {
-								var marker = new BMap.Marker(obj.point);
-								marker.addEventListener("click", function() {
+							mapdata.getPointList().forEach(function(obj,index) {
+								if(index == 0){
+									map1.panTo(obj.point);
+								}
+								var myCompOverlay = new CustomOverlay(obj.point, index+1);
+								
+								
+								map1.addOverlay(myCompOverlay);
+								myCompOverlay.addEventListener("click", function() {
 									$detailTeml.show();
-									
+
 									detailTeml.data = obj.data;
 									map1.panTo(obj.point);
 								});
-								map1.addOverlay(marker);
 							});
 
-							var heatmapOverlay = new BMapLib.HeatmapOverlay({
-								"radius" : 20,
-								"opacity" : 60
-							});
+							/*
+							 var heatmapOverlay = new BMapLib.HeatmapOverlay({
+							 "radius" : 20,
+							 "opacity" : 60
+							 });
 
-							map1.addOverlay(heatmapOverlay);
-							heatmapOverlay.setDataSet({
-								data : mapdata.getHeatList(),
-								max : 100
-							});
+							 map1.addOverlay(heatmapOverlay);
+							 heatmapOverlay.setDataSet({
+							 data : mapdata.getHeatList(),
+							 max : 100
+							 });*/
 
 							mapdata.getGeoList().forEach(function(arr) {
-								var polygon = new BMap.Polygon(arr, {
+								var polygon = new BMap.Polyline(arr, {
 									strokeColor : "blue",
-									strokeWeight : 1,
-									strokeOpacity : 0.2
+									strokeWeight : 5,
+									strokeOpacity : 0.2,
+									fill : "red"
 								});
+
 								map1.addOverlay(polygon);
 							});
 
 						}
 					};
 				})();
-				Utils.getMapData(11,11,0,function(mapdata) {
-					mapPage.drawPage(mapdata,0);
+
+				Utils.getMapData(params['lng'], params['lat'], 0, function(mapdata) {
+					mapPage.drawPage(mapdata, 0);
 				});
 
 			})();
