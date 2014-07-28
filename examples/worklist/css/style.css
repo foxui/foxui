@@ -21,6 +21,21 @@
     padding: 5px;
     border-radius: 5px;
     -webkit-border-radius: 5px; }
+.wl .detail-box {
+  background: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 11;
+  opacity: 0.9;
+  padding: 30% 20px; }
+  .wl .detail-box p {
+    text-indent: 2em;
+    color: #000;
+    box-sizing: border-box;
+    font: 20px/30px "Lantinghei SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif; }
 .wl .wl-list {
   margin-top: 10px; }
   .wl .wl-list li .item-body {
