@@ -18,9 +18,9 @@
     <link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html">
     <link rel="import" href="../../components/fox-icon/dist/fox-icon.html">
     <link rel="import" href="../../components/fox-listview/dist/fox-listview.html">
-    <!--<script src="js/app.js"></script>-->
+    <script src="js/app.js"></script>
 </head>
-<body class="wl">
+<body unresolved class="wl">
 
 <fox-page>
     <fox-toolbar title="WorkList">
@@ -28,16 +28,7 @@
     <fox-page-content class="fox-theme-ios">
         <fox-listview>
             <ul class="wl-list">
-                <li>
-                    <a href="" class="swipe-left">
-                        <div class="item-body">
-                            show time
-                        </div>
-                    </a>
-                    <div class="item-menu">
-                        <span class="b-red">删除</span>
-                    </div>
-                </li>
+
             </ul>
         </fox-listview>
     </fox-page-content>
@@ -46,5 +37,10 @@
 <div class="write-box">
     <textarea name="write-text" class="write-text" placeholder="记下今天的工作任务..."></textarea>
 </div>
+
+<div class="detail-box tap-toggle hide">
+    <p></p>
+</div>
+
 </body>
 </html>

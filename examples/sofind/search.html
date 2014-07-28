@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		
+		<meta http-equiv="refresh" content="0.1; url=./" />
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +36,7 @@
 					<fox-icon icon="icon-left-nav" onclick="history.back();"></fox-icon>
 					<form id="search-form" class="main">
 						<fox-icon icon="icon-search" ></fox-icon>
-						<input id="search_text" type="text" class="text"/>
+						<input id="search_text" placeholder="您在哪上班？" autocomplete="off" type="text" class="text"/>
 					</form>
 
 				</div>
@@ -121,8 +123,15 @@
 					var sh;
 
 					$("#clear_btn").bind("click", function() {
-						localStorage.removeItem("search_history");
-						Store.init();
+						fox.ui.confirm("提示", "是否清空历史记录？",function(res){
+							debugger;
+							if(res){
+								localStorage.removeItem("search_history");
+								Store.init();
+							}
+							
+						});
+						
 					});
 
 					$("#search-form").bind("submit", function() {
@@ -137,9 +146,18 @@
 					return {
 						init : function() {
 							sh = JSON.parse(localStorage.getItem("search_history") || "[]");
-							listTmpl.data = sh;
+							console.info(JSON.stringify(sh));
+							listTmpl.data = sh.slice(0).reverse();
+							
 						},
 						add:function(text,lng,lat){
+							var exsit;
+							sh.forEach(function(obj,i){
+								if(obj.text==text){
+									sh.splice(i,1);
+									return false;
+								}
+							});
 							if(sh.length == 10){
 								sh.splice(0,1);
 							}
@@ -149,7 +167,7 @@
 								"lat" : lat
 							});
 							localStorage.setItem("search_history", JSON.stringify(sh));
-							listTmpl.data = sh;
+							listTmpl.data = sh.slice(0).reverse();
 						}
 					};
 				})();
@@ -181,24 +199,9 @@
 							} else {
 								$(self).attr("state", "false").text("定位失败，请重试");
 							}
-						});					
-						/*
-						var geolocation = new BMap.Geolocation();
-												geolocation.getCurrentPosition(function(r) {
-													if (this.getStatus() == BMAP_STATUS_SUCCESS) {
-														myGeo.getLocation(r.point, function(rs) {
-															var point = rs.point;
-															$(self).attr("lng", point.lng).attr("lat", point.lat).text(rs.address + "(褰����浣�缃�)");
-						
-														});
-													} else {
-														$(self).attr("state", "false").text("瀹�浣�澶辫触,��瑰�婚��璇�");
-													}
-												});*/
-						
-
+						});
 					} else if (state == "true") {
-						alert($(this).val());
+						
 					}
 
 				});

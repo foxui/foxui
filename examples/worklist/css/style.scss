@@ -25,11 +25,12 @@ $main-color: #096;
   -webkit-flex-flow: column;
   flex-flow:column;
 }
+
 .hide {
   display: none;
 }
 .wl {
-  .write-box{
+  .write-box {
     width: 100%;
     height: 140px;
     background: #fff;
@@ -38,7 +39,7 @@ $main-color: #096;
     top: -150px;
     z-index: 11;
     border-bottom: 1px solid #ddd;
-    .write-text{
+    .write-text {
       outline: none;
       position: relative;
       width: 90%;
@@ -48,6 +49,23 @@ $main-color: #096;
       border: 1px solid #999;
       padding: 5px;
       @include border-radius(5px);
+    }
+  }
+  .detail-box {
+    background: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+    opacity: 0.9;
+    padding: 30% 20px;
+    p {
+      text-indent: 2em;
+      color: #000;
+      box-sizing: border-box;
+      font: 20px/30px "Lantinghei SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
     }
   }
   .wl-list{
