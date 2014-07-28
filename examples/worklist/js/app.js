@@ -1,7 +1,7 @@
 fox.navigator.defaultTransition = 'hslide';
-document.addEventListener('touchmove', function (e) {
+/*document.addEventListener('touchmove', function (e) {
     e.preventDefault();
-}, false);/*防止ios页面滚动*/
+}, false);防止ios页面滚动*/
 
 window.addEventListener('HTMLImportsLoaded', function(e) {
     document.body.removeAttribute('unresolved');
@@ -104,7 +104,7 @@ $(function() {
     down_writeBox();
 
     /*delete & star*/
-    /*item-menu action 接口*/
+    /*item-menu action*/
     menuAction = function(actionClassName, cb) {
         $('ul').tap(function(e) {
             var classNameArr = e.target.className.split(' ');

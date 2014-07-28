@@ -8,7 +8,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- 1. Load platform support before any code that touches the DOM. -->
     <link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
-    <link rel="stylesheet" href="../../components/fox-listview/dist/css/fox-listview.css">
     <link rel="stylesheet" href="css/style.css"/>
     <script src="js/zepto.min.js"></script>
     <script src="../../components/fox-core/dist/foxui.js"></script>
@@ -19,8 +18,7 @@
     <link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html">
     <link rel="import" href="../../components/fox-icon/dist/fox-icon.html">
     <link rel="import" href="../../components/fox-listview/dist/fox-listview.html">
-    <!--将app.js放到最后，以便调用以上html中js的方法-->
-    <script src="js/app.js"></script>
+    <!--<script src="js/app.js"></script>-->
 </head>
 <body class="wl">
 
@@ -30,7 +28,16 @@
     <fox-page-content class="fox-theme-ios">
         <fox-listview>
             <ul class="wl-list">
-
+                <li>
+                    <a href="" class="swipe-left">
+                        <div class="item-body">
+                            show time
+                        </div>
+                    </a>
+                    <div class="item-menu">
+                        <span class="b-red">删除</span>
+                    </div>
+                </li>
             </ul>
         </fox-listview>
     </fox-page-content>
