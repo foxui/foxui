@@ -21,7 +21,7 @@
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
+		<script src="js/map_api.js"></script>
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
@@ -30,31 +30,47 @@
 				<fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
 				<label onclick="history.back();" class="right">地图</label>
 			</fox-toolbar>
-			<fox-page-content id="list-content">
-				<div class="list-page" id="list-prev">上一页</div>
+			<fox-page-content id="list-content" style="background: rgb(241,240,246);">
+				<div class="list-page" style="display:none;" id="list-prev">上一页</div>
 				<fox-template id="list-tmpl" style="visibility: visible;">
 					
 					<div class="list-item" rv-each-item="data">
-						<span class="thumbnail" rv-background-image="item.thumbnail"></span>
-						<div class="main">
-							<p class="title">
-								{item.name}
-							</p>
-							<p>
-								价格:{item.price}
-							</p>
-							<p>
-								通勤时间:{item.time}min
-							</p>
-							<p>
-								距离地铁:{item.loc}m
-							</p>
+						<div class="row1">
+							<span class="title">{index|indexPlus}.{item.name}</span>
+							<span class="distance" >{item.distance}m</span>
 						</div>
-						<a transition="hslide" class="match_parent" href="detail.html"></a>
+						<div class="row2">
+							<label>居住热度:</label>
+							<div class="hot-spot">
+								<div class="hot-inner" rv-style-width-percent="item.hotspot"></div>
+							</div>
+						</div>
+						<div class="row3">
+							<label>
+								通勤时间:
+							</label>
+							<span>{item.time}min({item.transfer1}次换乘)</span>
+							
+						</div>
+						<div class="row4">
+							<label>
+								两居均价:
+							</label>
+							<span>{item.price}￥</span>
+							
+						</div>
+						<div class="row5">
+							<label>
+								距离地铁:
+							</label>
+							<span>{item.metro_name}{item.metro_stop_name}({item.loc}m)</span>
+						</div>
+						<a transition="hslide" class="match_parent" rv-href="item.detailLink"></a>
+
 					</div>
 					
 				</fox-template>
-				<div class="list-page" id="list-next">下一页</div>
+				<div class="list-page" style="display:none;" id="list-next">下一页</div>
 			</fox-page-content>
 		</fox-page>
 		<script>
@@ -81,8 +97,9 @@
 						}
 						Utils.getMapData(params['lng'], params['lat'], page, function(mapdata) {
 							var res = mapdata.getDetailList();
+							
 							tmpl.data = res.list;
-						
+							
 							doPager(res.count,res);
 							$content.scrollTop(0);
 							window.mapPage&&mapPage.drawPage(mapdata,page);
@@ -91,7 +108,7 @@
 					}
 					
 					function doPager(count){
-						var totalpage = (count+(20-1))/20;
+						var totalpage = (count+(10-1))/10;
 						
 						if(page < totalpage-1){
 							$next.show();

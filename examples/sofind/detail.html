@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>精品推荐</title>
+		
 		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
 		<link rel="stylesheet" href="css/style.css"/>
 
@@ -24,13 +26,13 @@
 		<script src="js/app.js"></script>
 	</head>
 	<body style="visibility: hidden;">
-		<fox-page>
+		<fox-page transition="hslide">
 			<fox-toolbar id="pdetail-toolbar" class="primary" >
 				<fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
 			</fox-toolbar>
 			<fox-page-content class="pdetail">
 				<fox-template id="pdetail-tmpl" style="visibility: visible">
-					<div class="img" rv-background-image="data.thumbnail"></div>
+					<div class="img" rv-background-image-resize="data.thumbnail"></div>
 					<div class="main">
 						<div class="detail">
 							<p>
@@ -80,7 +82,7 @@
 				var toolbar = $("#pdetail-toolbar").get(0);
 				var tmpl = $("#pdetail-tmpl").get(0);
 				var params = Utils.getURLParams();
-				Utils.getDetailData("uid", function(detailData) {
+				Utils.getDetailData(params['uid'], function(detailData) {
 					var model = detailData.getDetailModel();
 					tmpl.data = model;
 					toolbar.title = model.name;

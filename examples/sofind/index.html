@@ -21,8 +21,7 @@
 		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
 		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
 		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hmPxdBHxPZvZU2x3RN9SSKGt"></script>
-		<script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+		<script src="js/map_api.js"></script>
 		<script src="js/app.js"></script>
 		
 	</head>
@@ -39,17 +38,23 @@
 			<script>
 				(function(){
 					var map = new BMap.Map("map_container");
-					var point = new BMap.Point(116.404, 39.915);
-					map.centerAndZoom(point, 15);
-					map.enableScrollWheelZoom();
+					var point = new BMap.Point(12947504.86, 4846455.96);
+					map.centerAndZoom(point, 13);
+					// map.enableScrollWheelZoom();
 					if (navigator.geolocation) {
 						
 						navigator.geolocation.getCurrentPosition(function(geo){
 							var coords = geo.coords;
-							var point = new BMap.Point(coords.longitude, coords.latitude);
-							map.panTo(point);
+							var point = Utils.lnglatToPoint(coords.longitude, coords.latitude);
+							
 							var marker1 = new BMap.Marker(point);
+							
 							map.addOverlay(marker1);
+							setTimeout(function(){
+								map.panTo(point);	
+							},1000);
+							
+							
 						});
 					}
 				})();
