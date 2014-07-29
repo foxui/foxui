@@ -4,6 +4,22 @@ rivets.formatters.indexPlus = function(index) {
 rivets.binders['style-width-percent'] = function(el, value) {
 	el.style["width"] = parseInt(value)+"%";
 };
+rivets.formatters.transferFormatter = function(val) {
+	if(val == 0){
+		return "直达";
+	}else{
+		return val+"次换乘";
+	}
+};
+rivets.formatters.detailFormatter = function(val) {
+	if(val){
+		return val;
+	}else{
+		return "无";
+	}
+};
+
+
 rivets.binders['background-image-resize'] = function(el, value) {
 	var ratio = window.devicePixelRatio ? devicePixelRatio : 1;
 	
@@ -40,7 +56,7 @@ var Utils = (function() {
 		function toData(content) {
 			var lnglat = pointTolngLat(content.x, content.y);
 			return {
-				panorama : "panorama.html?lng=" + lnglat.lng + "&lat=" + lnglat.lat,
+				panorama : "panorama.html?uid="+content.bid,
 				name : content.name,
 				price : content.price,
 				loc : content.metro_distance,

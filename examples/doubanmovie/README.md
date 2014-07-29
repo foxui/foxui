@@ -53,6 +53,13 @@
 
  * loading 效果无法定制
 
+
+### 构建
+
+ * 初次执行 `make init` , 这一步将会安装构建所依赖工具[wck](https://github.com/zhang-ning/wck)
+ * 以后每次执行 `make` 既可, 构建结果在`build`目录下
+ * 清理 `make clean`
+
 ## 总结
 
  * foxui 搭框架速度很快；
