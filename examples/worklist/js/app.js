@@ -43,11 +43,10 @@ $(function() {
     var isWrite = false;
     var stopScroll = function (e) { e.preventDefault(); };
     var down_submit = function() {
-        $('body').swipeDown(function() {
+        $('body').off('swipeDown').swipeDown(function() {
             if(isWrite) {
                 $('.write-box').animate({'top' : '100%'}, 200, 'ease', function() {
                     $(this).css({'top' : '-150px'});
-                    down_writeBox();
                     isWrite = false;
                     /*提交数据*/
                     var text = $('.write-text').val();
@@ -66,6 +65,7 @@ $(function() {
                     $('ul.wl-list').prepend(temp);
                     $('.write-text').val('');
                     $('.mask').hide();
+                    console.log("1")
                     document.removeEventListener('touchmove', stopScroll, false);
                 });
             }
@@ -77,7 +77,6 @@ $(function() {
         $('body').swipeUp(function() {
             if(isWrite) {
                 $('.write-box').animate({'top':'-150px'}, 200, 'ease', function() {
-                    down_writeBox();
                     isWrite = false;
                 });
                 $('.mask').hide();
