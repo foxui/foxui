@@ -6,25 +6,8 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>精品推荐</title>
-		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
-		<link rel="stylesheet" href="css/style.css"/>
-<script src="js/base.js"></script>
-		<script src="js/bl_base.js"></script>
-		<script src="js/line.js"></script>
-		<script src="js/fastclick.js"></script>
 		<script src="../../components/fox-core/dist/foxui.js"></script>
-		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
-		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
-		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
-		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
-		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
-		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
-		<link rel="import" href="../../components/fox-slider/src/fox-slider.html"/>
-		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
-		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
-		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
-		<script src="js/map_api.js"></script>
-		<script src="js/app.js"></script>
+		<link rel="import" href="common_resource.html"/>
 	</head>
 	<body style="visibility: hidden;">
 		<fox-page transition="display" class="page-map">
@@ -90,13 +73,34 @@
 					var map = this._map;
 					var pixel = map.pointToOverlayPixel(this._point);
 					
-					this._div.style.left = pixel.x-15+ "px";
+					this._div.style.left = pixel.x-10.5+ "px";
 					this._div.style.top = pixel.y-30 + "px";
 				};
 				
 				CustomOverlay.prototype.addEventListener = function(){
 					
 					this._div.addEventListener.apply(this._div,arguments);
+				};
+				
+				function MyOverlay(point) {
+					this._point = point;
+					
+				}
+				MyOverlay.prototype = new BMap.Overlay();
+
+				MyOverlay.prototype.initialize = function(map) {
+					this._map = map;
+					
+					var div = this._div = $("<div class='my_overlay'/>").get(0);
+					map.getPanes().labelPane.appendChild(div);
+					return div;
+				};
+				MyOverlay.prototype.draw = function() {
+					var map = this._map;
+					var pixel = map.pointToOverlayPixel(this._point);
+					
+					this._div.style.left = pixel.x-15+ "px";
+					this._div.style.top = pixel.y-30 + "px";
 				};
 
 				var params = Utils.getURLParams();
@@ -114,12 +118,15 @@
 					var point1 = new BMap.Point(params['lng'], params['lat']);
 					// 创建点坐标
 					map1.centerAndZoom(point1, 13);
+					
 					return {
 						drawPage : function(mapdata, page) {
 							$detailTeml.hide();
 							listBtn.attr("href", "list.html?lng=" + params.lng + "&lat=" + params.lat + "&page=" + page);
 
 							map1.clearOverlays();
+							
+							map1.addOverlay(new MyOverlay(point1));  
 							mapdata.getPointList().forEach(function(obj,index) {
 								if(index == 0){
 									map1.panTo(obj.point);

@@ -179,18 +179,16 @@
                 "z-index" : "3"
             };
 
-            /*
             if(type == "min" && data.valueLabel && data.valueLabel.min){
-                            style = setMostLabelStyle(style, data.valueLabel.min, x, y);
-                            className = '';
-                        }else if(type == "max" && data.valueLabel && data.valueLabel.max){
-                            style = setMostLabelStyle(style, data.valueLabel.max, x, y);
-                            className = '';
-                        }else if(data.valueLabel && data.valueLabel.label){
-                            style = setMostLabelStyle(style, data.valueLabel.label, x, y);
-                            className = '';
-                        }*/
-            
+                style = setMostLabelStyle(style, data.valueLabel.min, x, y);
+                className = '';
+            }else if(type == "max" && data.valueLabel && data.valueLabel.max){
+                style = setMostLabelStyle(style, data.valueLabel.max, x, y);
+                className = '';
+            }else if(data.valueLabel && data.valueLabel.label){
+                style = setMostLabelStyle(style, data.valueLabel.label, x, y);
+                className = '';
+            }
 
             var div = Utils.createEle('div', style, className, content);
 
@@ -224,11 +222,11 @@
                 }
             }
 
-            if((most == 'min' || most == 'both') && val == commonAttr.min && lastMost == 'min'){
-                dotObj = this.setMostValueDotObj(dotObj, 'min');
-            }else if((most == 'max' || most == 'both') && val == commonAttr.max && lastMost == 'max'){
-                dotObj = this.setMostValueDotObj(dotObj, 'max');
-            }
+            // if((most == 'min' || most == 'both') && val == commonAttr.min && lastMost == 'min'){
+            //     dotObj = this.setMostValueDotObj(dotObj, 'min');
+            // }else if((most == 'max' || most == 'both') && val == commonAttr.max && lastMost == 'max'){
+            //     dotObj = this.setMostValueDotObj(dotObj, 'max');
+            // }
 
             if(dotObj){
                 this.elementsContainer.appendChild(dotObj);
@@ -256,11 +254,11 @@
                     }
                 }
 
-                if((most == 'min' || most == 'both') && val == commonAttr.min && lastMost == 'min'){
-                    lbl = this.putValueLabel(val, pX, pY+halfRound+5, 'min');
-                }else if((most == 'max' || most == 'both') && val == commonAttr.max && lastMost == 'max'){
-                    lbl = this.putValueLabel(val, pX, pY-halfRound-5, 'max');
-                }
+                // if((most == 'min' || most == 'both') && val == commonAttr.min && lastMost == 'min'){
+                //     lbl = this.putValueLabel(val, pX, pY+halfRound+5, 'min');
+                // }else if((most == 'max' || most == 'both') && val == commonAttr.max && lastMost == 'max'){
+                //     lbl = this.putValueLabel(val, pX, pY-halfRound-5, 'max');
+                // }
 
                 lbl && this.elementsContainer.appendChild(lbl);
             }
@@ -385,7 +383,7 @@
 
             commonAttr.hoverVal = {x: xVal, yArr : yValArr};
             // 回调
-            data.onhover && data.onhover.callback && data.onhover.callback(xVal, yValArr);
+            data.onhover && data.onhover.callback && data.onhover.callback(xVal, index, yValArr);
         },
 
         initAnim : function(){

@@ -8,24 +8,8 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>精品推荐</title>
-		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
-		<link rel="stylesheet" href="css/style.css"/>
-
-		<script src="js/fastclick.js"></script>
 		<script src="../../components/fox-core/dist/foxui.js"></script>
-		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
-		<link rel="import" href="../../components/fox-dialog/dist/fox-dialog.html"/>
-		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
-		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
-		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
-		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
-		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
-		<link rel="import" href="../../components/fox-slider/src/fox-slider.html"/>
-		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
-		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
-		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
-		<script src="js/map_api.js"></script>
-		<script src="js/app.js"></script>
+		<link rel="import" href="common_resource.html"/>
 	</head>
 	<body style="visibility: hidden;">
 
@@ -124,7 +108,6 @@
 
 					$("#clear_btn").bind("click", function() {
 						fox.ui.confirm("提示", "是否清空历史记录？",function(res){
-							debugger;
 							if(res){
 								localStorage.removeItem("search_history");
 								Store.init();
@@ -183,8 +166,7 @@
 
 				var locText = $("#loc-text");
 				
-				locText.bind("click", function() {
-					
+				function location(){
 					var self = this;
 					var state = $(this).attr("state");
 					if (state == "false") {
@@ -203,13 +185,17 @@
 					} else if (state == "true") {
 						
 					}
+				}
+				
+				locText.bind("click", function() {
+					location.apply(this,arguments);
+					
 
 				});
 				
-				setTimeout(function(){
-					
-					locText.click();
-				},500);
+				
+				location.apply(locText,arguments);
+			
 				
 				$("#search-list").delegate("li", "click", function() {
 					var lng = $(this).attr("lng"),

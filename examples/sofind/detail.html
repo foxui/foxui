@@ -8,94 +8,72 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>精品推荐</title>
 
-		<link rel="stylesheet" href="../../components/fox-core/dist/foxui.css">
-		<link rel="stylesheet" href="css/style.css"/>
-		<script src="js/base.js"></script>
-		<script src="js/bl_base.js"></script>
-		<script src="js/line.js"></script>
-		<script src="js/fastclick.js"></script>
 		<script src="../../components/fox-core/dist/foxui.js"></script>
-		<link rel="import" href="../../components/fox-content/dist/fox-content.html"/>
-		<link rel="import" href="../../components/fox-icon/dist/fox-icon.html"/>
-		<link rel="import" href="../../components/fox-tabbar/dist/fox-tabbar.html"/>
-		<link rel="import" href="../../components/fox-page/dist/fox-page.html"/>
-		<link rel="import" href="../../components/fox-model/dist/fox-model.html"/>
-		<link rel="import" href="../../components/fox-toolbar/dist/fox-toolbar.html"/>
-		<link rel="import" href="../../components/fox-slider/src/fox-slider.html"/>
-		<link rel="import" href="../../components/fox-ajax/dist/fox-ajax.html"/>
-		<link rel="import" href="../../components/fox-page-content/dist/fox-page-content.html"/>
-		<link rel="import" href="../../components/fox-template/src/fox-template.html"/>
-		<script src="js/app.js"></script>
+		<link rel="import" href="common_resource.html"/>
+		
 	</head>
 	<body style="visibility: hidden;">
 		<fox-page transition="hslide">
 			<fox-toolbar class="primary">
 				<fox-icon icon="icon-left-nav" class="left" onclick="history.back();"></fox-icon>
 				<h1 id="pdetail-toolbar">正在加载中..</h1>
+				
 			</fox-toolbar>
 			<fox-page-content class="pdetail">
 
 				<fox-template id="pdetail-tmpl" style="visibility: visible">
 					<div class="img" rv-background-image-resize="data.thumbnail"></div>
-					<div class="navigation-bar">
-						<div class="navigation-bar__center">
-							<div class="button-bar" style="width:200px;margin:7px 50px;">
-								<div class="button-bar__item">
-									<input type="radio" name="navi-segment-a" checked>
-									<div class="button-bar__button">
-										简介
-									</div>
-								</div>
-
-								<div class="button-bar__item">
-									<input type="radio" name="navi-segment-a">
-									<div class="button-bar__button">
-										用时分布
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<fox-tabs contentselector=".pp_tab" autoload style="margin-top:10px;">
+						<span class="active">简介</span>
+						<span>用时分布</span>
+					</fox-tabs>
 					<div class="main" id="pp_main">
-						<div id="pp_detail" class="detail">
-							<p>
-								<label> 两居租金: </label>
-								<span>{data.rent_price}(元)</span>
-							</p>
-							<p>
-								<label> 平均房价: </label>
-								<span>{data.price}元/平</span>
-							</p>
-							<p>
-								<label> 建筑年代: </label>
-								<span>{data.house_year|detailFormatter}</span>
-							</p>
-							<p>
-								<label> 容积率: </label>
-								<span>{data.volume_rate|detailFormatter}</span>
-							</p>
-							<p>
-								<label> 建筑类型: </label>
-								<span>{data.building_type|detailFormatter}</span>
-							</p>
-							<p>
-								<label> 房屋类型: </label>
-								<span>{data.house_type|detailFormatter}</span>
-							</p>
-							<p>
-								<label> 物业费: </label>
-								<span>{data.property_management_fee|detailFormatter}</span>
-							</p>
-							<p>
-								<label> 物业公司: </label>
-								<span>{data.property_company|detailFormatter}</span>
-							</p>
-							<p>
-								<label> 开发商: </label>
-								<span>{data.developers|detailFormatter}</span>
-							</p>
-						</div>
-						<div id="charts" style="height:200px;display: none;padding:20px 0;margin-bottom: 20px;"></div>
+						<fox-tabs-content active class="pp_tab">
+							<div id="pp_detail" class="detail">
+								<p>
+									<label> 两居租金: </label>
+									<span>{data.rent_price}(元)</span>
+								</p>
+								<p>
+									<label> 平均房价: </label>
+									<span>{data.price}元/平</span>
+								</p>
+								<p>
+									<label> 建筑年代: </label>
+									<span>{data.house_year|detailFormatter}</span>
+								</p>
+								<p>
+									<label> 容积率: </label>
+									<span>{data.volume_rate|detailFormatter}</span>
+								</p>
+								<p>
+									<label> 建筑类型: </label>
+									<span>{data.building_type|detailFormatter}</span>
+								</p>
+								<p>
+									<label> 房屋类型: </label>
+									<span>{data.house_type|detailFormatter}</span>
+								</p>
+								<p>
+									<label> 物业费: </label>
+									<span>{data.property_management_fee|detailFormatter}</span>
+								</p>
+								<p>
+									<label> 物业公司: </label>
+									<span>{data.property_company|detailFormatter}</span>
+								</p>
+								<p>
+									<label> 开发商: </label>
+									<span>{data.developers|detailFormatter}</span>
+								</p>
+							</div>
+						</fox-tabs-content>
+						<fox-tabs-content id="pp_tab2" class="pp_tab">
+							<div class="charts_container">
+								<div id="charts" ></div>
+							</div>
+							
+						</fox-tabs-content>
 					</div>
 
 				</fox-template>
@@ -114,34 +92,31 @@
 
 					var $main = $("#pp_main").children();
 					var isdraw = false;
-					$("input[name='navi-segment-a']").each(function(i) {
-						$(this).bind("click", function() {
-							$main.hide();
-							$main.eq(i).show();
-							if (i == 1) {
-								if (!isdraw) {
-									var c = new Charts.Line({
-										guide : true,
-										container : document.getElementById('charts'), //指定容器
-										xAxis : {
-											categories : ['0', '1', '2','3', '4', '5','6', '7', '8','9', '10', '11','12']
-										},
-										series : [{
-											name : 'Tokyo',
-											color : 'rgb(183, 211, 240)',
-											data : [0,4,9,14,19,12,10,11,8,9,7,7,7]
-										}],
-										onhover : {// 该属性可为空
-											callback : function(x, yArr) {// touchmove时回调，必选
-
-											}
-										}
-									});
-									isdraw = true;
+					$("#pp_tab2").bind("aftershow",function(){
+						
+						if (!isdraw) {
+							var c = new Charts.Line({
+								guide : true,
+								container : document.getElementById('charts'), //指定容器
+								xAxis : {
+									categories : ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '10', '11', '12','13','14']
+								},
+								series : [{
+									name : 'Tokyo',
+									color : 'rgb(183, 211, 240)',
+									data : [10, 14, 19, 14, 19, 12, 10, 11, 18, 19, 17, 17, 17,13,13]
+								}],
+								onhover : {// 该属性可为空
+									callback : function(x, yArr) {// touchmove时回调，必选
+										console.info(arguments);
+									}
 								}
-							}
-						});
+							});
+							isdraw = true;
+						}
 					});
+					
+
 				});
 
 			})();
