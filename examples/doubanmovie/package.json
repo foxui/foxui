@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "wck": "0.0.2"
+  "devDependencies": {
+    "wck": "0.0.3"
   }
 }

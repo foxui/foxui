@@ -10,23 +10,24 @@ asserts = data\
 	  images\
 	  ../../components/fox-icon/font
 
-wck = node_modules/wck/bin/wck.js
+wck = ./node_modules/wck/bin/wck.js
 
 all:$(asserts) $(dist)
 
-$(dist):$(src)
-	$(wck) $^
+merge:$(dist)
 
+
+$(dist):$(src)
+	$(wck) $^ -d build -minify y
 
 $(asserts):$(dist)
 	@cp -rf $@ $^
-
 
 clean:
 	@rm -rf $(dist)
 	@echo  clean success
 
 init:
-	$(npm) install
+	@npm install
 
-.PHONY: clean
+.PHONY: all clean merge
