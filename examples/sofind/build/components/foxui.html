@@ -1,0 +1,1399 @@
+
+
+<fox-element name="fox-refresher">
+	<tpl>
+		<div id="fox-refresher-content" class="fox-refresher-content">
+			<content></content>
+		</div>
+	</tpl>
+	<script>
+		fox("fox-refresher", {
+			lifecycle : {
+				created : function() {
+
+				},
+				inserted : function() {
+
+				}
+			},
+			methods : {
+				refreshComplete : function() {
+					$(this).closest("fox-content").get(0)._refreshComplete();
+				},
+				fireRefresh : function() {
+					xtag.fireEvent(this, 'refresh', {});
+				},
+				init : function() {
+
+					var pulltorefreshHeight = $(this).height();
+					$(this).css({
+						top : -pulltorefreshHeight + "px"
+					});
+
+				}
+			}
+		});
+
+	</script>
+
+</fox-element>
+
+<fox-element name="fox-infinite-scroll" attributes="distance">
+	<script>
+		fox("fox-infinite-scroll", {
+			lifecycle : {
+				created : function() {
+					this.distance = this.distance || 0;
+					this.enable = true;
+				}
+			},
+			methods : {
+				getDistance : function(height) {
+					var distance = this.distance;
+
+					var pattrn = /(\d+)(%?)/.exec(distance);
+					if (!pattrn || pattrn[2] == "") {
+						return height - (parseInt(distance) || 0);
+					}
+					if (pattrn[2] != "") {
+						return height - (height * pattrn[1] / 100);
+					}
+				},
+				fireInfinite : function() {
+					if (this.enable) {
+						this.enable = false;
+						xtag.fireEvent(this, 'infinite', {});
+					}
+
+				},
+				infiniteComplete : function() {
+					this.enable = true;
+				}
+			}
+		});
+	</script>
+</fox-element>
+
+<fox-element name="fox-content" >
+	<tpl>
+		<div id="fox-content-scroller" class="fox-content-scroller">
+			<content></content>
+		</div>
+
+	</tpl>
+	<script>
+		function FoxContent(el) {
+
+			this.setupInfiniteScroll = function($infiniteScroll) {
+				var infiniteScroll = $infiniteScroll.get(0);
+				$(el).bind("scroll", function() {
+					if (el.scrollTop + $(el).height() >= infiniteScroll.getDistance(el.scrollHeight)) {
+						infiniteScroll.fireInfinite();
+					}
+
+				});
+			}
+
+			this.setupPulltorefresh = function($pulltorefresh) {
+
+				function translateDom(dist, speed) {
+					var height = dist - $(el).scrollTop();
+					var className = Math.min(parseInt((height / pulltorefreshHeight)), 1) === 0 ? "up" : "down";
+					$pulltorefresh.get(0).className = "fox-refresher-status-" + className;
+
+					scroller.style.webkitTransitionDuration = scroller.style.MozTransitionDuration = scroller.style.msTransitionDuration = scroller.style.OTransitionDuration = scroller.style.transitionDuration = speed + 'ms';
+					scroller.style.webkitTransform = 'translate3d(0,' + dist + 'px,0)';
+					scroller.style.msTransform = scroller.style.MozTransform = scroller.style.OTransform = 'translateY(' + dist + 'px)';
+				}
+
+				var $content = $(el.$['fox-listview-content']);
+				var $refresherContent = $(el.$['fox-refresher-content']);
+				var pulltorefreshHeight;
+				var self = this;
+				var scroller = el.$['fox-content-scroller'];
+				scroller.addEventListener('webkitTransitionEnd', function() {
+					setTimeout(function() {
+						$content.height($content.height() + 1);
+					}, 50);
+
+				}, false);
+				var startY, startTop;
+				var hasInit = false;
+				var translateY = 0, endTranslateY = 0;
+				el.addEventListener("touchstart", function(e) {
+					if (!hasInit) {
+						$pulltorefresh.get(0).init();
+						pulltorefreshHeight = $pulltorefresh.height();
+						hasInit = true;
+					}
+					startY = e.touches[0].pageY;
+					startTop = $(this).scrollTop();
+
+				}, true);
+				el.addEventListener("touchmove", function(e) {
+					var deltaY = (e.touches[0].pageY - startY) * 0.35;
+					
+					if (!self.isRefreshing) {
+						
+						if ($(this).scrollTop() <= 0) {
+							if (deltaY > 0 && endTranslateY == 0) {
+								translateY = $(this).scrollTop() + deltaY;
+								translateDom($(this).scrollTop() + deltaY, 0);
+								e.preventDefault();
+							}
+
+						} else {
+							startY = e.touches[0].pageY;
+						}
+					}
+
+				}, true);
+
+				this.isRefreshing = false;
+
+				el.addEventListener("touchend", function(e) {
+					if (!self.isRefreshing) {
+						if (translateY - $(el).scrollTop() >= pulltorefreshHeight) {
+							translateY = pulltorefreshHeight;
+							endTranslateY = translateY;
+							translateDom(pulltorefreshHeight, 200);
+							$pulltorefresh.get(0).fireRefresh();
+							isRefreshing = true;
+							$pulltorefresh.get(0).className = "fox-refresher-status-loading";
+						} else {
+							self.refreshComplete();
+						}
+					}
+
+				}, true);
+
+				this.refreshComplete = function() {
+					this.isRefreshing = false;
+					
+					$pulltorefresh.get(0).className = "fox-refresher-status-up";
+					translateDom(0, 200);
+					translateY = 0;
+					endTranslateY = 0;
+				}
+			}
+		}
+
+		
+
+		fox("fox-content", {
+			lifecycle : {
+				created : function() {
+					var $pulltorefresh = $("fox-refresher", this);
+					this._FoxContent = new FoxContent(this);
+					if ($pulltorefresh.size() > 0) {
+						pulltorefresh = this._FoxContent.setupPulltorefresh($pulltorefresh);
+					}
+					var $infiniteScroll = $("fox-infinite-scroll", this);
+
+					if ($infiniteScroll.size() > 0) {
+						this._FoxContent.setupInfiniteScroll($infiniteScroll);
+					}
+
+				},
+				inserted : function() {
+
+				}
+			},
+			methods : {
+				_refreshComplete : function() {
+
+					this._FoxContent.refreshComplete&&this._FoxContent.refreshComplete();
+				}
+			}
+		});
+	</script>
+
+</fox-element>
+ 
+<fox-element name="fox-icon" attributes="icon">
+    <script>
+
+    (function(env){
+        var fox = env.fox;
+
+        function setIconClass() {
+
+            if (!this.icon) {
+                return;
+            }
+
+            var iconComposites = this.icon.split('-');
+
+            if (iconComposites.length > 1) {
+                this.iconFamily = iconComposites[0]
+            }
+
+            this.classList.add(this.iconFamily);
+            this.classList.add(this.icon);
+        }
+
+
+        fox('fox-icon', {
+            lifecycle: {
+
+                created: function() {
+
+                },
+
+                inserted: function() {
+                    // e.g: icon-back / fa-back
+                    setIconClass.call(this);
+                },
+
+                iconChanged: function(oldVal, newVal) {
+                    // reset old
+                    this.iconFamily && this.classList.remove(this.iconFamily);
+                    oldVal && this.classList.remove(oldVal);
+
+                    setIconClass.call(this);
+                }
+            }
+        });
+    })(this);
+    </script>
+</fox-element>
+ 
+<fox-element name="fox-tabbar">
+    <script>
+    (function(env){
+        var fox = env.fox;
+
+        function clearActive() {
+            var activeItem = this.querySelector('.active');
+
+            activeItem && activeItem.classList.remove('active');
+        }
+
+        function getLabelText(item) {
+            var label = item.querySelector('label');
+            var labelText;
+
+            label && (labelText = label.textContent);
+
+            return labelText;
+        }
+
+        fox('fox-tabbar', {
+            lifecycle: {
+                created: function() {
+                    this.classList.add('bar');
+                    this.classList.add('bottom');
+
+                    // 如果没有 label 则添加 .no-label class
+                    !(fox.query(this, 'label').length) && this.classList.add('no-label');
+
+                    var items = fox.queryChildren(this, '*');
+                    var me = this;
+
+                    items.forEach(function(item) {
+                        item.addEventListener('click', function() {
+                            clearActive.call(me);
+                            this.classList.add('active');
+
+                            fox.fireEvent(me, 'selected', {
+                                detail: {
+                                    index: items.indexOf(this),
+                                    label: getLabelText(this)
+                                }
+                            });
+                        }, false);
+                    });
+                }
+            },
+
+            methods: {
+                select: function(index) {
+                    var items = fox.queryChildren(this, '*');
+                    var me = this;
+
+                    clearActive.call(this);
+
+                    if (typeof index === 'string') {
+
+                        items.forEach(function(item, idx){
+                            var labelText = getLabelText(item);
+
+                            if (labelText && labelText == index) {
+                                item.classList.add('active');
+
+                                fox.fireEvent(me, 'selected', {
+                                    detail: {
+                                        index: idx,
+                                        label: labelText
+                                    }
+                                });
+                            }
+                        });
+
+                    }
+                    else {
+                        var target = items[index%items.length];
+                        target && target.classList.add('active');
+
+                        var labelText = getLabelText(target);
+
+                        fox.fireEvent(this, 'selected', {
+                            detail: {
+                                index: index%items.length,
+                                label: labelText
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    })(this);
+    </script>
+</fox-element>
+ 
+<fox-element name="fox-page" attributes="transition">
+    <script>
+    (function(env){
+        var fox = env.fox;
+        var outCls = 'transition-out';
+        var loadingCls = 'fox-page-loading';
+
+        var transitions = {
+            forward: {
+                fade: {
+                    init: 'fx-fade-out',
+                    show: 'fx-fade-in',
+                    hide: 'fx-fade-out'
+                },
+
+                hslide: {
+                    init: 'fx-slide-right',
+                    show: 'fx-slide-center',
+                    hide: 'fx-slide-left'
+                },
+
+                vslide: {
+                    init: 'fx-slide-down',
+                    show: 'fx-slide-middle',
+                    hide: 'fx-slide-down'
+                },
+
+                display: {
+                    hide: 'fx-display-hide'
+                }
+            },
+
+            backward: {
+                hslide: {
+                    init: 'fx-slide-left',
+                    show: 'fx-slide-center',
+                    hide: 'fx-slide-right'
+                },
+
+                vslide: {
+                    init: 'fx-slide-down',
+                    show: 'fx-slide-middle',
+                    hide: 'fx-slide-down'
+                },
+
+                display: {
+                    hide: 'fx-display-hide'
+                }
+            }
+        };
+
+        function fx(action, animation, backward) {
+            var transition = this.transition || 'fade';
+            var dir = backward ? 'backward' : 'forward';
+
+            // 无动画的显示隐藏简单处理
+            if (this.transition === 'display') {
+                if (action === 'show') {
+                    clearOutCls(this);
+                    this.classList.remove(transitions[dir].display.hide);
+                    fireEvent.call(this, 'aftershow');
+                }
+                else if (action === 'hide') {
+                    this.classList.add(transitions[dir].display.hide);
+                    fireEvent.call(this, 'afterhide');
+                }
+
+                return;
+            }
+
+            animation = (animation === false ? false : true);
+
+            this.classList.remove('transition');
+
+            var effect = transitions[dir] || transitions['forward'];
+
+            if (!effect[transition]) {
+                effect[transition] = transitions['forward'][transition];
+            }
+
+            if (!effect || !effect[transition]) {
+                throw new Error('No transitions for direction ' + dir);
+            }
+
+            var actCls = effect[transition][action];
+            var initCls = effect[transition].init;
+            var me = this;
+
+            if (!animation) {
+                clearFX(this);
+                this.classList.add(actCls);
+            }
+            else {
+
+                if (action === 'show') {
+                    // keep this duplicated code here
+                    clearFX(this);
+                    this.classList.add(initCls);
+                }
+
+                setTimeout(function(){
+                    // keep this duplicated code here
+                    clearFX(me);
+                    me.classList.add('transition');
+                    me.classList.add(actCls);
+                }, 60);
+            }
+
+            // clear hide class
+            if (action === 'show') {
+                clearOutCls(this);
+            }
+        }
+
+        function clearFX(el) {
+            var list = el.classList;
+            var listArr = fox.toArray(list);
+
+            listArr.forEach(function(cls){
+                if (cls.indexOf('fx-') === 0) {
+                    list.remove(cls);
+                }
+            });
+        }
+
+        function clearOutCls(el) {
+            el.classList.remove(outCls);
+        }
+
+        function hideTransitionEnd() {
+            this.removeEventListener('transitionend', hideTransitionEnd, false);
+
+            if (this.action === 'show') {
+                return;
+            }
+
+            this.classList.add(outCls);
+            fireEvent.call(this, 'afterhide');
+        }
+
+        function showTransitionEnd() {
+            this.removeEventListener('transitionend', showTransitionEnd, false);
+
+            if (this.action === 'hide') {
+                return;
+            }
+
+            fireEvent.call(this, 'afterhide');
+        }
+
+        function initLoadingElement() {
+            var el = this.querySelector('.page-loading-wrapper');
+            var cnt = this.querySelector('fox-page-content');
+
+            if (cnt && !el) {
+                el = document.createElement('div');
+                el.className = 'page-loading-wrapper';
+
+                var icon = document.createElement('fox-icon');
+                icon.className = 'animate-spin';
+                icon.icon = 'icon-spin5';
+
+                el.appendChild(icon);
+
+                cnt.appendChild(el);
+            }
+        }
+
+        function fireEvent(type) {
+            fox.fireEvent(this, type, {
+                detail: this
+            });
+        }
+
+        fox('fox-page', {
+
+            lifecycle: {
+                created: function() {
+                    this.classList.toggle(loadingCls, this.loading);
+
+                    if (this.loading) {
+                        initLoadingElement.call(this);
+                    }
+                },
+
+                attributeChanged: function() {
+                    this.classList.toggle(loadingCls, this.loading);
+
+                    if (this.loading) {
+                        initLoadingElement.call(this);
+                    }
+                }
+            },
+
+            methods: {
+                show: function(animation, backward) {
+                    this.action = 'show';
+
+                    fireEvent.call(this, 'beforeshow');
+
+                    fx.apply(this, ['show', animation, backward]);
+
+                    if (animation) {
+                        this.addEventListener('transitionend', showTransitionEnd, false);
+                    }
+                    else {
+                        fireEvent.call(this, 'aftershow');
+                    }
+                },
+
+                hide: function(animation, backward) {
+                    this.action = 'hide';
+
+                    fireEvent.call(this, 'beforehide');
+
+                    animation = animation === false ? false : true;
+
+                    if (animation) {
+                        this.addEventListener('transitionend', hideTransitionEnd, false);
+                    }
+                    else {
+                        this.classList.add(outCls);
+                    }
+
+                    fx.apply(this, ['hide', animation, backward]);
+                }
+            },
+
+            accessors: {
+                loading: {
+                    attribute: {
+                        boolean: true
+                    }
+                }
+            }
+        });
+    })(this);
+    </script>
+</fox-element>
+ <fox-element name="fox-model" attributes="mode field">
+
+    <script>
+        function fireChange(oldVal, newVal) {
+            fox.fireEvent(this, 'data-change', {
+                'detail' : {
+                    oldVal : oldVal,
+                    newVal : newVal
+                }
+            });
+        }
+
+        fox('fox-model', {
+            mode: 'replace',
+
+            lifecycle : {
+                created: function() {
+                    this._old = null;
+                }
+            },
+
+            methods: {
+                datasourceFilter: function(data) {
+
+                    // save old data
+                    this._old = this.data;
+
+                    if (data && this.field) {
+                        this.field.split('.').forEach(function(field){
+                            data = data[field];
+                        });
+                    }
+
+                    // this._data_ will be replaced with new data after this return
+                    return data;
+                },
+
+                // exec after datsourceFilter
+                datasourceChanged: function(newVal) {
+
+                    // mode is only valid when data's type is array
+                    if ($.type(newVal) === 'array') {
+
+                        if (!this._old || this.mode === 'replace') {
+                            this.data = newVal;
+                        }
+                        else if ($.type(this._old) === 'array') {
+                            if (this.mode === 'append') {
+                                this.data = this._old.concat(newVal);
+                            }
+                            else if(this.mode === 'prepend') {
+                                this.data = newVal.concat(this._old);
+                            }
+                        }
+
+                    }
+
+                    fireChange.apply(this, [this._old, this.data]);
+                }
+            }
+
+        });
+    </script>
+
+</fox-element>
+ 
+<fox-element name="fox-toolbar" attributes="title">
+    <script>
+    (function(env){
+        var fox = env.fox;
+
+        function createHeader(title, className) {
+            if (!title) {
+                return;
+            }
+
+            var el = document.createElement('h1');
+            el.innerHTML = title;
+            className && (el.className = className);
+
+            return el;
+        }
+
+        fox('fox-toolbar', {
+            lifecycle: {
+                created: function() {
+                    this.classList.add('bar');
+
+                    // navigation stacks
+                    this.stacks = [];
+
+                    if (this.title) {
+                        this.appendChild(createHeader(this.title));
+                    }
+                },
+
+                titleChanged: function(oldVal, newVal) {
+                    var titleEl = this.querySelector('h1');
+
+                    if (!titleEl) {
+                        this.appendChild(createHeader(this.title));
+                    }
+                    else {
+                        this.querySelector('h1').innerHTML = newVal;
+                    }
+                }
+            },
+
+            methods: {
+                // {title:'', id:'', rightDoms: []}
+                push: function(page) {
+                    this.stacks.push(page);
+
+                    var nextHeader = this.querySelector('h1.next');
+
+                    if (!nextHeader) {
+                        nextHeader = createHeader(page.title, 'next');
+                        this.appendChild(nextHeader);
+                    }
+                    else {
+                        nextHeader.innerHTML = page.title;
+                    }
+
+                    // clear expire title
+                    this.querySelector('h1.out').remove();
+
+                    // set current header as prevouis
+                    this.querySelector('h1.prev').classList.add('out');
+
+                    // display new header
+                    nextHeader.classList.remove('next');
+                },
+
+                pop: function() {
+                    if (!this.stacks.length) {
+                        return
+                    }
+
+                    var page = this.stacks.pop();
+
+                    var prevHeader = this.querySelector('h1.prev:not(.out)');
+
+                    if (!nextHeader) {
+                        nextHeader = createHeader(page.title, 'next');
+                        this.appendChild(nextHeader);
+                    }
+                    else {
+                        nextHeader.innerHTML = page.title;
+                    }
+
+                    // clear expire header
+                    this.querySelector('h1.next').remove();
+                }
+            }
+        });
+    })(this);
+    </script>
+</fox-element>
+ <fox-element name="fox-json" attributes="json">
+
+    <script>
+
+        function fireChange(oldVal, newVal) {
+            fox.fireEvent(this, 'data-change', {
+                'detail' : {
+                    oldVal : oldVal,
+                    newVal : newVal
+                }
+            });
+        }
+
+        fox('fox-json', {
+            lifecycle : {
+                created: function() {
+                    // property
+                    this.data = this.getValue();
+                    fireChange.apply(this, [null, this.data]);
+                },
+
+                jsonChanged : function(oldVal, newVal) {
+                    oldVal = this.data;
+
+                    // property
+                    this.data = this.getValue();
+                    fireChange.apply(this, [oldVal, this.data]);
+                }
+            },
+
+            methods: {
+                getValue: function() {
+                    return JSON.parse(this.json);
+                },
+
+                setValue: function(jsonObj) {
+
+                    if (jsonObj) {
+                        this.json = JSON.stringify(jsonObj);
+                    }
+                }
+            }
+
+        });
+    </script>
+
+</fox-element>
+ <fox-element name="fox-ajax"  attributes="url dataType params response method jsonp headers contentType">
+
+    <script>
+
+		fox('fox-ajax', {
+            /**
+            * Fired when a response is received.
+            *
+            * @event success
+            */
+
+            /**
+            * Fired when an error is received.
+            *
+            * @event error
+            */
+
+            /**
+            * Fired whenever a response or an error is received.
+            *
+            * @event complete
+            */
+
+            /**
+            * Fired whenever a response is received and diff from old response
+            *
+            * @event data-change
+            */
+
+            /**
+            * The URL target of the request.
+            *
+            * @attribute url
+            * @type string
+            * @default ''
+            */
+            url: '',
+
+            /**
+            * Specifies what data to store in the `response` property, and
+            * to deliver as `event.response` in `response` events.
+            *
+            * One of:
+            *
+            *    `text`: uses `XHR.responseText`.
+            *
+            *    `xml`: uses `XHR.responseXML`.
+            *
+            *    `json`: uses `XHR.responseText` parsed as JSON.
+            *
+            *    `html`: uses `XHR.responseText`.
+            *
+            *    `jsonp`: uses `jsonp callback`.
+            *
+            * @attribute dataType
+            * @type string
+            * @default 'text'
+            */
+            dataType: '',
+
+            /**
+            * If true, automatically performs an Ajax request when either `url` or `params` changes.
+            *
+            * @attribute auto
+            * @type boolean
+            * @default false
+            */
+            auto: false,
+
+            /**
+            * Parameters to send to the specified URL, as JSON.
+            *
+            * @attribute params
+            * @type string (JSON)
+            * @default ''
+            */
+            params: '',
+
+            /**
+            * Returns the response object.
+            *
+            * @attribute response
+            * @type Object
+            * @default null
+            */
+            response: null,
+
+            /**
+            * The HTTP method to use such as 'GET', 'POST', 'PUT', or 'DELETE'.
+            * Default is 'GET'.
+            *
+            * @attribute method
+            * @type string
+            * @default 'GET'
+            */
+            method: '',
+
+            /**
+            * The name of the JSONP callback query parameter.
+            * Default is 'callback'.
+            *
+            * @attribute jsonp
+            * @type string
+            * @default 'callback'
+            */
+            jsonp: '',
+
+            /**
+            * HTTP request headers to send.
+            *
+            * Example:
+            *
+            *     <w-ajax
+            *         auto
+            *         url="http://somesite.com"
+            *         headers='{"X-Requested-With": "XMLHttpRequest"}'
+            *         dataType="json"
+            *         on-success="{{handleResponse}}"></w-ajax>
+            *
+            * @attribute headers
+            * @type Object
+            * @default null
+            */
+            headers: null,
+
+            /**
+            * Content type to use when sending data.
+            *
+            * @attribute contentType
+            * @type string
+            * @default 'application/x-www-form-urlencoded'
+            */
+            contentType: 'application/x-www-form-urlencoded',
+
+			lifecycle : {
+
+                created: function() {
+                    !this.method && (this.method = 'GET');
+                    !this.jsonp && (this.jsonp = 'callback');
+                    !this.contentType && (this.contentType = 'application/x-www-form-urlencoded');
+
+                    this.autoGo();
+                },
+
+                urlChanged: function() {
+                    this.autoGo();
+                },
+
+                paramsChanged: function() {
+                    this.autoGo();
+                }
+			},
+
+            accessors: {
+                auto: {
+                    attribute: {
+                        boolean: true
+                    }
+                }
+            },
+
+            methods: {
+                autoGo: function() {
+                    if (this.hasAttribute('auto')) {
+                        this.go();
+                    }
+                },
+
+                go: function() {
+
+                    var options = {
+                        type: this.method,
+                        url: this.url,
+                        dataType: this.dataType,
+                        contentType: this.contentType,
+
+                        success: function(data, status, xhr){
+                            var oldVal = me.response;
+
+                            // property
+                            me.data = data;
+
+                            me.response = JSON.stringify(data);
+
+                            fox.fireEvent(me, 'data-change', {
+                                'detail' : {
+                                    oldVal : oldVal,
+                                    newVal : data
+                                }
+                            });
+
+                            fox.fireEvent(me, 'success', {
+                                'detail' : {
+                                    data: data,
+                                    status: status,
+                                    xhr: xhr
+                                }
+                            });
+                        },
+
+                        error: function(xhr, errorType, error){
+                            fox.fireEvent(me, 'error', {
+                                'detail' : {
+                                    errorType: errorType,
+                                    error: error,
+                                    xhr: xhr
+                                }
+                            });
+                        },
+
+                        complete: function(){
+                            fox.fireEvent(me, 'complete');
+                        }
+                    };
+
+                    var me = this;
+
+                    if (this.params) {
+                        options.data = JSON.parse(this.params);
+                    }
+
+                    if (this.headers) {
+                        options.headers = JSON.parse(this.headers);
+                    }
+
+                    $.ajax(options);
+                }
+            }
+
+		});
+    </script>
+
+</fox-element>
+ 
+<fox-element name="fox-page-content">
+    <script>
+    (function(env){
+        var fox = env.fox;
+
+        fox('fox-page-content');
+    })(this);
+    </script>
+</fox-element>
+ 
+/**
+ * tabs 和 tabcontent 的映射规则
+ * 1. 如果无 contentselector 则默认从 fox-tabs 的 nextElementSibing 中 query fox-tabs-content
+ * 2. 如果有 contentselector 则将 query 结果作为 tabcontent
+ * 3. tabs 的顺序和 contents 的顺序一一对应
+ */
+<fox-element name="fox-tabs" attributes="contentselector">
+    <script>
+    (function(env){
+
+        var activeTabClass = 'active';
+        var activeTabSelector = '.' + activeTabClass;
+        var tabContentSelector = 'fox-tabs-content';
+
+        function clickHandler(e) {
+
+            // clear last selected state
+            var activeTab = this.parentNode.querySelector(activeTabSelector);
+            activeTab && activeTab.classList.remove(activeTabClass);
+
+            this.classList.add(activeTabClass);
+
+            this.parentNode.switchContent(this);
+        }
+
+        function findContents() {
+
+            if (this.contentselector) {
+                this.contents = fox.query(document, this.contentselector);
+            }
+            else {
+                var sibling = this.nextElementSibling;
+
+                sibling &&
+                (this.contents = fox.query(sibling, tabContentSelector));
+            }
+        }
+
+        fox('fox-tabs', {
+
+            contentselector: null,
+
+            autoload: false,
+
+            lifecycle: {
+                created: function() {
+                    this.tabs = fox.queryChildren(this, '*');
+
+                    this.tabs.forEach(function(tab){
+                        tab.addEventListener('touchend', clickHandler, false);
+                    });
+
+                    findContents.call(this);
+                },
+
+                contentselectorChanged: function() {
+                    findContents.call(this);
+                },
+
+                removed: function() {
+                    this.tabs.forEach(function(tab){
+                        tab.removeEventListener('touchend', clickHandler, false);
+                    });
+                }
+            },
+
+            methods: {
+                switchContent: function(activeTab) {
+                    if (!this.contents) {
+                        return;
+                    }
+
+                    // hide last active tab content
+                    this.contents.forEach(function(content){
+                        content.hide();
+                    });
+
+                    var activeIndex = this.tabs.indexOf(activeTab);
+                    var activeContent = this.contents[activeIndex];
+
+                    if (this.autoload) {
+                        // find data tag and send the init request
+                        var dataAjax = activeContent.querySelector('fox-ajax');
+
+                        // only send the init request
+                        if (dataAjax && !dataAjax.response) {
+                            dataAjax.go();
+                        }
+                    }
+
+                    activeContent && activeContent.show();
+                }
+            },
+
+            accessors: {
+                autoload: {
+                    attribute: {
+                        boolean: true
+                    }
+                }
+            }
+        });
+    })(this);
+    </script>
+</fox-element>
+ 
+<fox-element name="fox-tabs-content">
+    <script>
+    (function(env){
+
+        var activeClass = 'active';
+
+        function fireEvent(type) {
+            fox.fireEvent(this, type, {
+                detail: this
+            });
+        }
+
+        function activeChanged() {
+            this.active ? this.classList.add(activeClass) :
+            this.classList.remove(activeClass);
+        }
+
+        fox('fox-tabs-content', {
+            active: false,
+
+            lifecycle: {
+                created: function() {
+                    activeChanged.call(this);
+                },
+
+                activeChanged: function() {
+                    activeChanged.call(this);
+                }
+            },
+
+            methods: {
+                show: function() {
+                    fireEvent.call(this, 'beforeshow');
+                    this.active = true;
+                    fireEvent.call(this, 'aftershow');
+                },
+
+                hide: function() {
+                    fireEvent.call(this, 'beforehide');
+                    this.active = false;
+                    fireEvent.call(this, 'afterhide');
+                }
+            },
+
+            accessors: {
+                active: {
+                    attribute: {
+                        boolean: true
+                    }
+                }
+            }
+        });
+    })(this);
+    </script>
+</fox-element>
+ <fox-element name='fox-template'>
+
+    <script>
+
+        fox('fox-template', {
+            lifecycle : {
+                created : function() {
+                    var self = this;
+                    setTimeout(function(){
+                        rivets.bind(self,self);
+                    },0);
+
+                }
+            },
+
+            methods: {
+                datasourceChanged: function() {
+                    var me = this;
+
+                    // left 200 ms render time
+                    setTimeout(function() {
+                        me.classList.add('fox-template-renderred');
+                    }, 200);
+                }
+            }
+        });
+
+    </script>
+
+</fox-element>
+ 
+<fox-element name="fox-dialog">
+
+    <tpl>
+        <div id="fox-dialog-container" class="dialog-container">
+            <content></content>
+        </div>
+    </tpl>
+
+    <script>
+		fox('fox-dialog', {
+			lifecycle : {
+				created : function() {
+					
+				}
+			},
+			methods : {
+				show : function() {
+					var $container = $(this.$['fox-dialog-container']);
+					$container.css({
+						"margin-left" : -($container.width() / 2) + "px",
+						"margin-top" : -($container.height() / 2) + "px"
+					})
+					$(this).addClass("active");
+					$container.addClass("active");
+				},
+				hide : function(callback) {
+
+					var $container = $(this.$['fox-dialog-container']);
+					$container.bind("webkitAnimationEnd", function() {
+						callback && callback();
+					});
+					$(this).addClass("hide");
+				},
+				remove : function(callback) {
+					var self = this;
+					this.hide(function() {
+						$(self).remove();
+						callback && callback();
+					});
+				}
+			}
+		});
+
+    </script>
+
+</fox-element>
+
+<fox-element name="fox-popup-dialog">
+
+    <tpl>
+        <fox-dialog id="fox-dialog" class="effect-scaleIn">
+            <div class="fox-popup-container">
+                <div class="popup-head">
+                    <h3 class="popup-title">{param.title}</h3>
+                    <h5 class="popup-sub-title" rv-if="param.subtitle">{param.subtitle}</h5>
+                </div>
+                <div class="popup-body" rv-html="param.content">
+
+                </div>
+                <div class="popup-buttons row">
+                    <button rv-each-button="param.buttons" rv-on-click="button.click" class="button col" rv-class="button.type">
+                        {button.text}
+                    </button>
+                </div>
+            </div>
+        </fox-dialog>
+    </tpl>
+
+    <script>
+		fox.ui = fox.ui || {};
+		fox('fox-popup-dialog', {
+
+			lifecycle : {
+				created : function() {
+
+				}
+			},
+			methods : {
+				show : function(param) {
+					this.param = param;
+					this.$['fox-dialog'].show();
+				},
+				remove : function() {
+					var self = this;
+					this.$['fox-dialog'].remove(function() {
+						$(self).remove();
+					});
+				}
+			}
+		});
+
+		fox.ui.alert = function(title, content, callback) {
+			var alert1 = document.createElement("fox-popup-dialog");
+			$("body").append(alert1);
+			
+			setTimeout(function() {
+				alert1.show({
+					title : title,
+					// subtitle:"sub",
+					content : content,
+					buttons : [{
+						text : "OK",
+						type : "button-positive",
+						click : function() {
+							alert1.remove();
+							callback && callback();
+						}
+					}]
+				});
+				
+			}, 100);
+
+		};
+
+		fox.ui.confirm = function(title, content, callback) {
+			var confirm = document.createElement("fox-popup-dialog");
+			$("body").append(confirm);
+			confirm.show({
+				title : title,
+				content : content,
+				buttons : [{
+					text : "Cancel",
+					type : "aaaaa",
+					click : function() {
+						confirm.remove();
+						callback && callback(false);
+					}
+				}, {
+					text : "OK",
+					type : "button-positive",
+					click : function() {
+						confirm.remove();
+						callback && callback(true);
+					}
+				}]
+			});
+		};
+		
+		fox.ui.prompt = function(title, callback) {
+
+			var prompt = document.createElement("fox-popup-dialog");
+			$("body").append(prompt);
+			prompt.show({
+				title : title,
+				content : '<input id="fox-popup-text" class="fox-popup-text" type="text"/>',
+				buttons : [{
+					text : "Cancel",
+					type : "aaaaa",
+					click : function() {
+						callback && callback();
+						prompt.remove();
+					}
+				}, {
+					text : "OK",
+					type : "button-positive",
+					click : function() {
+						callback && callback($("#fox-popup-text", prompt).val());
+						prompt.remove();
+					}
+				}]
+			});
+		};
+
+    </script>
+
+</fox-element>

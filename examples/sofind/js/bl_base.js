@@ -317,7 +317,7 @@
 
                 startX = x;
                 startY = y;
-
+                
                 self.showIndicator(x, y);
             });
         },

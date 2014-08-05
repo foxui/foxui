@@ -49,29 +49,34 @@ var Utils = (function() {
 		// return projection.lngLatToPoint(new BMap.Point(lng, lat));
 	}
 
+	function toData(content) {
+		var lnglat = pointTolngLat(content.x, content.y);
+		return {
+			panorama : "panorama.html?uid="+content.bid,
+			name : content.name,
+			price : content.price,
+			home2work_distr_normaliezd:content.home2work_distr_normaliezd==""?[]:content.home2work_distr_normaliezd.split(","),
+			work2home_distr_normaliezd:content.work2home_distr_normaliezd==""?[]:content.work2home_distr_normaliezd.split(","),
+			loc : content.metro_distance,
+			time : content.bus_time,
+			thumbnail : "",
+			metro_name:content.metro_name,
+			metro_stop_name:content.metro_stop_name,
+			transfer1:content.transfer,
+			distance:content.distance,
+			detailLink:"detail.html?uid="+content.bid,
+			x:content.x,
+			y:content.y,
+			hasChart:content.home2work_distr_normaliezd!=""&&content.work2home_distr_normaliezd!="",
+			hotspot:content.live_num_ratio_normalized
+		};
+	}
+
 	function MapData(params) {
 
 		var contents = params.content;
 
-		function toData(content) {
-			var lnglat = pointTolngLat(content.x, content.y);
-			return {
-				panorama : "panorama.html?uid="+content.bid,
-				name : content.name,
-				price : content.price,
-				loc : content.metro_distance,
-				time : content.bus_time,
-				thumbnail : "",
-				metro_name:content.metro_name,
-				metro_stop_name:content.metro_stop_name,
-				transfer1:content.transfer1,
-				distance:content.distance,
-				detailLink:"detail.html?uid="+content.bid,
-				x:content.x,
-				y:content.y,
-				hotspot:content.live_num_ratio_normalized
-			};
-		}
+		
 
 
 		this.getDetailList = function() {
@@ -182,7 +187,14 @@ var Utils = (function() {
 		};
 	}
 
+	var contentCache = {};
+
 	return {
+
+		getContent:function(bid){
+			return contentCache[bid];
+		},
+
 		getURLParams : function() {
 
 			var d = /\?(.*)/.exec(location.href);
@@ -214,32 +226,36 @@ var Utils = (function() {
 			});
 		},
 		getGeoLocation:function(callback){
-			var coords = {
+			/*var coords = {
 				longitude:116.322987,
 				"latitude":39.983424
 			};
-			var point = Utils.lnglatToPoint(coords.longitude, coords.latitude);
-			this.getGeoAddress(coords.longitude, coords.latitude,function(res){
-
-				
-				callback&&callback({
-					point:{
-						lng:coords.longitude,
-						lat:coords.latitude,
-					},
-					address:res.result.formatted_address,
-					pixel:{
-						x:point.lng,
-						y:point.lat
-					}
-					
-					
-				});
-			});
+			*/
+			var me = this;
+			
 			if (navigator.geolocation) {
+
 				navigator.geolocation.getCurrentPosition(function(geo){
 					var coords = geo.coords;
-					
+					var point = Utils.lnglatToPoint(coords.longitude, coords.latitude);
+
+					me.getGeoAddress(coords.longitude, coords.latitude,function(res){
+
+						var rs = res.result;
+						callback&&callback({
+							point:{
+								lng:coords.longitude,
+								lat:coords.latitude,
+							},
+							address:res.result.formatted_address,
+							pixel:{
+								x:point.lng,
+								y:point.lat
+							}
+							
+							
+						});
+					});
 					
 				});
 			}else{
@@ -282,12 +298,16 @@ var Utils = (function() {
 			} else {
 				
 
-				$.getJSON("http://db-rdqa-poo199.db01.baidu.com:8969/house/data/index.php?callback=?", {
+				$.getJSON("http://cp01-rdqa-pool388.cp01.baidu.com:8969/house/data/index.php?callback=?", {
 					"crd" : lng + "," + lat,
 					"sort_live_ratio" : 0,
 					"page_num" : page
 				}, function(res) {
 					cacheData = new MapData(res);
+					res.content.forEach(function(obj){
+						contentCache[obj.bid] = toData(obj);
+					});
+					
 					cache[cachekey] = cacheData;
 					fireCallback(cacheData);
 				});

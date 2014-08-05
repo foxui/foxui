@@ -1,0 +1,2220 @@
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-core)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-core/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+a {
+  background: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+h1 {
+  margin: .67em 0;
+  font-size: 2em;
+}
+
+mark {
+  color: #000;
+  background: #ff0;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  height: 0;
+  -moz-box-sizing: content-box;
+       box-sizing: content-box;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  padding: .35em .625em .75em;
+  margin: 0 2px;
+  border: 1px solid #c0c0c0;
+}
+
+legend {
+  padding: 0;
+  border: 0;
+}
+
+textarea {
+  overflow: auto;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 21px;
+  color: #000;
+  background-color: #efeff4;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bar {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-weight: 400;
+  color: #1f1f21;
+  word-spacing: 0;
+  white-space: nowrap;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: #f8f8f8;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  border-bottom: 1px solid #ddd;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.bar.bottom {
+  border-top: 1px solid #ddd;
+  border-bottom: none;
+}
+
+body > .bar {
+  position: absolute;
+}
+
+body > .bar.bottom {
+  top: auto;
+  bottom: 0;
+}
+
+body > .bar:not(.bottom) ~ fox-page {
+  padding-top: 44px;
+}
+
+body > .bar.bottom ~ fox-page {
+  padding-bottom: 44px;
+}
+
+body > fox-tabbar.bar.bottom ~ fox-page {
+  padding-bottom: 49px;
+}
+
+a {
+  color: #007aff;
+  text-decoration: none;
+}
+
+[disabled] {
+  pointer-events: none;
+  cursor: default;
+  opacity: .3;
+}
+
+fox-template {
+  visibility: hidden;
+}
+
+fox-template.fox-template-renderred {
+  visibility: visible;
+}
+
+.content-padded {
+  margin: 10px;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: " ";
+}
+.clearfix:after {
+  clear: both;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+h1, .h1 {
+  font-size: 36px;
+}
+
+h2, .h2 {
+  font-size: 30px;
+}
+
+h3, .h3 {
+  font-size: 24px;
+}
+
+h4, .h4 {
+  font-size: 18px;
+}
+
+h5, .h5 {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+h6, .h6 {
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #777;
+}
+body {
+	line-height: 1.4em;
+}
+.match_parent {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.zoom-btn-container {
+	display: none;
+}
+.main-page lbs-map {
+	-webkit-box-flex: 1;
+}
+.main-page fox-page-content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.main-page .search-box {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	right: 10px;
+	height: 35px;
+	background: rgba(255,255,255,0.9);
+	border-radius: 5px;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+}
+.main-page .icon-search {
+	margin: 0 5px;
+}
+.main-page .text {
+	-webkit-box-flex: 1;
+	display: block;
+	border: none;
+}
+.search-page .search-list {
+	-webkit-box-flex: 1;
+	background: #fff;
+	padding: 0 15px;
+	position: relative;
+	overflow: auto;
+}
+.search-box2 {
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	display: -webkit-box;
+	background: rgba(255,255,255,0.8);
+}
+.search-box2 .icon-left-nav {
+	color: rgb(27,124,250);
+	padding: 5px;
+}
+.search-box2 .main {
+	-webkit-box-flex: 1;
+	display: block;
+	background: rgba(255,255,255,0.8);
+	padding: 5px;
+	display: -webkit-box;
+	margin: 5px 5px 5px 0;
+	position: relative;
+}
+.search-box2 .icon-list {
+	font-size: 25px;
+	color: rgb(27,124,250);
+}
+.search-box2 .text {
+	border: none;
+	-webkit-box-flex: 1;
+	display: block;
+	outline: none;
+}
+.search-list ul {
+	margin: 0;
+	padding: 0;
+}
+.search-list li {
+	list-style: none;
+	color: rgb(58, 58, 58);
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid rgb(247,247,247);
+	overflow: hidden;
+}
+.search-list .clear {
+	color: rgb(27,124,250);
+	text-align: center;
+	padding: 10px;
+	display: block;
+}
+.BMap_cpyCtrl {
+	display: none;
+}
+.map-maker {
+	background: rgba(13,132,255,0.8);
+	width: 20px;
+	height: 30px;
+	border-radius: 15px;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+}
+.map-popup {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255,255,255,0.7);
+	font-size: 12px;
+}
+.map-popup .row1 {
+	color: #333;
+	font-size: 14px;
+}
+.map-popup .row2 {
+	color: #F03F1D;
+}
+.map-popup .icon-bars {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	color: rgb(27,124,250);
+	font-size: 28px;
+}
+
+.map-popup .icon-location {
+	color: rgb(27,124,250);
+	font-size: 20px;
+	padding: 5px 10px;
+	position: relative;
+}
+
+fox-toolbar .right {
+	color: rgb(27,124,250);
+}
+
+.pdetail {
+	padding: 10px;
+}
+.pdetail .main {
+	margin-top: 10px;
+}
+.pdetail p span {
+	display: block;
+	-webkit-box-flex: 1;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	height: 1.4em;
+}
+.pdetail .img {
+	height: 180px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.pdetail .detail p {
+	margin: 0;
+	display: -webkit-box;
+	color: #333;
+}
+.pdetail .detail label {
+	width: 5em;
+	text-align: right;
+	display: inline-block;
+}
+.iw_rt {
+	display: none;
+}
+.map_iframe {
+	-webkit-box-flex: 1;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border: none;
+}
+.iframe_back {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 50px;
+	width: 60px;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	background: rgb(242,242,242);
+}
+.iframe_back fox-icon {
+	color: rgb(27,124,250);
+	font-size: 18px;
+}
+img[src='http://api0.map.bdimg.com/images/copyright_logo.png'] {
+	display: none;
+}
+.list-page {
+	width:80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	background: #F8F8F8;
+	display: inline-block;
+}
+.search-list .sug {
+	background: #fff;
+}
+.sug .icon-search {
+	color: silver;
+	display: block;
+}
+.sug .item {
+	display: -webkit-box;
+	-webkit-box-align: center;
+	overflow: hidden;
+	padding: 10px 5px;
+	margin: 0 10px;
+	border-bottom: 1px solid silver;
+}
+.sug label {
+	font-size: 16px;
+	display: block;
+}
+.sug span {
+	font-size: 12px;
+	color: silver;
+	font-weight: bold;
+	display: block;
+	margin-left: 5px;
+}
+.list-item {
+	font-size: 13px;
+	background: #fff;
+	margin: 10px 0;
+	padding: 10px;
+	position: relative;
+}
+.list-item label {
+	display: inline-block;
+	width: 5em;
+	text-align: right;
+}
+.list-item .row1 {
+	display: -webkit-box;
+	-webkit-box-align: center;
+}
+.list-item .title {
+	color: rgb(0,122,250);
+	font-size: 14px;
+	display: block;
+	-webkit-box-flex: 1;
+	font-weight: bold;
+}
+.list-item .distance {
+	display: block;
+	color: rgb(142,142,147);
+}
+.hot-spot {
+	display: inline-block;
+	position: relative;
+	background: rgb(142,142,147);
+	width: 100px;
+	height: 5px;
+}
+.hot-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 50px;
+	background: rgb(255,52,47);
+}
+.CustomOverlay {
+	width: 30px;
+	height: 30px;
+	background: url("images/bubble.png") no-repeat center center;
+	background-size: contain;
+	text-align: center;
+	color: #fff;
+}
+.page-map.fx-display-hide {
+	display: block;
+}
+.marker_hot {
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	width: 40px;
+	margin-left: -20px;
+	height: 2px;
+	background: rgb(142,142,147);
+}
+.marker_hot .match_parent {
+	background: rgb(255,52,47);
+	right: auto;
+}
+
+.charts_container{
+	height:200px;padding:0 0 20px 0;margin-bottom: 20px;
+}
+.charts{
+	height:200px;
+	margin-top: 10px;
+}
+.my_overlay{
+	width:21px;
+	height:30px;
+	background:#000;
+	background: url("images/bubble_blue.png") no-repeat center center;
+	background-size: contain;
+	position:absolute;
+}
+.main_title{
+	display:block;
+}
+
+.sub_title{
+	font-size:10px;
+	display:block;
+	color: #7B7C7C;
+}
+.icon-street{
+	display: inline-block;
+	width:15px;
+	height:20px;
+	background: url("images/place_streets.png") no-repeat;
+	background-size: cover;
+	vertical-align: middle;
+}
+.icon-time{
+	display: inline-block;
+	width:16px;
+	height:16px;
+	background: url("images/icon_time.png") no-repeat;
+	background-size: cover;
+	vertical-align: middle;
+}
+.list-bottom{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.list-bottom .inner{
+	display: inline-block;
+}
+.icon_line{
+	display: inline-block;
+	width:16px;
+	height:16px;
+	background: url("images/chart_line.png") no-repeat;
+	background-size: cover;
+	vertical-align: middle;
+}
+
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-icon)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-icon/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+@charset "UTF-8";
+@font-face {
+  font-family: 'fox-icon';
+  src: url("../font/fox-icon.eot?96646192");
+  src: url("../font/fox-icon.eot?96646192#iefix") format("embedded-opentype"), url("../font/fox-icon.woff?96646192") format("woff"), url("../font/fox-icon.ttf?96646192") format("truetype"), url("../font/fox-icon.svg?96646192#fox-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fox-icon';
+    src: url('../font/fox-icon.svg?96646192#fox-icon') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fox-icon";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-and-caret:before {
+  content: '\e800';
+}
+
+/* '' */
+.icon-up-nav:before {
+  content: '\e801';
+}
+
+/* '' */
+.icon-back:before {
+  content: '\e802';
+}
+
+/* '' */
+.icon-and-download:before {
+  content: '\e803';
+}
+
+/* '' */
+.icon-and-left:before {
+  content: '\e804';
+}
+
+/* '' */
+.icon-and-more-vertical:before {
+  content: '\e805';
+}
+
+/* '' */
+.icon-and-more:before {
+  content: '\e806';
+}
+
+/* '' */
+.icon-and-right:before {
+  content: '\e807';
+}
+
+/* '' */
+.icon-and-search:before {
+  content: '\e808';
+}
+
+/* '' */
+.icon-and-share:before {
+  content: '\e809';
+}
+
+/* '' */
+.icon-and-up:before {
+  content: '\e80a';
+}
+
+/* '' */
+.icon-gear:before {
+  content: '\e80b';
+}
+
+/* '' */
+.icon-down:before {
+  content: '\e80c';
+}
+
+/* '' */
+.icon-left:before {
+  content: '\e80d';
+}
+
+/* '' */
+.icon-list:before {
+  content: '\e80e';
+}
+
+/* '' */
+.icon-pages:before {
+  content: '\e80f';
+}
+
+/* '' */
+.icon-refresh:before {
+  content: '\e810';
+}
+
+/* '' */
+.icon-right:before {
+  content: '\e811';
+}
+
+/* '' */
+.icon-sound:before {
+  content: '\e812';
+}
+
+/* '' */
+.icon-sound2:before {
+  content: '\e813';
+}
+
+/* '' */
+.icon-sound3:before {
+  content: '\e814';
+}
+
+/* '' */
+.icon-up:before {
+  content: '\e815';
+}
+
+/* '' */
+.icon-sound4:before {
+  content: '\e816';
+}
+
+/* '' */
+.icon-bars:before {
+  content: '\e817';
+}
+
+/* '' */
+.icon-caret:before {
+  content: '\e818';
+}
+
+/* '' */
+.icon-and-down:before {
+  content: '\e819';
+}
+
+/* '' */
+.icon-close:before {
+  content: '\e81a';
+}
+
+/* '' */
+.icon-code:before {
+  content: '\e81b';
+}
+
+/* '' */
+.icon-compose:before {
+  content: '\e81c';
+}
+
+/* '' */
+.icon-down-nav:before {
+  content: '\e81d';
+}
+
+/* '' */
+.icon-download:before {
+  content: '\e81e';
+}
+
+/* '' */
+.icon-edit:before {
+  content: '\e81f';
+}
+
+/* '' */
+.icon-forward:before {
+  content: '\e820';
+}
+
+/* '' */
+.icon-home:before {
+  content: '\e821';
+}
+
+/* '' */
+.icon-info:before {
+  content: '\e822';
+}
+
+/* '' */
+.icon-left-nav:before {
+  content: '\e823';
+}
+
+/* '' */
+.icon-more-vertical:before {
+  content: '\e824';
+}
+
+/* '' */
+.icon-more:before {
+  content: '\e825';
+}
+
+/* '' */
+.icon-pause:before {
+  content: '\e826';
+}
+
+/* '' */
+.icon-person:before {
+  content: '\e827';
+}
+
+/* '' */
+.icon-play:before {
+  content: '\e828';
+}
+
+/* '' */
+.icon-plus:before {
+  content: '\e829';
+}
+
+/* '' */
+.icon-right-nav:before {
+  content: '\e82a';
+}
+
+/* '' */
+.icon-search:before {
+  content: '\e82b';
+}
+
+/* '' */
+.icon-share:before {
+  content: '\e82c';
+}
+
+/* '' */
+.icon-star-filled:before {
+  content: '\e82d';
+}
+
+/* '' */
+.icon-star:before {
+  content: '\e82e';
+}
+
+/* '' */
+.icon-stop:before {
+  content: '\e82f';
+}
+
+/* '' */
+.icon-trash:before {
+  content: '\e830';
+}
+
+/* '' */
+.icon-check:before {
+  content: '\e831';
+}
+
+/* '' */
+.icon-spin5:before {
+  content: '\e832';
+}
+
+/* '' */
+.icon-up-1:before {
+  content: '\e833';
+}
+
+/* '' */
+.icon-location:before {
+  content: '\e834';
+}
+
+/* '' */
+/*
+   Animation example, for spinners
+*/
+.animate-spin {
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  display: inline-block;
+}
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+fox-content {
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	-webkit-transform: translateZ(0px);
+	
+}
+
+fox-content .fox-content-scroller{
+	-webkit-transform: translateZ(0px);
+}
+fox-refresher {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -9999px;
+	display: block;
+	
+}
+
+.fox-refresher-content{
+	display: block;
+	
+	
+}
+
+fox-refresher .fox-refresher-default i:before {
+	font-size: 20px;
+}
+fox-refresher .fox-refresher-icon-loading {
+	display: none;
+}
+fox-refresher.fox-refresher-status-up .fox-refresher-icon-loading {
+	display: none;
+}
+
+fox-refresher .fox-refresher-label:after{
+	content: "下拉刷新...";
+	
+}
+fox-refresher.fox-refresher-status-down .fox-refresher-label:after{
+	content: "放开以刷新...";
+}
+fox-refresher.fox-refresher-status-loading .fox-refresher-label:after{
+	content: "正在载入...";
+}
+fox-refresher .fox-refresher-icon-indicator:before {
+	-webkit-transition: all 0.3s linear;
+	-webkit-transform: rotate(0deg);
+}
+fox-refresher.fox-refresher-status-down .fox-refresher-icon-indicator:before {
+	-webkit-transform: rotate(180deg);
+}
+fox-refresher.fox-refresher-status-loading .fox-refresher-icon-loading {
+	display: inline-block;
+}
+
+fox-refresher.fox-refresher-status-loading .fox-refresher-icon-indicator {
+	display: none;
+}
+.fox-refresher-default{
+	height: 65px;
+	line-height: 65px;
+	text-align: center;
+}
+
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-icon)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-icon/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+@charset "UTF-8";
+@font-face {
+  font-family: 'fox-icon';
+  src: url("../font/fox-icon.eot?96646192");
+  src: url("../font/fox-icon.eot?96646192#iefix") format("embedded-opentype"), url("../font/fox-icon.woff?96646192") format("woff"), url("../font/fox-icon.ttf?96646192") format("truetype"), url("../font/fox-icon.svg?96646192#fox-icon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fox-icon';
+    src: url('../font/fox-icon.svg?96646192#fox-icon') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fox-icon";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-and-caret:before {
+  content: '\e800';
+}
+
+/* '' */
+.icon-up-nav:before {
+  content: '\e801';
+}
+
+/* '' */
+.icon-back:before {
+  content: '\e802';
+}
+
+/* '' */
+.icon-and-download:before {
+  content: '\e803';
+}
+
+/* '' */
+.icon-and-left:before {
+  content: '\e804';
+}
+
+/* '' */
+.icon-and-more-vertical:before {
+  content: '\e805';
+}
+
+/* '' */
+.icon-and-more:before {
+  content: '\e806';
+}
+
+/* '' */
+.icon-and-right:before {
+  content: '\e807';
+}
+
+/* '' */
+.icon-and-search:before {
+  content: '\e808';
+}
+
+/* '' */
+.icon-and-share:before {
+  content: '\e809';
+}
+
+/* '' */
+.icon-and-up:before {
+  content: '\e80a';
+}
+
+/* '' */
+.icon-gear:before {
+  content: '\e80b';
+}
+
+/* '' */
+.icon-down:before {
+  content: '\e80c';
+}
+
+/* '' */
+.icon-left:before {
+  content: '\e80d';
+}
+
+/* '' */
+.icon-list:before {
+  content: '\e80e';
+}
+
+/* '' */
+.icon-pages:before {
+  content: '\e80f';
+}
+
+/* '' */
+.icon-refresh:before {
+  content: '\e810';
+}
+
+/* '' */
+.icon-right:before {
+  content: '\e811';
+}
+
+/* '' */
+.icon-sound:before {
+  content: '\e812';
+}
+
+/* '' */
+.icon-sound2:before {
+  content: '\e813';
+}
+
+/* '' */
+.icon-sound3:before {
+  content: '\e814';
+}
+
+/* '' */
+.icon-up:before {
+  content: '\e815';
+}
+
+/* '' */
+.icon-sound4:before {
+  content: '\e816';
+}
+
+/* '' */
+.icon-bars:before {
+  content: '\e817';
+}
+
+/* '' */
+.icon-caret:before {
+  content: '\e818';
+}
+
+/* '' */
+.icon-and-down:before {
+  content: '\e819';
+}
+
+/* '' */
+.icon-close:before {
+  content: '\e81a';
+}
+
+/* '' */
+.icon-code:before {
+  content: '\e81b';
+}
+
+/* '' */
+.icon-compose:before {
+  content: '\e81c';
+}
+
+/* '' */
+.icon-down-nav:before {
+  content: '\e81d';
+}
+
+/* '' */
+.icon-download:before {
+  content: '\e81e';
+}
+
+/* '' */
+.icon-edit:before {
+  content: '\e81f';
+}
+
+/* '' */
+.icon-forward:before {
+  content: '\e820';
+}
+
+/* '' */
+.icon-home:before {
+  content: '\e821';
+}
+
+/* '' */
+.icon-info:before {
+  content: '\e822';
+}
+
+/* '' */
+.icon-left-nav:before {
+  content: '\e823';
+}
+
+/* '' */
+.icon-more-vertical:before {
+  content: '\e824';
+}
+
+/* '' */
+.icon-more:before {
+  content: '\e825';
+}
+
+/* '' */
+.icon-pause:before {
+  content: '\e826';
+}
+
+/* '' */
+.icon-person:before {
+  content: '\e827';
+}
+
+/* '' */
+.icon-play:before {
+  content: '\e828';
+}
+
+/* '' */
+.icon-plus:before {
+  content: '\e829';
+}
+
+/* '' */
+.icon-right-nav:before {
+  content: '\e82a';
+}
+
+/* '' */
+.icon-search:before {
+  content: '\e82b';
+}
+
+/* '' */
+.icon-share:before {
+  content: '\e82c';
+}
+
+/* '' */
+.icon-star-filled:before {
+  content: '\e82d';
+}
+
+/* '' */
+.icon-star:before {
+  content: '\e82e';
+}
+
+/* '' */
+.icon-stop:before {
+  content: '\e82f';
+}
+
+/* '' */
+.icon-trash:before {
+  content: '\e830';
+}
+
+/* '' */
+.icon-check:before {
+  content: '\e831';
+}
+
+/* '' */
+.icon-spin5:before {
+  content: '\e832';
+}
+
+/* '' */
+.icon-up-1:before {
+  content: '\e833';
+}
+
+/* '' */
+.icon-location:before {
+  content: '\e834';
+}
+
+/* '' */
+/*
+   Animation example, for spinners
+*/
+.animate-spin {
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  display: inline-block;
+}
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-tabbar)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-tabbar/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+fox-tabbar.bar {
+  color: #888;
+  height: 50px;
+  white-space: nowrap;
+  border-bottom: none;
+  border-top: 1px solid #ddd;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  z-index: 8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+}
+fox-tabbar fox-icon.icon {
+  font-size: 26px;
+  height: 32px;
+  line-height: 32px;
+  display: block;
+  vertical-align: top;
+}
+fox-tabbar.no-label fox-icon.icon {
+  height: 50px;
+  line-height: 50px;
+}
+fox-tabbar > * {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  width: auto;
+  text-align: center;
+  color: #888;
+  display: block;
+}
+fox-tabbar > .active {
+  color: #1284ff;
+}
+fox-tabbar label {
+  display: block;
+  height: 17px;
+  line-height: 1;
+  vertical-align: top;
+  font-size: 10px;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-page)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-page/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+fox-page {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  z-index: 2;
+}
+fox-page > .bar {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+fox-page.transition-out {
+  display: none;
+  will-change: transform;
+}
+fox-page.fx-slide-left {
+  -webkit-transform: translate3d(-25%, 0, 0);
+  -ms-transform: translate3d(-25%, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+  opacity: 0.9;
+  /*box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);*/
+}
+fox-page.fx-slide-center {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+fox-page.fx-slide-right {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -ms-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+fox-page.fx-slide-down {
+  -webkit-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  opacity: 0.9;
+  /*box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);*/
+}
+fox-page.fx-slide-middle {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+fox-page.fx-slide-up {
+  -webkit-transform: translate3d(0, -100%, 0);
+  -ms-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  opacity: 0.9;
+}
+fox-page.fx-fade-in {
+  opacity: 1;
+}
+fox-page.fx-fade-out {
+  opacity: 0;
+  z-index: -1;
+}
+fox-page.fx-display-hide {
+  display: none;
+}
+fox-page.transition {
+  -webkit-transition-duration: 400ms;
+  -moz-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -webkit-animation-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  -moz-animation-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+  animation-timing-function: cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+fox-page .page-loading-wrapper {
+  display: none;
+}
+
+fox-page.fox-page-loading .page-loading-wrapper {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+fox-page.fox-page-loading .page-loading-wrapper fox-icon {
+  color: #777;
+  font-size: 32px;
+}
+
+
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-toolbar)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-toolbar/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+fox-toolbar {
+  z-index: 9;
+}
+fox-toolbar fox-icon {
+  color: #007aff;
+}
+fox-toolbar fox-icon.icon {
+  font-size: 1.28em;
+}
+fox-toolbar > * {
+  line-height: 44px;
+  position: absolute;
+  bottom: 1px;
+}
+fox-toolbar .left {
+  left: 0;
+  padding-left: 5px;
+  text-align: left;
+  background: #f8f8f8;
+}
+fox-toolbar .right {
+  right: 0;
+  margin-right: 5px;
+  text-align: right;
+  background: #f8f8f8;
+}
+fox-toolbar > h1 {
+  transition: all 400ms;
+  position: absolute;
+  bottom: 1px;
+  display: block;
+  width: 44%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0;
+  left: 28%;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f1f21;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 1;
+  background: #f8f8f8;
+}
+fox-toolbar > h1.prev {
+  color: #007aff;
+  left: 0;
+  margin-left: 34px;
+  width: 25%;
+  text-align: left !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: 0;
+  z-index: 1;
+}
+
+fox-slider {
+	overflow: hidden;
+	position: relative;
+	display: block;
+}
+
+#fox-slider-inner {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+
+#fox-slider-container {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+
+fox-slider-item {
+	float: left;
+	width: 100%;
+	position: relative;
+	height: 100%;
+}
+
+#fox-slider-indicator {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+#fox-slider-indicator span {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+	background: rgba(255,255,255,0.5);
+	-webkit-border-radius: 5px;
+}
+#fox-slider-indicator span.active {
+	background: rgba(255,255,255,1);
+}
+fox-slider-container {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+	display: block;
+}
+
+
+fox-slider {
+	overflow: hidden;
+	position: relative;
+	display: block;
+}
+
+#fox-slider-inner {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+
+#fox-slider-container {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+
+fox-slider-item {
+	float: left;
+	width: 100%;
+	position: relative;
+	height: 100%;
+}
+
+#fox-slider-indicator {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+#fox-slider-indicator span {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+	background: rgba(255,255,255,0.5);
+	-webkit-border-radius: 5px;
+}
+#fox-slider-indicator span.active {
+	background: rgba(255,255,255,1);
+}
+fox-slider-container {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+	display: block;
+}
+
+
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-page-content)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-page-content/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+fox-page-content {
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  background-color: #fff;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+}
+
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-tabs)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-tabs/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+fox-tabs {
+  position: relative;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 400;
+  border: 1px solid #007aff;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+}
+fox-tabs > * {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  overflow: hidden;
+  color: #007aff;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-left: 1px solid #ccc;
+  border-color: inherit;
+  line-height: 1;
+  padding-top: 6px;
+  padding-bottom: 7px;
+  -webkit-transition: background-color 0.1s linear;
+  -moz-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+}
+fox-tabs > *:first-child {
+  border-left-width: 0;
+}
+fox-tabs > *:active {
+  color: #fff;
+  background-color: #b3d7ff;
+}
+fox-tabs > *.active {
+  color: #fff;
+  background-color: #007aff;
+}
+
+fox-toolbar fox-tabs {
+  margin-top: 9px;
+}
+
+/*!
+ * =====================================================
+ * Foxui v0.1.0 (https://github.com/foxui/fox-tabs-content)
+ * Copyright 2014 fex-team
+ * Licensed under BSD (https://github.com/foxui/fox-tabs-content/blob/master/LICENSE)
+ *
+ * v0.1.0 designed by @fex-team.
+ * =====================================================
+ */
+
+fox-tabs-content {
+  display: none;
+  position: relative;
+  overflow: hidden;
+}
+fox-tabs-content.active {
+  display: block;
+}
+
+
+@-webkit-keyframes scaleIn {
+from {
+	-webkit-transform: scale(1.2);
+	opacity: 0;
+}
+
+to {
+	-webkit-transform: scale(1);
+	opacity: 1;
+} }
+
+@-webkit-keyframes
+scaleOut {from {
+	-webkit-transform: scale(1);
+	opacity: 1;
+}
+
+to {
+	-webkit-transform: scale(0.8);
+	opacity: 0;
+} }
+
+fox-dialog {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 999;
+	visibility: hidden;
+	-webkit-transition: background-color 300ms ease-in-out;
+	-moz-transition: background-color 300ms ease-in-out;
+	transition: background-color 300ms ease-in-out;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+fox-dialog.active {
+	visibility: visible;
+	background-color: rgba(0,0,0,0.5);
+}
+fox-dialog.hide {
+	background-color: rgba(0,0,0,0);
+}
+fox-dialog.effect-scaleIn .dialog-container.active {
+	-webkit-animation-name: scaleIn;
+	-webkit-animation-duration: 0.2s;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-timing-function: ease-in-out;
+}
+fox-dialog.effect-scaleIn.hide .dialog-container {
+	-webkit-animation-name: scaleOut;
+}
+
+fox-dialog .dialog-container {
+	background: rgba(255, 255, 255, 0.9);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+
+fox-popup-dialog .popup-head {
+	padding: 15px 0px;
+	border-bottom: 1px solid #eee;
+	text-align: center;
+}
+
+fox-popup-dialog .popup-title {
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+	
+}
+
+fox-popup-dialog .popup-sub-title {
+	margin: 5px 0 0 0;
+	padding: 0;
+	font-weight: normal;
+	font-size: 11px;
+	
+}
+
+fox-popup-dialog .popup-body {
+	padding: 10px;
+}
+fox-popup-dialog .popup-buttons .button.button-positive {
+	border-color: #145fd7;
+	background-color: #4a87ee;
+	color: #fff;
+}
+fox-popup-dialog .popup-buttons.row {
+	margin: 10px;
+}
+fox-popup-dialog .popup-buttons .button {
+	border: none;
+	margin: 0px 5px;
+	min-height: 40px;
+	border-radius: 2px;
+	line-height: 20px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #b2b2b2;
+	background-color: #f8f8f8;
+	color: #444;
+}
+fox-popup-dialog .popup-buttons .button:first-child {
+	margin-left: 0px;
+}
+fox-popup-dialog .popup-buttons .button:last-child {
+	margin-right: 0px;
+}
+fox-popup-dialog .col {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-moz-box-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	display: block;
+	padding: 5px;
+	width: 100%;
+}
+fox-popup-dialog .row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+fox-popup-dialog .popup-open {
+	pointer-events: none;
+}
+fox-popup-dialog .popup-open.modal-open .modal {
+	pointer-events: none;
+}
+fox-popup-dialog .popup-open .popup-backdrop, .popup-open .popup {
+	pointer-events: auto;
+}
+fox-popup-dialog .fox-popup-container {
+	min-width: 230px;
+	min-height: 100px;
+}
+fox-popup-dialog .fox-popup-text {
+	outline: none;
+	width: 100%;
+	background: #fff;
+	border: none;
+	display: block;
+	padding-top: 2px;
+	height: 34px;
+	color: #111;
+	vertical-align: middle;
+	font-size: 14px;
+	line-height: 16px;
+}
