@@ -1,12 +1,10 @@
-document.addEventListener('touchmove', function (e) {
-    e.preventDefault();
-}, false);/*need to be fixed soon*/
-
 window.addEventListener('HTMLImportsLoaded', function(e) {
-    document.body.removeAttribute('unresolved');
+    document.body.style.display = 'block';
 });
 
+
 $(function() {
+
     var storage = window.localStorage;
     var json_data = {
         star : true,
@@ -19,7 +17,7 @@ $(function() {
     for(var i=0;i<storage.length;i++){
         if(JSON.parse(storage.getItem(storage.key(i))).star == true) {
             list = list + '<li>' +
-                '<a href="" class="swipe-left">' +
+                '<a href="#" class="swipe-left">' +
                 '<div class="item-body">'+ JSON.parse(storage.getItem(storage.key(i))).text +'</div><div class="item-tail">' +
                 '<span class="item-icon icon-star"></span></div>' +
                 '</a>' +
@@ -28,7 +26,7 @@ $(function() {
                 '</div></li>';
         }else{
             list = list + '<li>' +
-                '<a href="" class="swipe-left">' +
+                '<a href="#" class="swipe-left">' +
                 '<div class="item-body">'+ JSON.parse(storage.getItem(storage.key(i))).text +'</div><div class="item-tail hide">' +
                 '<span class="item-icon icon-star"></span></div>' +
                 '</a>' +
@@ -38,16 +36,17 @@ $(function() {
         }
 
     }
-    $("ul.wl-list").html(list).fadeIn();
+    $("ul.wl-list").html(list).fadeIn(function() {
+        setTimeout("$('.welcome').fadeOut(300)", 1000);
+    });
 
     var isWrite = false;
-
+    var stopScroll = function (e) { e.preventDefault(); };
     var down_submit = function() {
-        $('body').swipeDown(function() {
+        $('body').off('swipeDown').swipeDown(function() {
             if(isWrite) {
                 $('.write-box').animate({'top' : '100%'}, 200, 'ease', function() {
                     $(this).css({'top' : '-150px'});
-                    down_writeBox();
                     isWrite = false;
                     /*提交数据*/
                     var text = $('.write-text').val();
@@ -56,7 +55,7 @@ $(function() {
                     json_data.text = text;
                     storage.setItem(wl_id, JSON.stringify(json_data));
                     var temp = '<li>' +
-                        '<a href="" class="swipe-left">' +
+                        '<a href="#" class="swipe-left">' +
                         '<div class="item-body">'+ text +'</div><div class="item-tail hide">' +
                         '<span class="item-icon icon-star"></span></div>' +
                         '</a>' +
@@ -65,7 +64,9 @@ $(function() {
                         '</div></li>';
                     $('ul.wl-list').prepend(temp);
                     $('.write-text').val('');
-
+                    $('.mask').hide();
+                    console.log("1")
+                    document.removeEventListener('touchmove', stopScroll, false);
                 });
             }
 
@@ -76,9 +77,10 @@ $(function() {
         $('body').swipeUp(function() {
             if(isWrite) {
                 $('.write-box').animate({'top':'-150px'}, 200, 'ease', function() {
-                    down_writeBox();
                     isWrite = false;
                 });
+                $('.mask').hide();
+                document.removeEventListener('touchmove', stopScroll, false);
             }
         });
 
@@ -86,7 +88,9 @@ $(function() {
 
     var down_writeBox = function() {
         $('body').off('swipeDown').off('swipeUp');
-        $('body').swipeDown(function(e) {
+        $('#plus-wl').tap(function() {
+            $('.mask').fadeIn();
+            document.addEventListener('touchmove', stopScroll, false);
             if(!isWrite) {
                 $('.write-box').animate({'top':'0px'}, 200, 'ease', function() {
                     $('.write-text').focus();
@@ -95,9 +99,7 @@ $(function() {
                     down_submit();
                 });
             }
-
         });
-
     }
 
     down_writeBox();

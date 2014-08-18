@@ -29,7 +29,20 @@ $main-color: #096;
 .hide {
   display: none;
 }
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ccc;
+  opacity: 0.6;
+  z-index: 11;
+}
 .wl {
+  fox-toolbar {
+    h1{
+      color: #096;
+    }
+  }
   .write-box {
     width: 100%;
     height: 140px;
@@ -37,7 +50,7 @@ $main-color: #096;
     position: absolute;
     text-align: center;
     top: -150px;
-    z-index: 11;
+    z-index: 111;
     border-bottom: 1px solid #ddd;
     .write-text {
       outline: none;
@@ -68,14 +81,45 @@ $main-color: #096;
       font: 20px/30px "Lantinghei SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
     }
   }
-  .wl-list{
+  .welcome {
+    background: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 111;
+    box-sizing: border-box;
+    padding: 40% 20px;
+    p {
+      font: 20px/30px "Lantinghei SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+  }
+  .wl-list {
     margin-top: 10px;
-    li{
+    width: 100%;
+    overflow-x: hidden;
+    li {
+      width: 100%;
+      overflow-x: hidden;
       .item-body {
         overflow:hidden;
         text-overflow: ellipsis;
         white-space:nowrap;
       }
+      .item-tail {
+        .item-icon{
+          position: absolute;
+          color: #096;
+          right: 10px;
+        }
+      }
+
     }
+  }
+
+  .sidemenu-ul{
+    color: #999;
+    margin-top: 60px;
   }
 }
