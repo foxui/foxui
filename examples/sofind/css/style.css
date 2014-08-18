@@ -295,7 +295,7 @@ img[src='http://api0.map.bdimg.com/images/copyright_logo.png'] {
 	left: 50%;
 	width: 40px;
 	margin-left: -20px;
-	height: 2px;
+	height: 3px;
 	background: rgb(142,142,147);
 }
 .marker_hot .match_parent {
@@ -358,3 +358,19 @@ img[src='http://api0.map.bdimg.com/images/copyright_logo.png'] {
 	background-size: cover;
 	vertical-align: middle;
 }
+.loc_map{
+	width:15px;
+	height:22.5px;
+	background: url("images/bubble.png") no-repeat center center;
+	background-size: contain;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 17px;
+}
+
+
+
+
+
+
+

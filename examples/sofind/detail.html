@@ -21,11 +21,11 @@
 			<fox-page-content class="pdetail">
 
 				<fox-template id="pdetail-tmpl" style="visibility: visible">
-					<div class="img" rv-background-image-resize="data.thumbnail"></div>
+					<div class="img" id="top_map"></div>
 					<fox-tabs contentselector=".pp_tab" autoload style="margin-top:10px;">
 						<span>简介</span>
 						<span class="active">参数</span>
-						<span>用时分布</span>
+						<span id="tab3">用时分布</span>
 					</fox-tabs>
 					<div class="main" id="pp_main">
 						<fox-tabs-content  class="pp_tab">
@@ -64,22 +64,6 @@
 						<fox-tabs-content active class="pp_tab">
 							<div id="pp_detail1" class="detail">
 								<p>
-									<label> 平均房价: </label>
-									<span>{item.price}元/平</span>
-								</p>
-								<p>
-									<label>
-										两居均价:
-									</label>
-									<span>{item.rent_price}￥</span>
-								</p>
-								<p>
-									<label>
-										距离地铁:
-									</label>
-									<span>{item.metro_name}{item.metro_stop_name}({item.loc}m)</span>
-								</p>
-								<p>
 									<label>居住热度:</label>
 									<font class="hot-spot">
 										<font class="hot-inner" rv-style-width-percent="item.hotspot"></font>
@@ -87,10 +71,28 @@
 								</p>
 								<p>
 									<label>
+										两居均价:
+									</label>
+									<span>{item.rent_price}元</span>
+								</p>
+								<p>
+									<label> 平均房价: </label>
+									<span>{item.price}元/平</span>
+								</p>
+								<p>
+									<label>
 										通勤时间:
 									</label>
 									<span>{item.time}min({item.transfer1 | transferFormatter})</span>
 								</p>
+								<p>
+									<label>
+										距离地铁:
+									</label>
+									<span>{item.metro_name}{item.metro_stop_name}({item.loc}m)</span>
+								</p>
+								
+								
 								
 							</div>
 							
@@ -109,12 +111,41 @@
 			</fox-page-content>
 		</fox-page>
 		<script>
+			Array.prototype.max = function(comparer) {
+
+			    if (this.length === 0) return null;
+			    if (this.length === 1) return this[0];
+
+			    comparer = (comparer || Math.max);
+
+			    var v = parseInt(this[0]);
+			    for (var i = 1; i < this.length; i++) {
+			        v = comparer(parseInt(this[i]), v);    
+			    }
+
+			    return v;
+			};
 			(function() {
+				var params = Utils.getURLParams();
+				var map1 = new BMap.Map("top_map");
+				// 创建Map实例
+				var point1 = new BMap.Point(params['lng'], params['lat']);
+				// 创建点坐标
+				
+				
+				map1.addOverlay(new MyOverlay(point1));
+				var data = $.extend({},Utils.getContent(params['uid']));
+				var point2 = new BMap.Point(data.x,data.y);
+				var myCompOverlay = new CustomOverlay(point2, "",-1);
+				map1.addOverlay(myCompOverlay);  
+
+				var viewport = map1.getViewport([point1,point2]);
+				map1.centerAndZoom(viewport.center, viewport.zoom);
 				var categories = ['10', '20', '30', '40', '50', '60', '70', '80', '90', '100', '110', '120'];
 				var $goWork = $("#goWork"),
 					$goHome = $("#goHome");
 				function draw(data,dom,str){
-					console.info(data);
+			
 					if(data.length == 0){
 						dom.innerHTML ="无";
 						dom.style.height="auto";
@@ -139,23 +170,31 @@
 									}else{
 										$ss = $goHome;
 									}
-									$ss.html("<b>"+d[0].data+"</b>%的人上班时间是<b>"+x+"</b>min");
+									$ss.html("<b>"+d[0].data+"</b>%的人"+str+"用时约<b>"+x+"</b>分钟");
 								}
 							}
-						});
+						});	
+						c.showIndicator(0,0,data.indexOf(""+data.max()),true);
+						
+
 						isdraw = true;
+
 					}
 				}
 
-				var params = Utils.getURLParams();
+				
 				
 				var tmpl = $("#pdetail-tmpl").get(0);
 
-				var data = Utils.getContent(params['uid']);
+				
+				if(!data.hasChart){
+					$("#tab3").hide();
+				}
 				$("#pdetail-toolbar").text(data.name);
 				Utils.getDetailData(params['uid'], function(detailData) {
+
 					var model = detailData.getDetailModel();
-				
+					
 					model.rent_price = data['price'];
 					var price = data.price;
 					tmpl.data = model;

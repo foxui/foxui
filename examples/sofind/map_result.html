@@ -33,13 +33,14 @@
 
 								</div>
 								<div class="row2">
-									<span>两居租金:{data.price}￥</span>
-									<span>距离地铁:{data.loc}m</span>
+									<span>两居租金:{data.price}元</span>
 									<span>通勤时间:{data.time}min</span>
+									<span>距离地铁:{data.loc}m</span>
+									
 									<span class="icon_line" rv-show="data.hasChart"></span>
 								</div>
 								<fox-icon icon="icon-bars">
-									<a class="match_parent" transition="display" rv-href="data.detailLink"></a>
+									<a class="match_parent" transition="display" rv-href="data.detailLink |detailFormat"></a>
 								</fox-icon>
 							</div>
 
@@ -51,61 +52,12 @@
 		<script>
 			(function() {
 
-				function CustomOverlay(point, text,hot) {
-					this._point = point;
-					this._text = text;
-					this._hot = hot;
-				}
-
-
-				CustomOverlay.prototype = new BMap.Overlay();
-				CustomOverlay.prototype.initialize = function(map) {
-					this._map = map;
-					
-					var div = this._div = $("<div/>").css({
-						"position" : "absolute",
-						"z-index" : BMap.Overlay.getZIndex(this._point.lat)
-					}).addClass("CustomOverlay").text(this._text).append("<div class='marker_hot' ><div class='match_parent' style='width:"+this._hot+"%'></div></div>").get(0);
-					map.getPanes().labelPane.appendChild(div);
-					return div;
-				};
-
-				CustomOverlay.prototype.draw = function() {
-					var map = this._map;
-					var pixel = map.pointToOverlayPixel(this._point);
-					
-					this._div.style.left = pixel.x-10.5+ "px";
-					this._div.style.top = pixel.y-30 + "px";
-				};
 				
-				CustomOverlay.prototype.addEventListener = function(){
-					
-					this._div.addEventListener.apply(this._div,arguments);
-				};
-				
-				function MyOverlay(point) {
-					this._point = point;
-					
-				}
-				MyOverlay.prototype = new BMap.Overlay();
-
-				MyOverlay.prototype.initialize = function(map) {
-					this._map = map;
-					
-					var div = this._div = $("<div class='my_overlay'/>").get(0);
-					map.getPanes().labelPane.appendChild(div);
-					return div;
-				};
-				MyOverlay.prototype.draw = function() {
-					var map = this._map;
-					var pixel = map.pointToOverlayPixel(this._point);
-					
-					this._div.style.left = pixel.x-15+ "px";
-					this._div.style.top = pixel.y-30 + "px";
-				};
 
 				var params = Utils.getURLParams();
-
+				rivets.formatters.detailFormat = function(val) {
+					return val+"&lng="+params['lng']+"&lat="+params['lat'];
+				};
 				$("#ddd_list_title").text(decodeURIComponent(params.title));
 
 				window.mapPage = (function() {
@@ -118,7 +70,9 @@
 					// 创建Map实例
 					var point1 = new BMap.Point(params['lng'], params['lat']);
 					// 创建点坐标
-					map1.centerAndZoom(point1, 13);
+
+					var allpoint = [point1];
+					
 					
 					return {
 						drawPage : function(mapdata, page) {
@@ -129,33 +83,44 @@
 							
 							map1.addOverlay(new MyOverlay(point1));  
 							mapdata.getPointList().forEach(function(obj,index) {
-								if(index == 0){
-									map1.panTo(obj.point);
-								}
-								var myCompOverlay = new CustomOverlay(obj.point, index+1,obj.data.hotspot);
-								
-								
-								map1.addOverlay(myCompOverlay);
-								myCompOverlay.addEventListener("click", function() {
-									$detailTeml.show();
+								if(params['bid']&&params['bid'] != obj['data']['bid']){
+
+								}else{
 									
-									detailTeml.index=index+1;
-									detailTeml.data = obj.data;
-									map1.panTo(obj.point);
-								});
+									var myCompOverlay = new CustomOverlay(obj.point, index+1,obj.data.hotspot);
+									allpoint.push(obj.point);
+									
+									map1.addOverlay(myCompOverlay);
+									myCompOverlay.addEventListener("click", function() {
+										$detailTeml.show();
+										
+										detailTeml.index=index+1;
+										detailTeml.data = obj.data;
+										map1.panTo(obj.point);
+									});
+								}
+								
 							});
 
-							mapdata.getGeoList().forEach(function(arr) {
-								var polygon = new BMap.Polyline(arr, {
-									strokeColor : "blue",
-									strokeWeight : 5,
-									strokeOpacity : 0.2,
-									fill : "red"
-								});
+							mapdata.getGeoList().forEach(function(res) {
 
-								map1.addOverlay(polygon);
+								if(params['bid']&&params['bid'] != res['bid']){
+								}else{
+									var polygon = new BMap.Polyline(res.arr, {
+										strokeColor : "blue",
+										strokeWeight : 5,
+										strokeOpacity : 0.2,
+										fill : "red"
+									});
+
+									map1.addOverlay(polygon);
+								}
+
+								
 							});
 
+							var viewport = map1.getViewport(allpoint);
+							map1.centerAndZoom(viewport.center, viewport.zoom);
 						}
 					};
 				})();

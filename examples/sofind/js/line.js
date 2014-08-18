@@ -140,7 +140,7 @@
             }
             var tmpELement = this.tmpELement;
             tmpELement.className = className;
-            
+            content = content+"%";
             tmpELement.innerHTML = content;
             tmpELement.style.display = 'block';
             // tmpELement.style.lineHeight = '20px';

@@ -52,6 +52,7 @@ var Utils = (function() {
 	function toData(content) {
 		var lnglat = pointTolngLat(content.x, content.y);
 		return {
+			bid:content.bid,
 			panorama : "panorama.html?uid="+content.bid,
 			name : content.name,
 			price : content.price,
@@ -103,7 +104,10 @@ var Utils = (function() {
 				for (var i = 0; i < list.length; i += 2) {
 					arr.push(new BMap.Point(list[i], list[i + 1]));
 				}
-				res.push(arr);
+				res.push({
+					"bid":content.bid,
+					"arr":arr
+				});
 			});
 			console.info(res);
 			return res;
@@ -298,7 +302,7 @@ var Utils = (function() {
 			} else {
 				
 
-				$.getJSON("http://cp01-rdqa-pool388.cp01.baidu.com:8969/house/data/index.php?callback=?", {
+				$.getJSON("http://cp01-rdqa-pool388.cp01.baidu.com:8967/house/data/index.php?callback=?", {
 					"crd" : lng + "," + lat,
 					"sort_live_ratio" : 0,
 					"page_num" : page
@@ -415,3 +419,62 @@ $(function() {
 	FastClick.attach(document.body);
 });
 
+
+function CustomOverlay(point, text,hot) {
+	this._point = point;
+	this._text = text;
+	this._hot = hot;
+}
+
+
+CustomOverlay.prototype = new BMap.Overlay();
+CustomOverlay.prototype.initialize = function(map) {
+	this._map = map;
+	
+	var div  = $("<div/>").css({
+		"position" : "absolute",
+		"z-index" : BMap.Overlay.getZIndex(this._point.lat)
+	}).addClass("CustomOverlay").text(this._text);
+
+	if(this._hot > 0){
+		div.append("<div class='marker_hot' ><div class='match_parent' style='width:"+this._hot+"%'></div></div>");
+	}
+	div = this._div = div.get(0);
+
+	map.getPanes().labelPane.appendChild(div);
+	return div;
+};
+
+CustomOverlay.prototype.draw = function() {
+	var map = this._map;
+	var pixel = map.pointToOverlayPixel(this._point);
+	
+	this._div.style.left = pixel.x-10.5+ "px";
+	this._div.style.top = pixel.y-30 + "px";
+};
+
+CustomOverlay.prototype.addEventListener = function(){
+	
+	this._div.addEventListener.apply(this._div,arguments);
+};
+
+function MyOverlay(point) {
+	this._point = point;
+	
+}
+MyOverlay.prototype = new BMap.Overlay();
+
+MyOverlay.prototype.initialize = function(map) {
+	this._map = map;
+	
+	var div = this._div = $("<div class='my_overlay'/>").get(0);
+	map.getPanes().labelPane.appendChild(div);
+	return div;
+};
+MyOverlay.prototype.draw = function() {
+	var map = this._map;
+	var pixel = map.pointToOverlayPixel(this._point);
+	
+	this._div.style.left = pixel.x-15+ "px";
+	this._div.style.top = pixel.y-30 + "px";
+};
