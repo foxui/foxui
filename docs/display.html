@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	    <title>Foxui 官网</title>
+	    <link href="css/jalon.css" rel="stylesheet" />
+   		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+
+    	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+        
+    	<script src="assets/js/jquery.min.js"></script>
+    	<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+	</head>
+ 
+	<body data-spy="scroll" data-offset="0" data-target="#header-navigation">
+	    <main>
+	    	<nav id="header-navigation" class="navbar navbar-inverse navbar-fixed-top" style="min-width: 1400px">
+            	<a href="index.html"><img src="image/main/header-logo.png" alt="FOXUI LOGO" /></a>
+            	<ul class="menu-navigation-bar">
+                	<li><a href="getstarted.html"><font color="white">开始</font></a></li>
+                	<li><a href="components.html"><font color="white">组件列表</font></a></li>
+                	<li><a href="display.html"><font color="white">案例展示</font></a></li>
+                	<li><a href="theme.html"><font color="white">换肤</font></a></li>
+                	<li>联系我们</li>
+            	</ul>
+        	</nav>
+
+			
+			<div id="display-area">
+				<div class="spacing"></div>
+				<div class="subpage-title">
+					<img src="image/display/fox-logo.png" alt="fox logo" />
+					<span>展示</span>
+					<p>展示页的简单介绍</p>
+				</div>
+				<div class="spacing"></div>
+
+				<div id="display-list">
+				</div>
+			</div>
+
+			<div class="spacing"></div>
+
+			<footer class="footer" role="contentinfo">
+	            <hr width="90%" color="#FF4500">
+	            <nav class="footer-navigation">
+	                <ul class="menu-navigation-bar">
+	                    <img src = "image/main/footerLogo.png" alt="FOXUI LOGO" id="black-white-footer-logo"/>
+	                    <li><a href="getstarted.html"><font color="#8F8F8F">开始</font></a></li>
+                    	<li><a href="components.html"><font color="#8F8F8F">组件列表</font></a></li>
+                    	<li><a href="display.html"><font color="#8F8F8F">案例展示</font></a></li>
+                    	<li>换肤</li>
+                    	<li>联系我们</li>
+	                </ul>
+	            </nav>
+
+	            <div class="footer-area">
+	                <div class="media-link" class="container">
+	                    <img src="image/main/webo.png" alt="webo" />
+	                    <img src="image/main/unknown-logo.png" alt="unknown" />
+	                    <img src="image/main/wechat.png" alt="wechat" />
+	                    <img src="image/main/baidu.png" alt="baidu" />
+	                </div>
+	                <div class="footer-content" class="container">
+	                    <div>© 2014 Heavy Bits, Inc.</div>
+	                    <div>All Guides © 2014 their respective authors</div> 
+	                </div>       
+	            </div>
+	        </footer>
+	    </main>
+	</body>
+
+	<script>
+		var apps = {
+			"icon": "image/display/app-icon.png",
+			"icons": "image/display/app-icon.png",
+			"iconss": "image/display/app-icon.png",
+			"iconsss": "image/display/app-icon.png",
+			"iconssss": "image/display/app-icon.png",
+			"iconsssss": "image/display/app-icon.png",
+			"iconssssss": "image/display/app-icon.png"
+		}
+
+		var container = document.getElementById("display-list");
+		
+		for(var type in apps){
+			var span = document.createElement("span");
+			var img = document.createElement("img");
+			var div = document.createElement("div");
+
+			img.src = apps[type];
+			img.alt = type;
+			div.innerHTML = type;
+			span.className = "app";
+			
+			span.appendChild(img);
+			span.appendChild(div);
+			container.appendChild(span);
+		}
+	</script>
+</html>

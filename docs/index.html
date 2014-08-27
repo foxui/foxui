@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <title>Foxui 官网</title>
+        
+        <link href="css/jalon.css" rel="stylesheet" />
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+    </head>
+
+    <body data-spy="scroll" data-offset="0" data-target="#header-navigation">
+        
+        <header id="welcome" style="display: none">
+            <div id="welcome-content">
+                <img src="image/welcome.png" alt="FoxUI Logo" />
+                <div id="welcome-gif"><img src="image/welcome-logo.gif" alt="gif logo" /></div>
+                <div id="welcome-arrow" onclick="smoothScrollTo(document.getElementById('after-welcome').offsetTop)"><img src="image/welcome-arrow.png" alt="Arrow" /></div>
+            </div>
+        </header>
+         
+        <div id="after-welcome">
+            <nav id="header-navigation" class="navbar navbar-inverse navbar-fixed-top" style="min-width: 1400px">
+                <a href="index.html"><img src="image/main/header-logo.png" alt="FOXUI LOGO" /></a>
+                <ul class="menu-navigation-bar">
+                    <li><a href="getstarted.html"><font color="white">开始</font></a></li>
+                    <li><a href="components.html"><font color="white">组件列表</font></a></li>
+                    <li><a href="display.html"><font color="white">案例展示</font></a></li>
+                    <li><a href="theme.html"><font color="white">换肤</font></a></li>
+                    <li>联系我们</li>
+                </ul>
+            </nav>
+                
+            <div id="cover-page">
+                <div id="cover-page-content">
+                    <h3>Create amazing apps</h3>
+                    <p>The beautiful, open source front-end framework for developing</p>
+                    <p>hybrid mobile apps with HTML5.</p>
+                    <div id="get-started"><a href="getstarted.html"><font color="#F96669">Getting Started</font></a></div>
+                    
+                    <div id="phone-area"> 
+                        <img src="image/main/iphone.png" alt="phone icon" onmouseover = "displayApp()" />
+                        <div>
+                            <object data="../examples/doubanmovie/index.html" width = "43%" height= "595" > 
+                                <embed src="../examples/doubanmovie/index.html" width = "43%" height= "595"> </embed> 
+                                Error: Embedded data could not be displayed. 
+                            </object>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <main>
+                <div id="supported-browsers" class="all-features">
+                    <div class="left-explanation">
+                        <p>Supported Browsers</p>
+                    </div>
+                    <div class="right-explanation">
+                        <img src="image/main/supported-browsers.png" alt="all supported browsers" />
+                    </div>
+                </div>
+                    
+                <div class="spacing"></div>
+                <hr width="90%" color="#FF4500">
+                    
+                <div id="hybrid-app-explanation" class="all-features">
+                    <div class="left-explanation">
+                        <img src="image/main/devices.png" alt="all supported devices" />
+                    </div>
+                        
+                    <div class="right-explanation">
+                        <h4>Made for Mobile Hybrid App</h4>
+                        <p>Onsen UI is a front-end development frame-work for PhoneGap/Cordova hybrid apps. It forcuses on the creation of usable mobile applications. Also, used with Monaca, it is simple to develop backend features and add support</p>
+                    </div>    
+                </div>
+
+                <div class="spacing"></div>
+                <hr width="90%" color="#FF4500">
+                    
+                <div id="custom-element-explanation" class="all-features">
+                    <div class="left-explanation">
+                        <h4>Custom Element-Based</h4>
+                        <p>By simply adding a few lines of code, it becomes possible to create the UI components(navigation bars, tab bars, buttons, etc.) necessary for your application.</p>
+                    </div>
+                    
+                    <div class="right-explanation">
+                        <ul id="custom-element-sameples">
+                            <li>Button</li>
+                            <li><img src="image/main/button-example.png" alt="button example" /></li>
+                            <li>Navigation Bar</li>
+                            <li><img src="image/main/navigation-bar-example.png" alt="navigation bar example" /></li>
+                        </ul> 
+                    </div>
+                </div>
+                    
+                <div class="spacing"></div>
+                <hr width="90%" color="#FF4500">
+                    
+                <div id="other-features" class="all-features">
+                    <h4>Other Features</h4>
+                    <ul class="left-explanation">
+                        <li class="feature">
+                            <div class="left-icon"><img src ="image/main/free-and-open-source.jpg" alt="feature image" /></div>
+                            <h5>Free and Open Source</h5>
+                            <p>Onsen UI is released under the Apache License and development is housed on <a href="https://github.com/fex-team">Github</a>. It is free and open for anyone to use.</p>
+                        </li>
+                        <li class="feature">
+                            <div class="left-icon"><img src ="image/main/selectable-themes.jpg" alt="feature image" /></div>
+                            <h5>Selectable Themes</h5>
+                            <p>Provides many different themes, with native-like designs, and you can always build or customize your very own.</p>
+                        </li>
+                        <li class="feature">
+                            <div class="left-icon"><img src ="image/main/screen-transition.jpg" alt="feature image" /></div>
+                            <h5>Screen Transition</h5>
+                            <p>App operations have a native-like user experience (UX) with smooth animations on cross platform PhoneGap/Cordova apps.</p>
+                        </li>
+                    </ul>
+                
+                    <ul class="right-explanation">
+                        <li class="feature">
+                            <div class="left-icon"><img src ="image/main/bundled-with-font-awesome.jpg" alt="feature image" /></div>
+                            <h5>Bundled with Font Awesome</h5>
+                            <p><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> is bundled with Onsen UI. This makes it easy to develop and display the exact icons you need.</p>
+                        </li>
+                        <li class="feature">
+                            <div class="left-icon"><img src ="image/main/customizable.jpg" alt="feature image" /></div>
+                            <h5>Customizable</h5>
+                            <p>By relying on HTML and CSS, Onsen UI is highly customizable to suit the many needs that come with development and design.</p>
+                        </li>
+                        <li class="feature">
+                            <div class="left-icon"><img src ="image/main/gui-tools-coming-soon.jpg" alt="feature image" /></div>
+                            <h5>GUI Tool Coming Soon</h5>
+                            <p>With drag &amp; drop support, our GUI tool will make all aspects of front-end development much easier. Scheduled for release in early July. </p>
+                        </li>
+                    </ul>
+                </div>
+            </main>
+
+            <div class="spacing"></div>
+            <div id="get-started"><a href="getstarted.html"><font color="#F96669">Getting Started</font></a></div>
+            <div class="spacing"></div>
+
+
+            <footer class="footer" role="contentinfo">
+                <hr width="90%" color="#FF4500">
+                <nav class="footer-navigation">
+                    <ul class="menu-navigation-bar">
+                        <img src = "image/main/footerLogo.png" alt="FOXUI LOGO" id="black-white-footer-logo"/>
+                        <li><a href="getstarted.html"><font color="#8F8F8F">开始</font></a></li>
+                        <li><a href="components.html"><font color="#8F8F8F">组件列表</font></a></li>
+                        <li><a href="display.html"><font color="#8F8F8F">案例展示</font></a></li>
+                        <li>换肤</li>
+                        <li>联系我们</li>
+                    </ul>
+                </nav>
+
+                <div class="footer-area">
+                    <div class="media-link" class="container">
+                        <img src="image/main/webo.png" alt="webo" />
+                        <img src="image/main/unknown-logo.png" alt="unknown" />
+                        <img src="image/main/wechat.png" alt="wechat" />
+                        <img src="image/main/baidu.png" alt="baidu" />
+                    </div>
+                    <div class="footer-content" class="container">
+                        <div>© 2014 Heavy Bits, Inc.</div>
+                        <div>All Guides © 2014 their respective authors</div> 
+                    </div>       
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $('#welcome').height($(window).height());
+            });
+
+            $(function(){
+                var visit = getCookie("visit");
+                if(visit != "true"){
+                    setCookie();
+                    popwelcome();
+                    document.getElementById("header-navigation").style.display = "none";
+                } else {
+                    document.getElementById("cover-page").style.top = "40px";
+                    document.getElementById("header-navigation").style.display="initial";
+                }
+            });
+
+            function popwelcome(){
+                $("#welcome").toggle();
+            }
+
+            function setCookie(){
+                var d = new Date();
+                d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000 );
+                var expires = "expires="+d.toGMTString();
+                document.cookie = "visit = true; " + expires;
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+                }
+                return "";
+            }
+
+            var bool = false;
+            var phoneAnimation = false;
+
+            window.smoothScrollTo = (function () {
+                var timer, start, factor;
+
+                return function (target, duration) {
+                    var offset = window.pageYOffset;
+                    if(!bool){
+                        var delta  = target - window.pageYOffset - 50; // Y-offset difference
+                        duration = 1000;
+                    } else {
+                        var delta  = 550; // Y-offset difference
+                        duration = 800;
+                    }
+                    start = Date.now();
+                    factor = 0;
+                
+                    if(timer) {
+                        clearInterval(timer);
+                    }
+                
+                    function step() {
+                        var y;
+                        factor = (Date.now() - start) / duration; 
+                        if( factor >= 1 ) {
+                            clearInterval(timer); 
+                            factor = 1;
+                        } 
+                        y = factor * delta + offset;
+                        window.scrollBy(0, y - window.pageYOffset);
+                    }
+                    timer = setInterval(step, 10);
+                    document.getElementById("header-navigation").style.display="initial";
+                    welcome = true;
+                    return timer;
+                };
+            }());
+
+            function displayApp(){
+                bool = true;
+                if(!phoneAnimation){
+                    smoothScrollTo(document.querySelector('#phone-area img').offsetTop);
+                }
+                phoneAnimation = true;
+            }
+        </script>
+    </body>
+</html>

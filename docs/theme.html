@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <title>Foxui 官网</title>
+        <link href="css/jalon.css" rel="stylesheet" />
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+        
+        <script src="assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+    </head>
+ 
+    <body data-spy="scroll" data-offset="0" data-target="#header-navigation">
+        <nav id="header-navigation" class="navbar navbar-inverse navbar-fixed-top" style="min-width: 1400px">
+            <a href="index.html"><img src="image/main/header-logo.png" alt="FOXUI LOGO" /></a>
+            <ul class="menu-navigation-bar">
+                <li><a href="getstarted.html"><font color="white">开始</font></a></li>
+                <li><a href="components.html"><font color="white">组件列表</font></a></li>
+                <li><a href="display.html"><font color="white">案例展示</font></a></li>
+                <li><a href="theme.html"><font color="white">换肤</font></a></li>
+                <li>联系我们</li>
+            </ul>
+        </nav>
+
+        <div id="theme">
+            <table>
+                <tr>
+                    <td id="top-left">Customizer</td>
+                    <td id="top-right">
+                        <nav class="nav">
+                            <div class="navSection nav-section"><a id="nav1" >CSS Components</a></div>
+                            <div class="navSection nav-section"><a id="nav2" >Pattern</a></div>
+                        </nav>
+                    </td>        
+                </tr>
+                <tr>
+                    <td id="bottom-left">
+                        <div id="controller">
+                            <div id="button-left-button">下载皮肤</div>
+                            <p>默认颜色</p>
+                            <div id="default-color-container">
+                                <div class = "default-color"></div>
+                                <div class = "default-color"></div>
+                                <div class = "default-color"></div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                hello
+                                <div class="to-right"></div>
+                            </li>
+                            <li>
+                                yo
+                                <div class="to-right"></div>
+                            </li>
+                            <li>
+                                test
+                                <div class="to-right"></div>
+                            </li>
+                        </ul>
+                    </td>
+
+                    <td id="bottom-right">
+                        <article class="content">
+                            <section id="s1" class="section1">
+                                <div style="height: 500px; width: 100%; background-color: red"></div>
+                            </section>
+
+                            <section id="s2" class="section2">
+                                <div style="height: 500px; width: 100%; background-color: blue"></div>
+                            </section>
+                        </article>
+                    </td>  
+                </tr>
+            </table>
+        </div>
+
+        <footer class="footer" role="contentinfo" id="theme-footer">
+                <nav class="footer-navigation">
+                    <ul class="menu-navigation-bar">
+                        <img src = "image/main/footerLogo.png" alt="FOXUI LOGO" id="black-white-footer-logo"/>
+                        <li><a href="getstarted.html"><font color="#8F8F8F">开始</font></a></li>
+                        <li><a href="components.html"><font color="#8F8F8F">组件列表</font></a></li>
+                        <li><a href="display.html"><font color="#8F8F8F">案例展示</font></a></li>
+                        <li>换肤</li>
+                        <li>联系我们</li>
+                    </ul>
+                </nav>
+        </footer>
+    </body>
+
+    <script>
+        $(document).ready(function () {
+            $('.navSection').on('click', function (e) {
+                var elemId = "";
+                console.log(e);
+                switch (e.target.id) {
+                case "nav1":
+                    elemId = "#s1";
+                    break;
+                case "nav2":
+                    elemId = "#s2";
+                    break;
+                }
+                $('.content').animate({
+                    scrollTop: $(elemId).parent().scrollTop() + $(elemId).offset().top - $(elemId).parent().offset().top
+                }, {
+                    duration: 1000,
+                    specialEasing: {
+                        width: 'linear',
+                        height: 'easeOutBounce'
+                    }
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+</html>

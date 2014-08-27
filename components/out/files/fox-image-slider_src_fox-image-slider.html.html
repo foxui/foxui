@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>fox-image-slider/src/fox-image-slider.html</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/buildData.html">buildData</a></li>
+            
+                <li><a href="../classes/fox-actionsheet.html">fox-actionsheet</a></li>
+            
+                <li><a href="../classes/fox-ajax.html">fox-ajax</a></li>
+            
+                <li><a href="../classes/fox-calendar.html">fox-calendar</a></li>
+            
+                <li><a href="../classes/fox-content.html">fox-content</a></li>
+            
+                <li><a href="../classes/fox-css.html">fox-css</a></li>
+            
+                <li><a href="../classes/fox-dialog.html">fox-dialog</a></li>
+            
+                <li><a href="../classes/fox-image-lazyload.html">fox-image-lazyload</a></li>
+            
+                <li><a href="../classes/fox-image-slider.html">fox-image-slider</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/fox-actionsheet.html">fox-actionsheet</a></li>
+            
+                <li><a href="../modules/fox-ajax.html">fox-ajax</a></li>
+            
+                <li><a href="../modules/fox-calendar.html">fox-calendar</a></li>
+            
+                <li><a href="../modules/fox-content.html">fox-content</a></li>
+            
+                <li><a href="../modules/fox-dialog.html">fox-dialog</a></li>
+            
+                <li><a href="../modules/fox-icon.html">fox-icon</a></li>
+            
+                <li><a href="../modules/fox-image-lazyload.html">fox-image-lazyload</a></li>
+            
+                <li><a href="../modules/fox-image-slider.html">fox-image-slider</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: fox-image-slider/src/fox-image-slider.html</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;../../fox-slider/dist/css/fox-slider.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/fox-image-slider.css&quot;&gt;
+&lt;link rel=&quot;import&quot; href=&quot;../../fox-json/dist/fox-json.html&quot;&gt;
+&lt;link rel=&quot;import&quot; href=&quot;../../fox-slider/dist/fox-slider.html&quot;&gt;
+&lt;fox-element name=&quot;fox-image-slider&quot; attributes=&quot;auto loop speed index indicator&quot;&gt;
+	&lt;tpl&gt;
+		&lt;fox-slider id=&quot;fox-slider&quot; auto=&quot;3000&quot; loop=&quot;true&quot; speed=&quot;400&quot;  indicator=&quot;true&quot;  style=&quot;height: 100%;&quot; &gt;
+			&lt;fox-slider-item rv-each-data=&quot;data&quot;&gt;
+				&lt;div class=&quot;img&quot; rv-background-image=&quot;data.img&quot;&gt;&lt;/div&gt;
+				&lt;div class=&quot;title&quot;&gt;
+					{data.title}
+				&lt;/div&gt;
+				&lt;a rv-if=&quot;data.link&quot; rv-href=&quot;data.link&quot;&gt;&lt;/a&gt;
+			&lt;/fox-slider-item&gt;
+		&lt;/fox-slider&gt;
+
+	&lt;/tpl&gt;
+
+	&lt;script&gt;
+		var dataArr;
+
+
+		/**
+			* This is the fox-image-slider&#x27;s helper method in order to build up the data
+			* @class buildData
+			* @module fox-image-slider
+			* @static
+			* @param {Object} json the data in json format 
+		*/
+		function buildData(json) {
+			var self = this;
+			this.data = json;
+			this.$[&#x27;fox-slider&#x27;].indicator = true;
+			&quot;auto loop speed index indicator&quot;.split(&quot; &quot;).forEach(function(attr) {
+				self.$[&#x27;fox-slider&#x27;][attr] = self[attr];
+			});
+		}
+
+		/**
+    		* This is the image slider component that enables users to easily create an 
+    		* image slider with specific tags and syntax
+    		* @class fox-image-slider
+    		* @static
+    	*/
+		fox(&quot;fox-image-slider&quot;, {
+			lifecycle : {
+				created : function() {
+					var self = this;
+
+					buildData.call(this, this.data);
+
+				},
+				attributeChanged : function(attr, oldVal, newVal) {
+					this.$[&#x27;fox-slider&#x27;][attr] = newVal;
+				}
+			},
+			methods : {
+				prev : function() {
+					this.$[&#x27;fox-slider&#x27;].prev();
+				},
+				next : function() {
+					this.$[&#x27;fox-slider&#x27;].next();
+				}
+			}
+		});
+	&lt;/script&gt;
+
+&lt;/fox-element&gt;
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

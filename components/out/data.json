@@ -1,0 +1,1125 @@
+{
+    "project": {},
+    "files": {
+        "fox-actionsheet/src/fox-actionsheet.html": {
+            "name": "fox-actionsheet/src/fox-actionsheet.html",
+            "modules": {
+                "fox-actionsheet": 1
+            },
+            "classes": {
+                "fox-actionsheet": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-ajax/dist/fox-ajax.html": {
+            "name": "fox-ajax/dist/fox-ajax.html",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-ajax/src/fox-ajax.html": {
+            "name": "fox-ajax/src/fox-ajax.html",
+            "modules": {
+                "fox-ajax": 1
+            },
+            "classes": {
+                "fox-ajax": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-calendar/src/fox-calendar.html": {
+            "name": "fox-calendar/src/fox-calendar.html",
+            "modules": {
+                "fox-calendar": 1
+            },
+            "classes": {
+                "fox-calendar": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-content/src/fox-content.html": {
+            "name": "fox-content/src/fox-content.html",
+            "modules": {
+                "fox-content": 1
+            },
+            "classes": {
+                "fox-content": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-css/src/fox-css.html": {
+            "name": "fox-css/src/fox-css.html",
+            "modules": {},
+            "classes": {
+                "fox-css": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-dialog/src/fox-dialog.html": {
+            "name": "fox-dialog/src/fox-dialog.html",
+            "modules": {
+                "fox-dialog": 1
+            },
+            "classes": {
+                "fox-dialog": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-icon/src/fox-icon.html": {
+            "name": "fox-icon/src/fox-icon.html",
+            "modules": {
+                "fox-icon": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-image-lazyload/src/fox-image-lazyload.html": {
+            "name": "fox-image-lazyload/src/fox-image-lazyload.html",
+            "modules": {
+                "fox-image-lazyload": 1
+            },
+            "classes": {
+                "fox-image-lazyload": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-image-slider/src/fox-image-slider.html": {
+            "name": "fox-image-slider/src/fox-image-slider.html",
+            "modules": {
+                "fox-image-slider": 1
+            },
+            "classes": {
+                "buildData": 1,
+                "fox-image-slider": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-tabs/dist/fox-tabs.html": {
+            "name": "fox-tabs/dist/fox-tabs.html",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "fox-tabs/src/fox-tabs.html": {
+            "name": "fox-tabs/src/fox-tabs.html",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "fox-actionsheet": {
+            "name": "fox-actionsheet",
+            "submodules": {},
+            "classes": {
+                "fox-actionsheet": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "fox-actionsheet/src/fox-actionsheet.html",
+            "line": 33,
+            "description": "This is the actionsheet component that the users can input any values to be appearred as \ndifferent types of clickable button on the bottom of the screen."
+        },
+        "fox-ajax": {
+            "name": "fox-ajax",
+            "submodules": {},
+            "classes": {
+                "fox-ajax": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 4,
+            "description": "This is the ajax component that enables the users to easily manage and access\nto different databases through ajax."
+        },
+        "fox-calendar": {
+            "name": "fox-calendar",
+            "submodules": {},
+            "classes": {
+                "fox-calendar": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 373,
+            "description": "This is the fox-calendar constructor function"
+        },
+        "fox-content": {
+            "name": "fox-content",
+            "submodules": {},
+            "classes": {
+                "fox-content": 1,
+                "fox-css": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "fox-css/src/fox-css.html",
+            "line": 3,
+            "description": "This is the fox-content constructor function"
+        },
+        "fox-dialog": {
+            "name": "fox-dialog",
+            "submodules": {},
+            "classes": {
+                "fox-dialog": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "fox-dialog/src/fox-dialog.html",
+            "line": 11,
+            "description": "This is the dialog component that allows users to easily create pop-up dialogs"
+        },
+        "fox-icon": {
+            "name": "fox-icon",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "fox-icon/src/fox-icon.html",
+            "line": 6,
+            "description": "This is the fox-icon constructor function",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "evn",
+                    "description": "the current environment",
+                    "type": "Object"
+                }
+            ]
+        },
+        "fox-image-lazyload": {
+            "name": "fox-image-lazyload",
+            "submodules": {},
+            "classes": {
+                "fox-image-lazyload": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "fox-image-lazyload/src/fox-image-lazyload.html",
+            "line": 58,
+            "description": "This method is called to set up the lazyload",
+            "itemtype": "method",
+            "is_constructor": 1
+        },
+        "fox-image-slider": {
+            "name": "fox-image-slider",
+            "submodules": {},
+            "classes": {
+                "buildData": 1,
+                "fox-image-slider": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "fox-image-slider/src/fox-image-slider.html",
+            "line": 39,
+            "description": "This is the fox-image-slider's helper method in order to build up the data"
+        }
+    },
+    "classes": {
+        "fox-actionsheet": {
+            "name": "fox-actionsheet",
+            "shortname": "fox-actionsheet",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-actionsheet",
+            "file": "fox-actionsheet/src/fox-actionsheet.html",
+            "line": 33,
+            "description": "This is the actionsheet component that the users can input any values to be appearred as \ndifferent types of clickable button on the bottom of the screen.",
+            "static": 1,
+            "example": [
+                "\n\t\t\t\tfox.ui.actionsheet({\n\t\t\t\t\ttitleText : \"title\",\n\t\t\t\t\tbuttons : [{\n\t\t\t\t\t\ttext : \"button1\",\n\t\t\t\t\t\tclick : function() {\n\t\t\t\t\t\t\talert(\"button1 click\");\n\t\t\t\t\t\t}\n\t\t\t\t\t}, {\n\t\t\t\t\t\ttext : \"button2\",\n\t\t\t\t\t\tclick : function() {\n\t\t\t\t\t\t\talert(\"button2 click\");\n\t\t\t\t\t\t}\n\t\t\t\t\t}],\n\t\t\t\t\tdestructive : {\n\t\t\t\t\t\ttext : \"delete\",\n\t\t\t\t\t\tclick : function() {\n\t\t\t\t\t\t\talert(\"delete click\");\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\tcancel : {\n\t\t\t\t\t\ttext : \"cancel\",\n\t\t\t\t\t\tclick : function() {\n\t\t\t\t\t\t\talert(\"cancel click\");\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t});"
+            ]
+        },
+        "fox-ajax": {
+            "name": "fox-ajax",
+            "shortname": "fox-ajax",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-ajax",
+            "namespace": "",
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 4,
+            "description": "This is the ajax component that enables the users to easily manage and access\nto different databases through ajax.",
+            "static": 1,
+            "example": [
+                "\n               <fox-ajax auto url=\"https://api.douban.com/v2/book/search\" \n                           rv-params=\"param | params\"  dataType=\"jsonp\"></fox-ajax>\n"
+            ]
+        },
+        "fox-calendar": {
+            "name": "fox-calendar",
+            "shortname": "fox-calendar",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-calendar",
+            "namespace": "",
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 373,
+            "description": "This is the calendar component that the users are able to select dates on the calendar",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "el",
+                    "description": "the current calendar",
+                    "type": "Object"
+                }
+            ],
+            "static": 1
+        },
+        "fox-content": {
+            "name": "fox-content",
+            "shortname": "fox-content",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-content",
+            "namespace": "",
+            "file": "fox-content/src/fox-content.html",
+            "line": 200,
+            "description": "This is the content component that the users are able to operate some\npage interactions such as pull to refresh and etc.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "el",
+                    "description": "the current content",
+                    "type": "Object"
+                }
+            ],
+            "static": 1
+        },
+        "fox-css": {
+            "name": "fox-css",
+            "shortname": "fox-css",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-content",
+            "namespace": "",
+            "file": "fox-css/src/fox-css.html",
+            "line": 3,
+            "description": "This is the css component that enables users to manage styles through css",
+            "static": 1
+        },
+        "fox-dialog": {
+            "name": "fox-dialog",
+            "shortname": "fox-dialog",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-dialog",
+            "namespace": "",
+            "file": "fox-dialog/src/fox-dialog.html",
+            "line": 11,
+            "description": "This is the dialog component that allows users to easily create pop-up dialogs",
+            "static": 1
+        },
+        "fox-image-lazyload": {
+            "name": "fox-image-lazyload",
+            "shortname": "fox-image-lazyload",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-image-lazyload",
+            "namespace": "",
+            "file": "fox-image-lazyload/src/fox-image-lazyload.html",
+            "line": 58,
+            "description": "This is the image lazyload component that enables the user to load image easily",
+            "static": 1
+        },
+        "buildData": {
+            "name": "buildData",
+            "shortname": "buildData",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-image-slider",
+            "namespace": "",
+            "file": "fox-image-slider/src/fox-image-slider.html",
+            "line": 23,
+            "description": "This is the fox-image-slider's helper method in order to build up the data",
+            "static": 1,
+            "params": [
+                {
+                    "name": "json",
+                    "description": "the data in json format",
+                    "type": "Object"
+                }
+            ]
+        },
+        "fox-image-slider": {
+            "name": "fox-image-slider",
+            "shortname": "fox-image-slider",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "fox-image-slider",
+            "namespace": "",
+            "file": "fox-image-slider/src/fox-image-slider.html",
+            "line": 39,
+            "description": "This is the image slider component that enables users to easily create an \nimage slider with specific tags and syntax",
+            "static": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "fox-actionsheet/src/fox-actionsheet.html",
+            "line": 68,
+            "description": "Defines a lifecycle of the actionsheet",
+            "itemtype": "attribute",
+            "name": "lifecycle",
+            "type": "Object",
+            "class": "fox-actionsheet",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-actionsheet/src/fox-actionsheet.html",
+            "line": 86,
+            "description": "Define all methods of the actionsheet",
+            "itemtype": "attribute",
+            "name": "methods",
+            "type": "Object",
+            "class": "fox-actionsheet",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-actionsheet/src/fox-actionsheet.html",
+            "line": 109,
+            "description": "The method is called to activate the actionsheet",
+            "itemtype": "method",
+            "name": "actionsheet",
+            "chainable": 1,
+            "class": "fox-actionsheet",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 6,
+            "description": "Fired when a response is received.",
+            "itemtype": "event",
+            "name": "success",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 12,
+            "description": "Fired when an error is received.",
+            "itemtype": "event",
+            "name": "error",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 18,
+            "description": "Fired whenever a response or an error is received.",
+            "itemtype": "event",
+            "name": "complete",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 24,
+            "description": "Fired whenever a response is received and diff from old response",
+            "itemtype": "event",
+            "name": "data-change",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 30,
+            "description": "The URL target of the request.",
+            "itemtype": "attribute",
+            "name": "url",
+            "type": "string",
+            "default": "''",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 39,
+            "description": "Specifies what data to store in the `response` property, and\nto deliver as `event.response` in `response` events.\n\nOne of:\n\n   `text`: uses `XHR.responseText`.\n\n   `xml`: uses `XHR.responseXML`.\n\n   `json`: uses `XHR.responseText` parsed as JSON.\n\n   `html`: uses `XHR.responseText`.\n\n   `jsonp`: uses `jsonp callback`.",
+            "itemtype": "attribute",
+            "name": "dataType",
+            "type": "string",
+            "default": "'text'",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 61,
+            "description": "If true, automatically performs an Ajax request when either `url` or `params` changes.",
+            "itemtype": "attribute",
+            "name": "auto",
+            "type": "boolean",
+            "default": "false",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 70,
+            "description": "Parameters to send to the specified URL, as JSON.",
+            "itemtype": "attribute",
+            "name": "params",
+            "type": "string (JSON)",
+            "default": "''",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 79,
+            "description": "Returns the response object.",
+            "itemtype": "attribute",
+            "name": "response",
+            "type": "Object",
+            "default": "null",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 88,
+            "description": "The HTTP method to use such as 'GET', 'POST', 'PUT', or 'DELETE'.\nDefault is 'GET'.",
+            "itemtype": "attribute",
+            "name": "method",
+            "type": "string",
+            "default": "'GET'",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 98,
+            "description": "The name of the JSONP callback query parameter.\nDefault is 'callback'.",
+            "itemtype": "attribute",
+            "name": "jsonp",
+            "type": "string",
+            "default": "'callback'",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 108,
+            "description": "HTTP request headers to send.\n\nExample:\n\n    <w-ajax\n        auto\n        url=\"http://somesite.com\"\n        headers='{\"X-Requested-With\": \"XMLHttpRequest\"}'\n        dataType=\"json\"\n        on-success=\"{{handleResponse}}\"></w-ajax>",
+            "itemtype": "attribute",
+            "name": "headers",
+            "type": "Object",
+            "default": "null",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/dist/fox-ajax.html",
+            "line": 126,
+            "description": "Content type to use when sending data.",
+            "itemtype": "attribute",
+            "name": "contentType",
+            "type": "string",
+            "default": "'application/x-www-form-urlencoded'",
+            "class": "fox-ajax",
+            "module": "fox-actionsheet"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 16,
+            "description": "Fired when a response is received.",
+            "itemtype": "event",
+            "name": "success",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 22,
+            "description": "Fired when an error is received.",
+            "itemtype": "event",
+            "name": "error",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 28,
+            "description": "Fired whenever a response or an error is received.",
+            "itemtype": "event",
+            "name": "complete",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 34,
+            "description": "Fired whenever a response is received and diff from old response",
+            "itemtype": "event",
+            "name": "data-change",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 40,
+            "description": "The URL target of the request.",
+            "itemtype": "attribute",
+            "name": "url",
+            "type": "String",
+            "default": "''",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 49,
+            "description": "Specifies what data to store in the `response` property, and\nto deliver as `event.response` in `response` events.\n\nOne of:\n\n   `text`: uses `XHR.responseText`.\n\n   `xml`: uses `XHR.responseXML`.\n\n   `json`: uses `XHR.responseText` parsed as JSON.\n\n   `html`: uses `XHR.responseText`.\n\n   `jsonp`: uses `jsonp callback`.",
+            "itemtype": "attribute",
+            "name": "dataType",
+            "type": "String",
+            "default": "'text'",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 71,
+            "description": "If true, automatically performs an Ajax request when either `url` or `params` changes.",
+            "itemtype": "attribute",
+            "name": "auto",
+            "type": "Boolean",
+            "default": "false",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 80,
+            "description": "Parameters to send to the specified URL, as JSON.",
+            "itemtype": "attribute",
+            "name": "params",
+            "type": "String (JSON)",
+            "default": "''",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 89,
+            "description": "Returns the response object.",
+            "itemtype": "attribute",
+            "name": "response",
+            "type": "Object",
+            "default": "null",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 98,
+            "description": "The HTTP method to use such as 'GET', 'POST', 'PUT', or 'DELETE'.\nDefault is 'GET'.",
+            "itemtype": "attribute",
+            "name": "method",
+            "type": "string",
+            "default": "'GET'",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 108,
+            "description": "The name of the JSONP callback query parameter.\nDefault is 'callback'.",
+            "itemtype": "attribute",
+            "name": "jsonp",
+            "type": "string",
+            "default": "'callback'",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 118,
+            "description": "HTTP request headers to send.\n\nExample:\n\n    <w-ajax\n        auto\n        url=\"http://somesite.com\"\n        headers='{\"X-Requested-With\": \"XMLHttpRequest\"}'\n        dataType=\"json\"\n        on-success=\"{{handleResponse}}\"></w-ajax>",
+            "itemtype": "attribute",
+            "name": "headers",
+            "type": "Object",
+            "default": "null",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-ajax/src/fox-ajax.html",
+            "line": 136,
+            "description": "Content type to use when sending data.",
+            "itemtype": "attribute",
+            "name": "contentType",
+            "type": "string",
+            "default": "'application/x-www-form-urlencoded'",
+            "class": "fox-ajax",
+            "module": "fox-ajax"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 71,
+            "description": "Assists in getting the number of days in the current month",
+            "itemtype": "method",
+            "name": "daysInMonth",
+            "static": 1,
+            "params": [
+                {
+                    "name": "month",
+                    "description": "the current month",
+                    "type": "Integer"
+                },
+                {
+                    "name": "year",
+                    "description": "the current year",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "the number of days in the month of the year",
+                "type": "Integer"
+            },
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 83,
+            "description": "Assists in getting the number of weeks in the current month",
+            "itemtype": "method",
+            "name": "weekInMonth",
+            "static": 1,
+            "params": [
+                {
+                    "name": "month",
+                    "description": "the current month",
+                    "type": "Integer"
+                },
+                {
+                    "name": "year",
+                    "description": "the current year",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "the number of weeks in the month of the year",
+                "type": "Integer"
+            },
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 99,
+            "description": "Assists in knowing if the given date is within the range of the month",
+            "itemtype": "method",
+            "name": "isInRange",
+            "static": 1,
+            "params": [
+                {
+                    "name": "date",
+                    "description": "the current date",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "returns true if the date is within range, false elsewise",
+                "type": "Boolean"
+            },
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 115,
+            "description": "Assists in enabling/disabling the neighbor months or years",
+            "itemtype": "method",
+            "name": "updateSelect",
+            "static": 1,
+            "params": [
+                {
+                    "name": "month",
+                    "description": "the current month",
+                    "type": "Integer"
+                },
+                {
+                    "name": "year",
+                    "description": "the current year",
+                    "type": "Integer"
+                }
+            ],
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 270,
+            "description": "This method is called to update the calendar",
+            "itemtype": "method",
+            "name": "update",
+            "chainable": 1,
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 279,
+            "description": "This method is called to compare the current date with the date passed\ninto the method and set the minimum as current",
+            "itemtype": "method",
+            "name": "setMinDate",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "the current selected date",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 296,
+            "description": "This method is called to compare the current date with the date passed\ninto the method and set the maximum as current",
+            "itemtype": "method",
+            "name": "setMaxDate",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "the current selected date",
+                    "type": "Integer"
+                }
+            ],
+            "chainable": 1,
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 312,
+            "description": "This method is called to create the next month on the calendar",
+            "itemtype": "method",
+            "name": "createNextMonth",
+            "chainable": 1,
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 326,
+            "description": "This method is called to create the previous month on the calendar",
+            "itemtype": "method",
+            "name": "createPrevMonth",
+            "chainable": 1,
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 340,
+            "description": "This method is called to create the next year on the calendar",
+            "itemtype": "method",
+            "name": "createNextYear",
+            "chainable": 1,
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 350,
+            "description": "This method is called to create the prev year on the calendar",
+            "itemtype": "method",
+            "name": "createPrevYear",
+            "chainable": 1,
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 360,
+            "description": "This method is called to set the current Calendar as active \nif the method has control",
+            "itemtype": "method",
+            "name": "hasControl",
+            "params": [
+                {
+                    "name": "hasControl",
+                    "description": "true if the method has control, false elsewise",
+                    "type": "Boolean"
+                }
+            ],
+            "chainable": 1,
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 379,
+            "description": "Defines a lifecycle of the calendar",
+            "itemtype": "attribute",
+            "name": "lifecycle",
+            "type": "Object",
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-calendar/src/fox-calendar.html",
+            "line": 401,
+            "description": "Define all methods of the calendar",
+            "itemtype": "attribute",
+            "name": "methods",
+            "type": "Object",
+            "class": "fox-calendar",
+            "module": "fox-calendar"
+        },
+        {
+            "file": "fox-content/src/fox-content.html",
+            "line": 93,
+            "description": "This method is called to set up the inifinite scroll on the page",
+            "itemtype": "method",
+            "name": "setupInfiniteScroll",
+            "params": [
+                {
+                    "name": "infiniteScroll",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "chainable": 1,
+            "class": "fox-content",
+            "module": "fox-content"
+        },
+        {
+            "file": "fox-content/src/fox-content.html",
+            "line": 109,
+            "description": "This method is called to set up the pull to refresh function",
+            "itemtype": "method",
+            "name": "setupPulltorefresh",
+            "params": [
+                {
+                    "name": "pulltorefresh",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "chainable": 1,
+            "class": "fox-content",
+            "module": "fox-content"
+        },
+        {
+            "file": "fox-content/src/fox-content.html",
+            "line": 207,
+            "description": "Defines a lifecycle of the content",
+            "itemtype": "attribute",
+            "name": "lifecycle",
+            "type": "Object",
+            "class": "fox-content",
+            "module": "fox-content"
+        },
+        {
+            "file": "fox-content/src/fox-content.html",
+            "line": 230,
+            "description": "Define all methods of the content",
+            "itemtype": "attribute",
+            "name": "methods",
+            "type": "Object",
+            "class": "fox-content",
+            "module": "fox-content"
+        },
+        {
+            "file": "fox-dialog/src/fox-dialog.html",
+            "line": 18,
+            "description": "Defines a lifecycle of the dialog",
+            "itemtype": "attribute",
+            "name": "lifecycle",
+            "type": "Object",
+            "class": "fox-dialog",
+            "module": "fox-dialog"
+        },
+        {
+            "file": "fox-dialog/src/fox-dialog.html",
+            "line": 29,
+            "description": "Define all methods of the methods",
+            "itemtype": "attribute",
+            "name": "methods",
+            "type": "Object",
+            "class": "fox-dialog",
+            "module": "fox-dialog"
+        },
+        {
+            "file": "fox-dialog/src/fox-dialog.html",
+            "line": 110,
+            "description": "Does the alert type of pop-up with alert message",
+            "itemtype": "method",
+            "name": "alert",
+            "params": [
+                {
+                    "name": "title",
+                    "description": "the alert pop-up box's title",
+                    "type": "String"
+                },
+                {
+                    "name": "content",
+                    "description": "the alert box's content",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "the callback function",
+                    "type": "String"
+                }
+            ],
+            "chainable": 1,
+            "class": "fox-dialog",
+            "module": "fox-dialog"
+        },
+        {
+            "file": "fox-dialog/src/fox-dialog.html",
+            "line": 141,
+            "description": "Does the confirm type of pop-up with an OK and cancel button",
+            "itemtype": "method",
+            "name": "confirm",
+            "params": [
+                {
+                    "name": "title",
+                    "description": "the alert pop-up box's title",
+                    "type": "String"
+                },
+                {
+                    "name": "content",
+                    "description": "the alert box's content",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "the callback function",
+                    "type": "String"
+                }
+            ],
+            "chainable": 1,
+            "class": "fox-dialog",
+            "module": "fox-dialog"
+        },
+        {
+            "file": "fox-dialog/src/fox-dialog.html",
+            "line": 173,
+            "description": "Does the prompt type of pop-up with an input field",
+            "itemtype": "method",
+            "name": "prompt",
+            "params": [
+                {
+                    "name": "title",
+                    "description": "the alert pop-up box's title",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "the callback function",
+                    "type": "String"
+                }
+            ],
+            "chainable": 1,
+            "class": "fox-dialog",
+            "module": "fox-dialog"
+        },
+        {
+            "file": "fox-icon/src/fox-icon.html",
+            "line": 15,
+            "description": "Assists in setting the icon",
+            "itemtype": "method",
+            "name": "setIconClass",
+            "static": 1,
+            "class": "fox-image-lazyload",
+            "module": "fox-icon"
+        },
+        {
+            "file": "fox-icon/src/fox-icon.html",
+            "line": 38,
+            "description": "Defines a lifecycle of the icon",
+            "itemtype": "attribute",
+            "name": "lifecycle",
+            "type": "Object",
+            "class": "fox-image-lazyload",
+            "module": "fox-icon"
+        },
+        {
+            "file": "fox-image-lazyload/src/fox-image-lazyload.html",
+            "line": 64,
+            "description": "Defines a lifecycle of the image lazyload",
+            "itemtype": "attribute",
+            "name": "lifecycle",
+            "type": "Object",
+            "class": "fox-image-lazyload",
+            "module": "fox-image-lazyload"
+        },
+        {
+            "file": "fox-tabs/dist/fox-tabs.html",
+            "line": 3,
+            "description": "tabs 和 tabcontent 的映射规则\n1. 如果无 contentselector 则默认从 fox-tabs 的 nextElementSibing 中 query fox-tabs-content\n2. 如果有 contentselector 则将 query 结果作为 tabcontent\n3. tabs 的顺序和 contents 的顺序一一对应",
+            "class": "",
+            "module": "fox-image-slider"
+        },
+        {
+            "file": "fox-tabs/src/fox-tabs.html",
+            "line": 3,
+            "description": "tabs 和 tabcontent 的映射规则\n1. 如果无 contentselector 则默认从 fox-tabs 的 nextElementSibing 中 query fox-tabs-content\n2. 如果有 contentselector 则将 query 结果作为 tabcontent\n3. tabs 的顺序和 contents 的顺序一一对应",
+            "class": "",
+            "module": "fox-image-slider"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\ntabs 和 tabcontent 的映射规则\n1. 如果无 contentselector 则默认从 fox-tabs 的 nextElementSibing 中 query fox-tabs-content\n2. 如果有 contentselector 则将 query 结果作为 tabcontent\n3. tabs 的顺序和 contents 的顺序一一对应",
+            "line": " fox-tabs/dist/fox-tabs.html:3"
+        },
+        {
+            "message": "Missing item type\ntabs 和 tabcontent 的映射规则\n1. 如果无 contentselector 则默认从 fox-tabs 的 nextElementSibing 中 query fox-tabs-content\n2. 如果有 contentselector 则将 query 结果作为 tabcontent\n3. tabs 的顺序和 contents 的顺序一一对应",
+            "line": " fox-tabs/src/fox-tabs.html:3"
+        }
+    ]
+}

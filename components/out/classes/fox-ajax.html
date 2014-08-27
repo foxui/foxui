@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>fox-ajax</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/buildData.html">buildData</a></li>
+            
+                <li><a href="../classes/fox-actionsheet.html">fox-actionsheet</a></li>
+            
+                <li><a href="../classes/fox-ajax.html">fox-ajax</a></li>
+            
+                <li><a href="../classes/fox-calendar.html">fox-calendar</a></li>
+            
+                <li><a href="../classes/fox-content.html">fox-content</a></li>
+            
+                <li><a href="../classes/fox-css.html">fox-css</a></li>
+            
+                <li><a href="../classes/fox-dialog.html">fox-dialog</a></li>
+            
+                <li><a href="../classes/fox-image-lazyload.html">fox-image-lazyload</a></li>
+            
+                <li><a href="../classes/fox-image-slider.html">fox-image-slider</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/fox-actionsheet.html">fox-actionsheet</a></li>
+            
+                <li><a href="../modules/fox-ajax.html">fox-ajax</a></li>
+            
+                <li><a href="../modules/fox-calendar.html">fox-calendar</a></li>
+            
+                <li><a href="../modules/fox-content.html">fox-content</a></li>
+            
+                <li><a href="../modules/fox-dialog.html">fox-dialog</a></li>
+            
+                <li><a href="../modules/fox-icon.html">fox-icon</a></li>
+            
+                <li><a href="../modules/fox-image-lazyload.html">fox-image-lazyload</a></li>
+            
+                <li><a href="../modules/fox-image-slider.html">fox-image-slider</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>fox-ajax Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/fox-ajax_src_fox-ajax.html.html#l4"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:4</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/fox-ajax.html">fox-ajax</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>This is the ajax component that enables the users to easily manage and access
+to different databases through ajax.</p>
+
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+        
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
+        
+        
+            <li class="api-class-tab events"><a href="#events">Events</a></li>
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+
+            
+
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs">
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_auto">auto</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_auto">auto</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_contentType">contentType</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_contentType">contentType</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_dataType">dataType</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_dataType">dataType</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_headers">headers</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_headers">headers</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_jsonp">jsonp</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_jsonp">jsonp</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_method">method</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_method">method</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_params">params</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_params">params</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_response">response</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_response">response</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_url">url</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_url">url</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+                <div class="index-section events">
+                    <h3>Events</h3>
+
+                    <ul class="index-list events">
+                        
+                            <li class="index-item event">
+                                <a href="#event_complete">complete</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_complete">complete</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_data-change">data-change</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_data-change">data-change</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_error">error</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_error">error</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_success">success</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_success">success</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+        </div>
+
+        
+
+        
+
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr_auto" class="attr item">
+    <a name="config_auto"></a> 
+    <h3 class="name"><code>auto</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l71"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:71</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>If true, automatically performs an Ajax request when either <code>url</code> or <code>params</code> changes.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_auto" class="attr item">
+    <a name="config_auto"></a> 
+    <h3 class="name"><code>auto</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l61"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:61</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>If true, automatically performs an Ajax request when either <code>url</code> or <code>params</code> changes.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_contentType" class="attr item">
+    <a name="config_contentType"></a> 
+    <h3 class="name"><code>contentType</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l136"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:136</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Content type to use when sending data.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;application/x-www-form-urlencoded&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_contentType" class="attr item">
+    <a name="config_contentType"></a> 
+    <h3 class="name"><code>contentType</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l126"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:126</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Content type to use when sending data.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;application/x-www-form-urlencoded&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_dataType" class="attr item">
+    <a name="config_dataType"></a> 
+    <h3 class="name"><code>dataType</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l39"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:39</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Specifies what data to store in the <code>response</code> property, and
+to deliver as <code>event.response</code> in <code>response</code> events.</p>
+<p>One of:</p>
+<p>   <code>text</code>: uses <code>XHR.responseText</code>.</p>
+<p>   <code>xml</code>: uses <code>XHR.responseXML</code>.</p>
+<p>   <code>json</code>: uses <code>XHR.responseText</code> parsed as JSON.</p>
+<p>   <code>html</code>: uses <code>XHR.responseText</code>.</p>
+<p>   <code>jsonp</code>: uses <code>jsonp callback</code>.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;text&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_dataType" class="attr item">
+    <a name="config_dataType"></a> 
+    <h3 class="name"><code>dataType</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l49"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:49</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Specifies what data to store in the <code>response</code> property, and
+to deliver as <code>event.response</code> in <code>response</code> events.</p>
+<p>One of:</p>
+<p>   <code>text</code>: uses <code>XHR.responseText</code>.</p>
+<p>   <code>xml</code>: uses <code>XHR.responseXML</code>.</p>
+<p>   <code>json</code>: uses <code>XHR.responseText</code> parsed as JSON.</p>
+<p>   <code>html</code>: uses <code>XHR.responseText</code>.</p>
+<p>   <code>jsonp</code>: uses <code>jsonp callback</code>.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;text&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_headers" class="attr item">
+    <a name="config_headers"></a> 
+    <h3 class="name"><code>headers</code></h3>
+    <span class="type">Object</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l108"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:108</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>HTTP request headers to send.</p>
+<p>Example:</p>
+<pre class="code prettyprint"><code>&lt;w-ajax
+    auto
+    url=&quot;http://somesite.com&quot;
+    headers=&#39;{&quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;}&#39;
+    dataType=&quot;json&quot;
+    on-success=&quot;{{handleResponse}}&quot;&gt;&lt;/w-ajax&gt;</code></pre>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_headers" class="attr item">
+    <a name="config_headers"></a> 
+    <h3 class="name"><code>headers</code></h3>
+    <span class="type">Object</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l118"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:118</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>HTTP request headers to send.</p>
+<p>Example:</p>
+<pre class="code prettyprint"><code>&lt;w-ajax
+    auto
+    url=&quot;http://somesite.com&quot;
+    headers=&#39;{&quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;}&#39;
+    dataType=&quot;json&quot;
+    on-success=&quot;{{handleResponse}}&quot;&gt;&lt;/w-ajax&gt;</code></pre>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_jsonp" class="attr item">
+    <a name="config_jsonp"></a> 
+    <h3 class="name"><code>jsonp</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l98"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:98</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The name of the JSONP callback query parameter.
+Default is &#39;callback&#39;.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;callback&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_jsonp" class="attr item">
+    <a name="config_jsonp"></a> 
+    <h3 class="name"><code>jsonp</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l108"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:108</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The name of the JSONP callback query parameter.
+Default is &#39;callback&#39;.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;callback&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_method" class="attr item">
+    <a name="config_method"></a> 
+    <h3 class="name"><code>method</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l88"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:88</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The HTTP method to use such as &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, or &#39;DELETE&#39;.
+Default is &#39;GET&#39;.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;GET&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_method" class="attr item">
+    <a name="config_method"></a> 
+    <h3 class="name"><code>method</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l98"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:98</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The HTTP method to use such as &#39;GET&#39;, &#39;POST&#39;, &#39;PUT&#39;, or &#39;DELETE&#39;.
+Default is &#39;GET&#39;.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;GET&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_params" class="attr item">
+    <a name="config_params"></a> 
+    <h3 class="name"><code>params</code></h3>
+    <span class="type">String (JSON)</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l70"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:70</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Parameters to send to the specified URL, as JSON.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_params" class="attr item">
+    <a name="config_params"></a> 
+    <h3 class="name"><code>params</code></h3>
+    <span class="type">String (JSON)</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l80"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:80</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Parameters to send to the specified URL, as JSON.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_response" class="attr item">
+    <a name="config_response"></a> 
+    <h3 class="name"><code>response</code></h3>
+    <span class="type">Object</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l79"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:79</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Returns the response object.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_response" class="attr item">
+    <a name="config_response"></a> 
+    <h3 class="name"><code>response</code></h3>
+    <span class="type">Object</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l89"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:89</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Returns the response object.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_url" class="attr item">
+    <a name="config_url"></a> 
+    <h3 class="name"><code>url</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l30"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:30</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The URL target of the request.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_url" class="attr item">
+    <a name="config_url"></a> 
+    <h3 class="name"><code>url</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l40"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:40</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The URL target of the request.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &#x27;&#x27;</p>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="events" class="api-class-tabpanel">
+                <h2 class="off-left">Events</h2>
+
+                
+                    <div id="event_complete" class="events item">
+    <h3 class="name"><code>complete</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l18"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:18</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fired whenever a response or an error is received.</p>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_complete" class="events item">
+    <h3 class="name"><code>complete</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l28"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:28</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fired whenever a response or an error is received.</p>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_data-change" class="events item">
+    <h3 class="name"><code>data-change</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l24"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:24</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fired whenever a response is received and diff from old response</p>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_data-change" class="events item">
+    <h3 class="name"><code>data-change</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l34"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:34</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fired whenever a response is received and diff from old response</p>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_error" class="events item">
+    <h3 class="name"><code>error</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l12"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:12</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fired when an error is received.</p>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_error" class="events item">
+    <h3 class="name"><code>error</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l22"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:22</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fired when an error is received.</p>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_success" class="events item">
+    <h3 class="name"><code>success</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                    <p>Provided by the <a href="../modules/fox-actionsheet.html">fox-actionsheet</a> module.</p>
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_dist_fox-ajax.html.html#l6"><code>fox-ajax&#x2F;dist&#x2F;fox-ajax.html:6</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fired when a response is received.</p>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+                    <div id="event_success" class="events item">
+    <h3 class="name"><code>success</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/fox-ajax_src_fox-ajax.html.html#l16"><code>fox-ajax&#x2F;src&#x2F;fox-ajax.html:16</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fired when a response is received.</p>
+
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+            </div>
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
